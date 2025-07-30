@@ -262,4 +262,13 @@ type Query {
   #找工人数据表 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
   CmsWorker_findAndCountAll(where:WhereCmsWorker,order:[[String]],limit:Int!,offset:Int!):CountCmsWorker
 
+  #系统默认的工人类型数据 findAll 方法. 它生成一个标准的 SELECT 查询,该查询将从表中检索所有条目(除非受到 where 子句的限制).
+  SysWorkerTypes_findAll(where:WhereSysWorkerTypes,order:[[String]],limit:Int,offset:Int):[SysWorkerTypes]
+  #系统默认的工人类型数据 findByPk 方法使用提供的主键从表中仅获得一个条目.
+  SysWorkerTypes_findByPk(id:ID!):SysWorkerTypes
+  #系统默认的工人类型数据 findOne 方法获得它找到的第一个条目(它可以满足提供的可选查询参数).
+  SysWorkerTypes_findOne(where:WhereSysWorkerTypes):SysWorkerTypes
+  #系统默认的工人类型数据 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
+  SysWorkerTypes_findAndCountAll(where:WhereSysWorkerTypes,order:[[String]],limit:Int!,offset:Int!):CountSysWorkerTypes
+
 }

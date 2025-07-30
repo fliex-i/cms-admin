@@ -67,6 +67,4 @@ module.exports = app => {
   router.get('/admin/sys/sysInfo', controller.sys.index.sysInfo);
   router.get('/admin/sys/team', controller.sys.index.team);
   router.get('/cmswingceshi', controller.home.index);
-  // mc_budget RESTful API
-  app.resources('mc_budget', '/api/mc_budget', 'mc.budget');
 };

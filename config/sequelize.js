@@ -1,15 +1,15 @@
-"use strict";
-const { Op } = require("sequelize");
+'use strict';
+const { Op } = require('sequelize');
 module.exports = {
   datasources: [
     {
-      dialect: "mysql",
-      host: "127.0.0.1",
+      dialect: 'mysql',
+      host: '127.0.0.1',
       port: 3306,
-      database: "platform",
-      username: "root",
-      password: "mysql123",
-      timezone: "+08:00",
+      database: 'platform',
+      username: 'root',
+      password: 'mysql123',
+      timezone: '+08:00',
       define: {
         freezeTableName: true, // 强制表名称等于模型名称
         underscored: false,

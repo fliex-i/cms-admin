@@ -204,4 +204,11 @@ type Mutation {
   #找工人数据表 更新
   CmsWorker_update(data:EditCmsWorker!,where:WhereCmsWorker!):ResEditCmsWorker
 
+  #系统默认的工人类型数据 添加
+  SysWorkerTypes_create(data:AddSysWorkerTypes):SysWorkerTypes
+  #系统默认的工人类型数据 删除
+  SysWorkerTypes_destroy(where:WhereSysWorkerTypes!):ResDelSysWorkerTypes
+  #系统默认的工人类型数据 更新
+  SysWorkerTypes_update(data:EditSysWorkerTypes!,where:WhereSysWorkerTypes!):ResEditSysWorkerTypes
+
 }

@@ -30,6 +30,7 @@
     "utility": "^1.17.0"
   },
   "devDependencies": {
+    "@alicloud/pop-core": "^1.8.0",
     "egg-bin": "^5",
     "egg-ci": "^2",
     "egg-mock": "^5",

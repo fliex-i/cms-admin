@@ -116,5 +116,29 @@ module.exports = app => {
   app.router.get('获取模板', '/admin/cms/template/getTemplate', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.template.getTemplate');
   app.router.get('删除文档', '/admin/cms/doc/docDel', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.doc.docDel');
   app.router.get('获取所属分类', '/admin/cms/doc/selectClassify', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.doc.selectClassify');
+  // 获取装修预算
+  app.router.get('获取装修预算', '/api/mc/budget/list', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.list');
+  app.router.post('添加装修预算', '/api/mc/budget/create', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.create');
+  app.router.put('更新装修预算', '/api/mc/budget/update', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.update');
+  app.router.delete('删除装修预算', '/api/mc/budget/destroy', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.destroy');
 
+  // 工程管理
+  app.router.get('/api/mc/construction', app.middleware.mc.authMcToken(), 'mc.construction.list');
+  app.router.post('/api/mc/construction', app.middleware.mc.authMcToken(), 'mc.construction.create');
+  app.router.post('/api/mc/construction/:id', app.middleware.mc.authMcToken(), 'mc.construction.update');
+  app.router.get('/api/mc/construction/:id', app.middleware.mc.authMcToken(), 'mc.construction.destroy');
+
+  // 户型方案
+  app.router.get('/api/mc/house_plan', app.middleware.mc.authMcToken(), 'mc.housePlan.list');
+  app.router.post('/api/mc/housePlan', app.middleware.mc.authMcToken(), 'mc.housePlan.create');
+  app.router.post('/api/mc/house_plan/:id', app.middleware.mc.authMcToken(), 'mc.housePlan.update');
+  app.router.get('/api/mc/house_plan/:id', app.middleware.mc.authMcToken(), 'mc.housePlan.destroy');
+
+  // 工人管理
+  app.router.get('/api/cms/worker', app.middleware.sys.authAdminToken(), 'cms.worker.list');
+  app.router.post('/api/cms/worker', app.middleware.sys.authAdminToken(), 'cms.worker.create');
+  app.router.post('/api/cms/worker/:id', app.middleware.sys.authAdminToken(), 'cms.worker.update');
+  app.router.get('/api/cms/worker/:id', app.middleware.sys.authAdminToken(), 'cms.worker.destroy');
+  // 省市区三级联动
+  app.router.get('/api/sys/region', 'sys.region.list');
 };

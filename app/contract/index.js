@@ -13,4 +13,6 @@ module.exports = {
     data: { type: 'string', required: true, example: '请求成功' },
     msg: { type: 'string', required: true, example: 'ok' },
   },
+  sys_send_sms_request: 'sys_send_sms_request',
+  sys_verify_sms_request: 'sys_verify_sms_request',
 };

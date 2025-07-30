@@ -1,0 +1,127 @@
+
+    
+    type SysWorkerTypes {
+      createdAt:Date
+      id:ID
+      updatedAt:Date
+      name:String
+      
+      
+    }
+    
+    
+    input WhereSysWorkerTypes_createdAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereSysWorkerTypes_id {
+        op_eq: ID
+  op_ne: ID
+  op_or: [ID]
+  op_gt: ID
+  op_gte: ID
+  op_lt: ID
+  op_lte: ID
+  op_between: [ID]
+  op_notBetween: [ID]
+  op_in: [ID]
+  op_notIn: [ID]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereSysWorkerTypes_updatedAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereSysWorkerTypes_name {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      
+    input WhereFieldSysWorkerTypes{
+    createdAt:WhereSysWorkerTypes_createdAt
+      id:WhereSysWorkerTypes_id
+      updatedAt:WhereSysWorkerTypes_updatedAt
+      name:WhereSysWorkerTypes_name
+      
+    }
+
+    input WhereSysWorkerTypes {
+      createdAt:WhereSysWorkerTypes_createdAt
+      id:WhereSysWorkerTypes_id
+      updatedAt:WhereSysWorkerTypes_updatedAt
+      name:WhereSysWorkerTypes_name
+      
+      op_and: [WhereFieldSysWorkerTypes]
+      op_or: [WhereFieldSysWorkerTypes]
+      op_not: [WhereFieldSysWorkerTypes]
+    }
+    
+    
+    input AddSysWorkerTypes {
+    name: String!
+      
+    }
+    
+    
+    input EditSysWorkerTypes {
+    name: String
+      
+    }
+    
+    type CountSysWorkerTypes {
+      count: Int
+      rows: [SysWorkerTypes]
+    }
+    type ResDelSysWorkerTypes {
+      count: Int
+    }
+    type ResEditSysWorkerTypes {
+      ids: [Int]
+    }
+    
