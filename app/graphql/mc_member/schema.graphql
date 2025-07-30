@@ -13,8 +13,12 @@
       third:String
       avatar:String
       
-      cms_comments(order:[[String]],limit:Int,offset:Int): [CmsComments]
+      mc_budget: McBudget
+mc_construction: McConstruction
+mc_house_plan: McHousePlan
+cms_comments(order:[[String]],limit:Int,offset:Int): [CmsComments]
 cms_comments_reply(order:[[String]],limit:Int,offset:Int): [CmsCommentsReply]
+mc_aq(order:[[String]],limit:Int,offset:Int): [McAq]
 
     }
     

@@ -169,4 +169,39 @@ type Mutation {
   #系统配置 更新
   SysConfig_update(data:EditSysConfig!,where:WhereSysConfig!):ResEditSysConfig
 
+  #装修预算表 添加
+  McBudget_create(data:AddMcBudget):McBudget
+  #装修预算表 删除
+  McBudget_destroy(where:WhereMcBudget!):ResDelMcBudget
+  #装修预算表 更新
+  McBudget_update(data:EditMcBudget!,where:WhereMcBudget!):ResEditMcBudget
+
+  #用户施工计划 添加
+  McConstruction_create(data:AddMcConstruction):McConstruction
+  #用户施工计划 删除
+  McConstruction_destroy(where:WhereMcConstruction!):ResDelMcConstruction
+  #用户施工计划 更新
+  McConstruction_update(data:EditMcConstruction!,where:WhereMcConstruction!):ResEditMcConstruction
+
+  #用户房间规划 添加
+  McHousePlan_create(data:AddMcHousePlan):McHousePlan
+  #用户房间规划 删除
+  McHousePlan_destroy(where:WhereMcHousePlan!):ResDelMcHousePlan
+  #用户房间规划 更新
+  McHousePlan_update(data:EditMcHousePlan!,where:WhereMcHousePlan!):ResEditMcHousePlan
+
+  #我的咨询信息记录 添加
+  McAq_create(data:AddMcAq):McAq
+  #我的咨询信息记录 删除
+  McAq_destroy(where:WhereMcAq!):ResDelMcAq
+  #我的咨询信息记录 更新
+  McAq_update(data:EditMcAq!,where:WhereMcAq!):ResEditMcAq
+
+  #找工人数据表 添加
+  CmsWorker_create(data:AddCmsWorker):CmsWorker
+  #找工人数据表 删除
+  CmsWorker_destroy(where:WhereCmsWorker!):ResDelCmsWorker
+  #找工人数据表 更新
+  CmsWorker_update(data:EditCmsWorker!,where:WhereCmsWorker!):ResEditCmsWorker
+
 }

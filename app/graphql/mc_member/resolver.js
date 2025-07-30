@@ -2,6 +2,24 @@
 'use strict';
 module.exports = {
   McMember: {
+  async mc_budget(root, params, ctx) {
+    const map = {};
+    map.where = { uid: root.id };
+    return await ctx.connector.mc_budget.findOne(map);
+  },
+
+  async mc_construction(root, params, ctx) {
+    const map = {};
+    map.where = { uid: root.id };
+    return await ctx.connector.mc_construction.findOne(map);
+  },
+
+  async mc_house_plan(root, params, ctx) {
+    const map = {};
+    map.where = { uid: root.id };
+    return await ctx.connector.mc_house_plan.findOne(map);
+  },
+
   async cms_comments(root, params, ctx) {
     const map = {};
     map.where = { member_uuid: root.uuid };
@@ -30,6 +48,21 @@ module.exports = {
       map.order = params.order;
     }
     return await ctx.connector.cms_comments_reply.findAll(map);
+  },
+
+  async mc_aq(root, params, ctx) {
+    const map = {};
+    map.where = { uid: root.id };
+    if (Object.hasOwnProperty.call(params, 'limit')) {
+      map.limit = params.limit;
+    }
+    if (Object.hasOwnProperty.call(params, 'offset')) {
+      map.offset = params.offset;
+    }
+    if (Object.hasOwnProperty.call(params, 'order')) {
+      map.order = params.order;
+    }
+    return await ctx.connector.mc_aq.findAll(map);
   },
 },
     

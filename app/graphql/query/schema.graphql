@@ -217,4 +217,49 @@ type Query {
   #系统配置 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
   SysConfig_findAndCountAll(where:WhereSysConfig,order:[[String]],limit:Int!,offset:Int!):CountSysConfig
 
+  #装修预算表 findAll 方法. 它生成一个标准的 SELECT 查询,该查询将从表中检索所有条目(除非受到 where 子句的限制).
+  McBudget_findAll(where:WhereMcBudget,order:[[String]],limit:Int,offset:Int):[McBudget]
+  #装修预算表 findByPk 方法使用提供的主键从表中仅获得一个条目.
+  McBudget_findByPk(id:ID!):McBudget
+  #装修预算表 findOne 方法获得它找到的第一个条目(它可以满足提供的可选查询参数).
+  McBudget_findOne(where:WhereMcBudget):McBudget
+  #装修预算表 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
+  McBudget_findAndCountAll(where:WhereMcBudget,order:[[String]],limit:Int!,offset:Int!):CountMcBudget
+
+  #用户施工计划 findAll 方法. 它生成一个标准的 SELECT 查询,该查询将从表中检索所有条目(除非受到 where 子句的限制).
+  McConstruction_findAll(where:WhereMcConstruction,order:[[String]],limit:Int,offset:Int):[McConstruction]
+  #用户施工计划 findByPk 方法使用提供的主键从表中仅获得一个条目.
+  McConstruction_findByPk(id:ID!):McConstruction
+  #用户施工计划 findOne 方法获得它找到的第一个条目(它可以满足提供的可选查询参数).
+  McConstruction_findOne(where:WhereMcConstruction):McConstruction
+  #用户施工计划 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
+  McConstruction_findAndCountAll(where:WhereMcConstruction,order:[[String]],limit:Int!,offset:Int!):CountMcConstruction
+
+  #用户房间规划 findAll 方法. 它生成一个标准的 SELECT 查询,该查询将从表中检索所有条目(除非受到 where 子句的限制).
+  McHousePlan_findAll(where:WhereMcHousePlan,order:[[String]],limit:Int,offset:Int):[McHousePlan]
+  #用户房间规划 findByPk 方法使用提供的主键从表中仅获得一个条目.
+  McHousePlan_findByPk(id:ID!):McHousePlan
+  #用户房间规划 findOne 方法获得它找到的第一个条目(它可以满足提供的可选查询参数).
+  McHousePlan_findOne(where:WhereMcHousePlan):McHousePlan
+  #用户房间规划 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
+  McHousePlan_findAndCountAll(where:WhereMcHousePlan,order:[[String]],limit:Int!,offset:Int!):CountMcHousePlan
+
+  #我的咨询信息记录 findAll 方法. 它生成一个标准的 SELECT 查询,该查询将从表中检索所有条目(除非受到 where 子句的限制).
+  McAq_findAll(where:WhereMcAq,order:[[String]],limit:Int,offset:Int):[McAq]
+  #我的咨询信息记录 findByPk 方法使用提供的主键从表中仅获得一个条目.
+  McAq_findByPk(id:ID!):McAq
+  #我的咨询信息记录 findOne 方法获得它找到的第一个条目(它可以满足提供的可选查询参数).
+  McAq_findOne(where:WhereMcAq):McAq
+  #我的咨询信息记录 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
+  McAq_findAndCountAll(where:WhereMcAq,order:[[String]],limit:Int!,offset:Int!):CountMcAq
+
+  #找工人数据表 findAll 方法. 它生成一个标准的 SELECT 查询,该查询将从表中检索所有条目(除非受到 where 子句的限制).
+  CmsWorker_findAll(where:WhereCmsWorker,order:[[String]],limit:Int,offset:Int):[CmsWorker]
+  #找工人数据表 findByPk 方法使用提供的主键从表中仅获得一个条目.
+  CmsWorker_findByPk(id:ID!):CmsWorker
+  #找工人数据表 findOne 方法获得它找到的第一个条目(它可以满足提供的可选查询参数).
+  CmsWorker_findOne(where:WhereCmsWorker):CmsWorker
+  #找工人数据表 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
+  CmsWorker_findAndCountAll(where:WhereCmsWorker,order:[[String]],limit:Int!,offset:Int!):CountCmsWorker
+
 }

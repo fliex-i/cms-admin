@@ -1,0 +1,149 @@
+
+    
+    type McConstruction {
+      createdAt:Date
+      id:ID
+      updatedAt:Date
+      uid:Int
+      items:String
+      
+      
+    }
+    
+    
+    input WhereMcConstruction_createdAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcConstruction_id {
+        op_eq: ID
+  op_ne: ID
+  op_or: [ID]
+  op_gt: ID
+  op_gte: ID
+  op_lt: ID
+  op_lte: ID
+  op_between: [ID]
+  op_notBetween: [ID]
+  op_in: [ID]
+  op_notIn: [ID]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcConstruction_updatedAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcConstruction_uid {
+        op_eq: Int
+  op_ne: Int
+  op_or: [Int]
+  op_gt: Int
+  op_gte: Int
+  op_lt: Int
+  op_lte: Int
+  op_between: [Int]
+  op_notBetween: [Int]
+  op_in: [Int]
+  op_notIn: [Int]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcConstruction_items {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      
+    input WhereFieldMcConstruction{
+    createdAt:WhereMcConstruction_createdAt
+      id:WhereMcConstruction_id
+      updatedAt:WhereMcConstruction_updatedAt
+      uid:WhereMcConstruction_uid
+      items:WhereMcConstruction_items
+      
+    }
+
+    input WhereMcConstruction {
+      createdAt:WhereMcConstruction_createdAt
+      id:WhereMcConstruction_id
+      updatedAt:WhereMcConstruction_updatedAt
+      uid:WhereMcConstruction_uid
+      items:WhereMcConstruction_items
+      
+      op_and: [WhereFieldMcConstruction]
+      op_or: [WhereFieldMcConstruction]
+      op_not: [WhereFieldMcConstruction]
+    }
+    
+    
+    input AddMcConstruction {
+    items: String
+      
+    }
+    
+    
+    input EditMcConstruction {
+    uid: Int
+      items: String
+      
+    }
+    
+    type CountMcConstruction {
+      count: Int
+      rows: [McConstruction]
+    }
+    type ResDelMcConstruction {
+      count: Int
+    }
+    type ResEditMcConstruction {
+      ids: [Int]
+    }
+    

@@ -866,4 +866,125 @@ module.exports = {
     
   },
 
+  // 装修预算表
+  mc_budget_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    items: { type: 'string', description: '用户装修预算数据json' },
+    uid: { type: 'string', description: '用户id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  mc_budget_add: {
+    items: { type: 'string', description: '用户装修预算数据json', required: false },
+    uid: { type: 'string', description: '用户id', required: true },
+    
+  },
+  mc_budget_edit: {
+    items: { type: 'string', description: '用户装修预算数据json' },
+    uid: { type: 'string', description: '用户id' },
+    
+  },
+
+  // 用户施工计划
+  mc_construction_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    items: { type: 'string', description: '用户施工计划json数据' },
+    uid: { type: 'string', description: '用户id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  mc_construction_add: {
+    items: { type: 'string', description: '用户施工计划json数据', required: false },
+    
+  },
+  mc_construction_edit: {
+    items: { type: 'string', description: '用户施工计划json数据' },
+    uid: { type: 'string', description: '用户id' },
+    
+  },
+
+  // 用户房间规划
+  mc_house_plan_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    layout_pictures: { type: 'string', description: '布局图集:图片地址,分割' },
+    layouts: { type: 'string', description: '房间空间布局子项,分割' },
+    space: { type: 'string', description: '房间空间' },
+    uid: { type: 'string', description: '用户id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  mc_house_plan_add: {
+    layout_pictures: { type: 'string', description: '布局图集:图片地址,分割', required: false },
+    layouts: { type: 'string', description: '房间空间布局子项,分割', required: false },
+    space: { type: 'string', description: '房间空间', required: true },
+    
+  },
+  mc_house_plan_edit: {
+    layout_pictures: { type: 'string', description: '布局图集:图片地址,分割' },
+    layouts: { type: 'string', description: '房间空间布局子项,分割' },
+    space: { type: 'string', description: '房间空间' },
+    uid: { type: 'string', description: '用户id' },
+    
+  },
+
+  // 我的咨询信息记录
+  mc_aq_item: {
+    answer: { type: 'string', description: '管理员回复内容' },
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    question: { type: 'string', description: '咨询内容' },
+    response_time: { type: 'string', description: '管理员回复时间' },
+    uid: { type: 'string', description: '关联用户id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  mc_aq_add: {
+    answer: { type: 'string', description: '管理员回复内容', required: false },
+    question: { type: 'string', description: '咨询内容', required: true },
+    response_time: { type: 'string', description: '管理员回复时间', required: false },
+    
+  },
+  mc_aq_edit: {
+    answer: { type: 'string', description: '管理员回复内容' },
+    question: { type: 'string', description: '咨询内容' },
+    response_time: { type: 'string', description: '管理员回复时间' },
+    uid: { type: 'string', description: '关联用户id' },
+    
+  },
+
+  // 找工人数据表
+  cms_worker_item: {
+    avatar: { type: 'string', description: '工人照片' },
+    case: { type: 'string', description: '施工案例图片' },
+    createdAt: { type: 'string', description: '创建时间' },
+    desc: { type: 'string', description: '工人介绍' },
+    id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '姓名' },
+    phone: { type: 'string', description: '联系电话' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    workType: { type: 'string', description: '工种' },
+    
+  },
+  cms_worker_add: {
+    avatar: { type: 'string', description: '工人照片', required: false },
+    case: { type: 'string', description: '施工案例图片', required: false },
+    desc: { type: 'string', description: '工人介绍', required: true },
+    name: { type: 'string', description: '姓名', required: true },
+    phone: { type: 'string', description: '联系电话', required: true },
+    workType: { type: 'string', description: '工种', required: true },
+    
+  },
+  cms_worker_edit: {
+    avatar: { type: 'string', description: '工人照片' },
+    case: { type: 'string', description: '施工案例图片' },
+    desc: { type: 'string', description: '工人介绍' },
+    name: { type: 'string', description: '姓名' },
+    phone: { type: 'string', description: '联系电话' },
+    workType: { type: 'string', description: '工种' },
+    
+  },
+
 };

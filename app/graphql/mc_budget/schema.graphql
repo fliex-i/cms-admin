@@ -1,0 +1,150 @@
+
+    
+    type McBudget {
+      createdAt:Date
+      id:ID
+      updatedAt:Date
+      uid:Int
+      items:String
+      
+      
+    }
+    
+    
+    input WhereMcBudget_createdAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcBudget_id {
+        op_eq: ID
+  op_ne: ID
+  op_or: [ID]
+  op_gt: ID
+  op_gte: ID
+  op_lt: ID
+  op_lte: ID
+  op_between: [ID]
+  op_notBetween: [ID]
+  op_in: [ID]
+  op_notIn: [ID]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcBudget_updatedAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcBudget_uid {
+        op_eq: Int
+  op_ne: Int
+  op_or: [Int]
+  op_gt: Int
+  op_gte: Int
+  op_lt: Int
+  op_lte: Int
+  op_between: [Int]
+  op_notBetween: [Int]
+  op_in: [Int]
+  op_notIn: [Int]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcBudget_items {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      
+    input WhereFieldMcBudget{
+    createdAt:WhereMcBudget_createdAt
+      id:WhereMcBudget_id
+      updatedAt:WhereMcBudget_updatedAt
+      uid:WhereMcBudget_uid
+      items:WhereMcBudget_items
+      
+    }
+
+    input WhereMcBudget {
+      createdAt:WhereMcBudget_createdAt
+      id:WhereMcBudget_id
+      updatedAt:WhereMcBudget_updatedAt
+      uid:WhereMcBudget_uid
+      items:WhereMcBudget_items
+      
+      op_and: [WhereFieldMcBudget]
+      op_or: [WhereFieldMcBudget]
+      op_not: [WhereFieldMcBudget]
+    }
+    
+    
+    input AddMcBudget {
+    uid: Int!
+      items: String
+      
+    }
+    
+    
+    input EditMcBudget {
+    uid: Int
+      items: String
+      
+    }
+    
+    type CountMcBudget {
+      count: Int
+      rows: [McBudget]
+    }
+    type ResDelMcBudget {
+      count: Int
+    }
+    type ResEditMcBudget {
+      ids: [Int]
+    }
+    

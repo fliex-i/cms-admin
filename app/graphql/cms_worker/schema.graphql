@@ -1,0 +1,242 @@
+
+    
+    type CmsWorker {
+      createdAt:Date
+      id:ID
+      updatedAt:Date
+      workType:String
+      avatar:String
+      desc:String
+      phone:String
+      case:String
+      name:String
+      
+      
+    }
+    
+    
+    input WhereCmsWorker_createdAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsWorker_id {
+        op_eq: ID
+  op_ne: ID
+  op_or: [ID]
+  op_gt: ID
+  op_gte: ID
+  op_lt: ID
+  op_lte: ID
+  op_between: [ID]
+  op_notBetween: [ID]
+  op_in: [ID]
+  op_notIn: [ID]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsWorker_updatedAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsWorker_workType {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsWorker_avatar {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsWorker_desc {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsWorker_phone {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsWorker_case {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsWorker_name {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      
+    input WhereFieldCmsWorker{
+    createdAt:WhereCmsWorker_createdAt
+      id:WhereCmsWorker_id
+      updatedAt:WhereCmsWorker_updatedAt
+      workType:WhereCmsWorker_workType
+      avatar:WhereCmsWorker_avatar
+      desc:WhereCmsWorker_desc
+      phone:WhereCmsWorker_phone
+      case:WhereCmsWorker_case
+      name:WhereCmsWorker_name
+      
+    }
+
+    input WhereCmsWorker {
+      createdAt:WhereCmsWorker_createdAt
+      id:WhereCmsWorker_id
+      updatedAt:WhereCmsWorker_updatedAt
+      workType:WhereCmsWorker_workType
+      avatar:WhereCmsWorker_avatar
+      desc:WhereCmsWorker_desc
+      phone:WhereCmsWorker_phone
+      case:WhereCmsWorker_case
+      name:WhereCmsWorker_name
+      
+      op_and: [WhereFieldCmsWorker]
+      op_or: [WhereFieldCmsWorker]
+      op_not: [WhereFieldCmsWorker]
+    }
+    
+    
+    input AddCmsWorker {
+    workType: String!
+      avatar: String
+      desc: String!
+      phone: String!
+      case: String
+      name: String!
+      
+    }
+    
+    
+    input EditCmsWorker {
+    workType: String
+      avatar: String
+      desc: String
+      phone: String
+      case: String
+      name: String
+      
+    }
+    
+    type CountCmsWorker {
+      count: Int
+      rows: [CmsWorker]
+    }
+    type ResDelCmsWorker {
+      count: Int
+    }
+    type ResEditCmsWorker {
+      ids: [Int]
+    }
+    
