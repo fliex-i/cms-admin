@@ -7,7 +7,7 @@
     "declarations": true
   },
   "dependencies": {
-    "@alicloud/openapi-client": "^0.4.5",
+    "@alicloud/credentials": "^2.4.4",
     "ali-oss": "^6.17.1",
     "compressing": "^1.7.0",
     "cos-nodejs-sdk-v5": "^2.11.19",
@@ -30,7 +30,11 @@
     "utility": "^1.17.0"
   },
   "devDependencies": {
+    "@alicloud/dysmsapi20170525": "^4.1.2",
+    "@alicloud/openapi-client": "^0.4.15",
+    "@alicloud/openapi-util": "^0.3.2",
     "@alicloud/pop-core": "^1.8.0",
+    "@alicloud/tea-util": "^1.4.10",
     "egg-bin": "^5",
     "egg-ci": "^2",
     "egg-mock": "^5",

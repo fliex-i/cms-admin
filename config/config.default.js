@@ -100,9 +100,14 @@ module.exports = appInfo => {
   };
   config.swaggerdoc = require('./swagger');
   config.sequelize = require('./sequelize');
+  config.logger = {
+    level: 'INFO',
+    consoleLevel: 'INFO',
+    dir: '../logs',
+  };
   // add your user config here
   const userConfig = {
-    // myAppName: 'egg',
+    myAppName: 'App',
   };
 
   return {

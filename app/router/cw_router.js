@@ -141,4 +141,8 @@ module.exports = app => {
   app.router.get('/api/cms/worker/:id', app.middleware.sys.authAdminToken(), 'cms.worker.destroy');
   // 省市区三级联动
   app.router.get('/api/sys/region', 'sys.region.list');
+  // 获取短信验证码
+  app.router.post('/mc/sendSms', 'mc.index.sendSms');
+  // 验证短信验证码
+  app.router.post('/mc/verifySms', 'mc.index.verifySms');
 };

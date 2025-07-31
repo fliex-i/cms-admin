@@ -1,10 +1,12 @@
 /* eslint-disable jsdoc/check-tag-names */
 'use strict';
 const Controller = require('../../core/base_controller');
-const path = require('path');
-const { Op } = require('sequelize');
-const Core = require('@alicloud/pop-core');
-
+// 新版阿里云短信SDK
+const Dysmsapi20170525 = require('@alicloud/dysmsapi20170525');
+const OpenApi = require('@alicloud/openapi-client');
+const Util = require('@alicloud/tea-util');
+const Credential = require('@alicloud/credentials');
+const OpenApiUtil = require('@alicloud/openapi-util');
 /**
 * @controller MC会员中心入口
 */
@@ -85,7 +87,7 @@ class IndexController extends Controller {
   }
   /**
   * @summary 验证用户手机短信
-  * @description 验证用户手机短信验证码
+  * @description 验证用户手机短信验证码（阿里云新版SDK callApi 方式）
   * @router post /mc/verifySms
   * @request body sys_verify_sms_request *body desc
   * @response 200 baseRes desc
@@ -93,60 +95,94 @@ class IndexController extends Controller {
   async verifySms() {
     const { ctx } = this;
     const { mobile, code } = ctx.request.body;
-    // 这里假设验证码存储在 redis 或 session，实际可根据业务调整
-    // const cacheCode = await ctx.app.redis.get(`sms:code:${mobile}`);
-    const cacheCode = ctx.session[`sms_code_${mobile}`];
-    if (!cacheCode) {
-      return this.fail('验证码已过期或未发送');
-    }
-    if (String(code) === String(cacheCode)) {
-      this.success(null, '验证通过');
-    } else {
-      this.fail('验证码错误');
+    ctx.logger.info('[verifySms] params:', { mobile, code });
+
+    // 无AK免密方式，使用默认凭据
+    const credential = new Credential();
+    const config = new OpenApi.Config({
+      credential,
+      endpoint: 'dysmsapi.aliyuncs.com',
+    });
+    const client = new OpenApi(config);
+
+    const params = new OpenApi.Params({
+      action: 'ValidPhoneCode',
+      version: '2017-05-25',
+      protocol: 'HTTPS',
+      method: 'POST',
+      authType: 'AK',
+      style: 'RPC',
+      pathname: '/',
+      reqBodyType: 'json',
+      bodyType: 'json',
+    });
+    const queries = {
+      PhoneNo: mobile,
+      CertifyCode: code,
+    };
+    const runtime = new Util.RuntimeOptions({});
+    const request = new OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(queries),
+    });
+    try {
+      const result = await client.callApi(params, request, runtime);
+      ctx.logger.info('[verifySms] result:', result.body);
+      if (result.body && result.body.Code === 'OK') {
+        this.success(null, '验证通过');
+      } else {
+        this.fail(result.body && result.body.Message ? result.body.Message : '验证码错误');
+      }
+    } catch (e) {
+      ctx.logger.error(e);
+      this.fail(e.message || '验证码校验失败');
     }
   }
   /**
   * @summary 发送短信验证码
-  * @description 发送短信验证码到用户手机，接入阿里云短信服务
+  * @description 发送短信验证码到用户手机，接入阿里云短信服务（callApi方式）
   * @router post /mc/sendSms
   * @request body sys_send_sms_request *body desc
   * @response 200 baseRes desc
   */
   async sendSms() {
-    const { ctx, app } = this;
+    const { ctx } = this;
     const { mobile } = ctx.request.body;
+    ctx.logger.info('[sendSms] params:', ctx.request);
     if (!mobile) return this.fail('手机号不能为空');
-    // 生成6位验证码
-    const code = Math.floor(100000 + Math.random() * 900000).toString();
-    // 阿里云短信配置
-    const accessKeyId = app.config.aliyunSms.accessKeyId;
-    const accessKeySecret = app.config.aliyunSms.accessKeySecret;
-    const signName = app.config.aliyunSms.signName;
-    const templateCode = app.config.aliyunSms.templateCode;
 
-    const client = new Core({
-      accessKeyId,
-      accessKeySecret,
-      endpoint: 'https://dysmsapi.aliyuncs.com',
-      apiVersion: '2017-05-25',
+    // 无AK免密方式，使用默认凭据
+    const credential = new Credential();
+    const config = new OpenApi.Config({
+      credential,
+      endpoint: 'dysmsapi.aliyuncs.com',
     });
-    const params = {
-      PhoneNumbers: mobile,
-      SignName: signName,
-      TemplateCode: templateCode,
-      TemplateParam: JSON.stringify({ code }),
+    const client = new OpenApi(config);
+
+    const params = new OpenApi.Params({
+      action: 'RequiredPhoneCode',
+      version: '2017-05-25',
+      protocol: 'HTTPS',
+      method: 'POST',
+      authType: 'AK',
+      style: 'RPC',
+      pathname: '/',
+      reqBodyType: 'json',
+      bodyType: 'json',
+    });
+    const queries = {
+      PhoneNo: mobile,
     };
-    const requestOption = { method: 'POST' };
+    const runtime = new Util.RuntimeOptions({});
+    const request = new OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(queries),
+    });
     try {
-      const result = await client.request('SendSms', params, requestOption);
-      if (result.Code === 'OK') {
-        // 存储验证码到 session（可换成 redis）
-        ctx.session[`sms_code_${mobile}`] = code;
-        // 设置有效期5分钟
-        setTimeout(() => { ctx.session[`sms_code_${mobile}`] = null; }, 5 * 60 * 1000);
+      const result = await client.callApi(params, request, runtime);
+      ctx.logger.info('[sendSms] result:', result.body);
+      if (result.body && result.body.Code === 'OK') {
         this.success(null, '验证码发送成功');
       } else {
-        this.fail(result.Message || '短信发送失败');
+        this.fail(result.body && result.body.Message ? result.body.Message : '短信发送失败');
       }
     } catch (e) {
       ctx.logger.error(e);
