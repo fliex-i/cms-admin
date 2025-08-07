@@ -12,6 +12,7 @@
     "compressing": "^1.7.0",
     "cos-nodejs-sdk-v5": "^2.11.19",
     "dataloader": "^2.2.1",
+    "dotenv-cli": "^10.0.0",
     "egg": "^3",
     "egg-cors": "^2.2.3",
     "egg-downloader": "^1.0.5",
@@ -45,9 +46,9 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=zizhuangbao",
+    "start": "dotenv -e .env  egg-scripts start --daemon --title=zizhuangbao",
     "stop": "egg-scripts stop --title=zizhuangbao",
-    "dev": "egg-bin dev",
+    "dev": "dotenv -e .env  egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",

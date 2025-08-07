@@ -1,5 +1,6 @@
 'use strict';
 const { Op } = require('sequelize');
+console.log(process.env.MYSQL_HOST, '/check config');
 module.exports = {
   datasources: [
     {
