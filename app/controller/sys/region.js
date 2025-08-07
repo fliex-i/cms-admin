@@ -23,27 +23,32 @@ class RegionController extends Controller {
       // 组装市下区县，county: {id, name, county_id, city_id}
       const cityIdToCounties = {};
       for (const county of counties) {
-
-        if (!cityIdToCounties[county.city_id]) cityIdToCounties[county.city_id] = [];
-        cityIdToCounties[county.city_id].push(county);
+        // 确保 county.city_id 存在且正确
+        const cityId = county.city_id;
+        if (!cityIdToCounties[cityId]) cityIdToCounties[cityId] = [];
+        cityIdToCounties[cityId].push(county);
       }
       // 组装省下市，city: {id, name, city_id, province_id, children: [county]}
       const provinceIdToCities = {};
       for (const city of cities) {
-
-        if (!provinceIdToCities[city.province_id]) provinceIdToCities[city.province_id] = [];
-        provinceIdToCities[city.province_id].push(city);
+        // 确保 city.province_id 存在且正确
+        const provinceId = city.province_id;
+        if (!provinceIdToCities[provinceId]) provinceIdToCities[provinceId] = [];
+        provinceIdToCities[provinceId].push({
+          ...city,
+          children: cityIdToCounties[city.city_id] || [], // 添加市下的区县
+        });
       }
       // 组装最终结构，province: {id, name, province_id, children: [city]}
       const result = provinces.map(province => {
+        const provinceId = province.province_id;
         return {
           id: province.id,
           name: province.name,
-          province_id: province.province_id,
-          children: provinceIdToCities[province.province_id] || [],
+          province_id: provinceId,
+          children: provinceIdToCities[provinceId] || [],
         };
       });
-      console.log('组装后的省市区数据:', JSON.stringify(result, null, 2));
       this.success(result);
     } catch (e) {
       ctx.logger.error(e);

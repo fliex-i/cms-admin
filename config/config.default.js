@@ -103,7 +103,7 @@ module.exports = appInfo => {
   config.logger = {
     level: 'INFO',
     consoleLevel: 'INFO',
-    dir: '../logs',
+    dir: 'logs',
   };
   // add your user config here
   const userConfig = {

@@ -1,3 +1,4 @@
+
 'use strict';
 // 本文件由Cmswing系统生成，请勿修改！
 module.exports = {
@@ -540,7 +541,7 @@ module.exports = {
     allow_publish: { type: 'boolean', description: '是否允许发布内容' },
     check: { type: 'boolean', description: '发布的文章是否需要审核' },
     description: { type: 'string', description: '描述' },
-    display: { type: 'boolean', description: '可见性' },
+    display: { type: 'string', description: '可见性' },
     icon: { type: 'string', description: '分类图片' },
     keywords: { type: 'string', description: '关键字' },
     list_row: { type: 'string', description: '列表每页行数' },
@@ -1003,14 +1004,85 @@ module.exports = {
 
   },
 
-  // 发送短信验证码请求
-  sys_send_sms_request: {
-    mobile: { type: 'string', required: true, description: '手机号' },
+  // 施工项目
+  sys_projects_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    key: { type: 'string', description: '项目key-关联工艺流程标准，施工准备信息唯一key' },
+    name: { type: 'string', description: '项目名称' },
+    updatedAt: { type: 'string', description: '更新时间' },
+
   },
-  // 验证短信验证码请求
-  sys_verify_sms_request: {
-    mobile: { type: 'string', required: true, description: '手机号' },
-    code: { type: 'string', required: true, description: '短信验证码' },
+  sys_projects_add: {
+    key: { type: 'string', description: '项目key-关联工艺流程标准，施工准备信息唯一key', required: true },
+    name: { type: 'string', description: '项目名称', required: true },
+
+  },
+  sys_projects_edit: {
+    key: { type: 'string', description: '项目key-关联工艺流程标准，施工准备信息唯一key' },
+    name: { type: 'string', description: '项目名称' },
+
+  },
+
+  // 工艺流程标准介绍
+  sys_process_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    key: { type: 'string', description: '关联项目key' },
+    notes: { type: 'string', description: '注意事项' },
+    process: { type: 'string', description: '流程介绍' },
+    standard: { type: 'string', description: '工艺标准介绍' },
+    type: { type: 'string', description: '施工类型' },
+    updatedAt: { type: 'string', description: '更新时间' },
+
+  },
+  sys_process_add: {
+    key: { type: 'string', description: '关联项目key', required: false },
+    notes: { type: 'string', description: '注意事项', required: false },
+    process: { type: 'string', description: '流程介绍', required: false },
+    standard: { type: 'string', description: '工艺标准介绍', required: false },
+    type: { type: 'string', description: '施工类型', required: false },
+
+  },
+  sys_process_edit: {
+    key: { type: 'string', description: '关联项目key' },
+    notes: { type: 'string', description: '注意事项' },
+    process: { type: 'string', description: '流程介绍' },
+    standard: { type: 'string', description: '工艺标准介绍' },
+    type: { type: 'string', description: '施工类型' },
+
+  },
+
+  // 施工前期准备
+  sys_project_ready_item: {
+    auxiliaryMaterial: { type: 'string', description: '辅材' },
+    createdAt: { type: 'string', description: '创建时间' },
+    deliveryCycle: { type: 'string', description: '到货周期' },
+    id: { type: 'string', description: '主键' },
+    key: { type: 'string', description: '关联项目key' },
+    mainMaterial: { type: 'string', description: '主材' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    workerContact: { type: 'string', description: '工人联系' },
+    其他: { type: 'string', description: 'others' },
+
+  },
+  sys_project_ready_add: {
+    auxiliaryMaterial: { type: 'string', description: '辅材', required: false },
+    deliveryCycle: { type: 'string', description: '到货周期', required: false },
+    key: { type: 'string', description: '关联项目key', required: false },
+    mainMaterial: { type: 'string', description: '主材', required: false },
+    workerContact: { type: 'string', description: '工人联系', required: false },
+    其他: { type: 'string', description: 'others', required: false },
+
+  },
+  sys_project_ready_edit: {
+    auxiliaryMaterial: { type: 'string', description: '辅材' },
+    deliveryCycle: { type: 'string', description: '到货周期' },
+    key: { type: 'string', description: '关联项目key' },
+    mainMaterial: { type: 'string', description: '主材' },
+    workerContact: { type: 'string', description: '工人联系' },
+    其他: { type: 'string', description: 'others' },
+
   },
 
 };

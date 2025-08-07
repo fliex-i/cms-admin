@@ -211,4 +211,25 @@ type Mutation {
   #系统默认的工人类型数据 更新
   SysWorkerTypes_update(data:EditSysWorkerTypes!,where:WhereSysWorkerTypes!):ResEditSysWorkerTypes
 
+  #施工项目 添加
+  SysProjects_create(data:AddSysProjects):SysProjects
+  #施工项目 删除
+  SysProjects_destroy(where:WhereSysProjects!):ResDelSysProjects
+  #施工项目 更新
+  SysProjects_update(data:EditSysProjects!,where:WhereSysProjects!):ResEditSysProjects
+
+  #工艺流程标准介绍 添加
+  SysProcess_create(data:AddSysProcess):SysProcess
+  #工艺流程标准介绍 删除
+  SysProcess_destroy(where:WhereSysProcess!):ResDelSysProcess
+  #工艺流程标准介绍 更新
+  SysProcess_update(data:EditSysProcess!,where:WhereSysProcess!):ResEditSysProcess
+
+  #施工前期准备 添加
+  SysProjectReady_create(data:AddSysProjectReady):SysProjectReady
+  #施工前期准备 删除
+  SysProjectReady_destroy(where:WhereSysProjectReady!):ResDelSysProjectReady
+  #施工前期准备 更新
+  SysProjectReady_update(data:EditSysProjectReady!,where:WhereSysProjectReady!):ResEditSysProjectReady
+
 }

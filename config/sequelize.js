@@ -4,14 +4,14 @@ module.exports = {
   datasources: [
     {
       dialect: 'mysql',
-      host: '127.0.0.1',
-      port: 3306,
-      database: 'platform',
-      username: 'root',
-      password: 'mysql123',
+      host: process.env.MYSQL_HOST || 'mysql',
+      port: process.env.MYSQL_PORT || 3306,
+      database: process.env.MYSQL_DATABASE || 'cmswing',
+      username: process.env.MYSQL_USER || 'cmsuser',
+      password: process.env.MYSQL_PASSWORD || 'cms123456',
       timezone: '+08:00',
       define: {
-        freezeTableName: true, // 强制表名称等于模型名称
+        freezeTableName: true,
         underscored: false,
       },
       operatorsAliases: {

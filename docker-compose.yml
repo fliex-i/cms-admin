@@ -1,0 +1,80 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql8
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      MYSQL_DATABASE: cmswing
+      MYSQL_USER: cmsuser
+      MYSQL_PASSWORD: cms123456
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-u",
+          "cmsuser",
+          "-pcms123456",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+    networks:
+      - cms-network
+
+  node:
+    build: .
+    container_name: cms-admin
+    restart: on-failure
+    environment:
+      NODE_ENV: production
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: cmswing
+      MYSQL_USER: cmsuser
+      MYSQL_PASSWORD: cms123456
+      PORT: 7001
+      EGG_LOG_DIR: /app/logs
+      EGG_LOG_LEVEL: DEBUG
+    ports:
+      - "7001:7001"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ./:/app
+      - ./logs:/app/logs
+    working_dir: /app
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+    networks:
+      - cms-network
+
+networks:
+  cms-network:
+    driver: bridge
