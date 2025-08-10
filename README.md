@@ -13,9 +13,11 @@
 
 </div>
 
-<div align="center">
-  QQ 群: 49757468
-</div>
+
+> 导出数据库
+mysqldump -u root -p --databases platform > mysql/init.sql
+> 编译 启动docker
+docker-compose down && docker-compose build &&docker-compose up -d
 
 # CmsWing 是什么？
 
