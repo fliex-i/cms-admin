@@ -1,7 +1,23 @@
 
 'use strict';
 module.exports = {
-  
+  McHousePlan: {
+  async mc_house_paln_pics(root, params, ctx) {
+    const map = {};
+    map.where = { spaceId: root.id };
+    if (Object.hasOwnProperty.call(params, 'limit')) {
+      map.limit = params.limit;
+    }
+    if (Object.hasOwnProperty.call(params, 'offset')) {
+      map.offset = params.offset;
+    }
+    if (Object.hasOwnProperty.call(params, 'order')) {
+      map.order = params.order;
+    }
+    return await ctx.connector.mc_house_paln_pics.findAll(map);
+  },
+},
+    
   Query: {
     async McHousePlan_findAll(_root, params, ctx) {
       return await ctx.connector.mc_house_plan.findAll(params);

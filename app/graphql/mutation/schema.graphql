@@ -211,4 +211,53 @@ type Mutation {
   #系统默认的工人类型数据 更新
   SysWorkerTypes_update(data:EditSysWorkerTypes!,where:WhereSysWorkerTypes!):ResEditSysWorkerTypes
 
+  #施工项目 添加
+  SysProjects_create(data:AddSysProjects):SysProjects
+  #施工项目 删除
+  SysProjects_destroy(where:WhereSysProjects!):ResDelSysProjects
+  #施工项目 更新
+  SysProjects_update(data:EditSysProjects!,where:WhereSysProjects!):ResEditSysProjects
+
+  #工艺流程标准介绍 添加
+  SysProcess_create(data:AddSysProcess):SysProcess
+  #工艺流程标准介绍 删除
+  SysProcess_destroy(where:WhereSysProcess!):ResDelSysProcess
+  #工艺流程标准介绍 更新
+  SysProcess_update(data:EditSysProcess!,where:WhereSysProcess!):ResEditSysProcess
+
+  #施工前期准备 添加
+  SysProjectReady_create(data:AddSysProjectReady):SysProjectReady
+  #施工前期准备 删除
+  SysProjectReady_destroy(where:WhereSysProjectReady!):ResDelSysProjectReady
+  #施工前期准备 更新
+  SysProjectReady_update(data:EditSysProjectReady!,where:WhereSysProjectReady!):ResEditSysProjectReady
+
+  #省份 添加
+  SysProvince_create(data:AddSysProvince):SysProvince
+  #省份 删除
+  SysProvince_destroy(where:WhereSysProvince!):ResDelSysProvince
+  #省份 更新
+  SysProvince_update(data:EditSysProvince!,where:WhereSysProvince!):ResEditSysProvince
+
+  #城市 添加
+  SysCity_create(data:AddSysCity):SysCity
+  #城市 删除
+  SysCity_destroy(where:WhereSysCity!):ResDelSysCity
+  #城市 更新
+  SysCity_update(data:EditSysCity!,where:WhereSysCity!):ResEditSysCity
+
+  #区县 添加
+  SysCounty_create(data:AddSysCounty):SysCounty
+  #区县 删除
+  SysCounty_destroy(where:WhereSysCounty!):ResDelSysCounty
+  #区县 更新
+  SysCounty_update(data:EditSysCounty!,where:WhereSysCounty!):ResEditSysCounty
+
+  #会员房间规划图集 添加
+  McHousePalnPics_create(data:AddMcHousePalnPics):McHousePalnPics
+  #会员房间规划图集 删除
+  McHousePalnPics_destroy(where:WhereMcHousePalnPics!):ResDelMcHousePalnPics
+  #会员房间规划图集 更新
+  McHousePalnPics_update(data:EditMcHousePalnPics!,where:WhereMcHousePalnPics!):ResEditMcHousePalnPics
+
 }

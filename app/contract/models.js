@@ -1,7 +1,8 @@
+
 'use strict';
 // 本文件由Cmswing系统生成，请勿修改！
 module.exports = {
-
+  
   // 模型管理
   sys_models_item: {
     app: { type: 'string', description: '所属应用' },
@@ -13,7 +14,7 @@ module.exports = {
     paranoid: { type: 'boolean', description: '偏执表' },
     updatedAt: { type: 'string', description: '更新时间' },
     uuid: { type: 'string', description: 'uuid' },
-
+    
   },
   sys_models_add: {
     app: { type: 'string', description: '所属应用', required: false },
@@ -21,7 +22,7 @@ module.exports = {
     name: { type: 'string', description: '模型名称', required: true },
     oldName: { type: 'string', description: '改变后的模型名称', required: false },
     paranoid: { type: 'boolean', description: '偏执表', required: false },
-
+    
   },
   sys_models_edit: {
     app: { type: 'string', description: '所属应用' },
@@ -29,7 +30,7 @@ module.exports = {
     name: { type: 'string', description: '模型名称' },
     oldName: { type: 'string', description: '改变后的模型名称' },
     paranoid: { type: 'boolean', description: '偏执表' },
-
+    
   },
 
   // 系统用户
@@ -45,7 +46,7 @@ module.exports = {
     updatedAt: { type: 'string', description: '更新时间' },
     username: { type: 'string', description: '用户名' },
     uuid: { type: 'string', description: 'uuid' },
-
+    
   },
   sys_user_add: {
     admin: { type: 'boolean', description: '系统管理员', required: false },
@@ -56,7 +57,7 @@ module.exports = {
     state: { type: 'boolean', description: '状态false禁用true正常', required: false },
     username: { type: 'string', description: '用户名', required: true },
     uuid: { type: 'string', description: 'uuid', required: true },
-
+    
   },
   sys_user_edit: {
     admin: { type: 'boolean', description: '系统管理员' },
@@ -66,7 +67,7 @@ module.exports = {
     password: { type: 'string', description: '密码' },
     state: { type: 'boolean', description: '状态false禁用true正常' },
     username: { type: 'string', description: '用户名' },
-
+    
   },
 
   // 模型字段表
@@ -95,7 +96,7 @@ module.exports = {
     uuidtype: { type: 'string', description: 'uuid类型' },
     where: { type: 'boolean', description: '查询' },
     zerofill: { type: 'boolean', description: '零填充' },
-
+    
   },
   sys_models_fields_add: {
     add: { type: 'boolean', description: '添加', required: false },
@@ -118,7 +119,7 @@ module.exports = {
     uuidtype: { type: 'string', description: 'uuid类型', required: false },
     where: { type: 'boolean', description: '查询', required: false },
     zerofill: { type: 'boolean', description: '零填充', required: false },
-
+    
   },
   sys_models_fields_edit: {
     add: { type: 'boolean', description: '添加' },
@@ -141,7 +142,7 @@ module.exports = {
     uuidtype: { type: 'string', description: 'uuid类型' },
     where: { type: 'boolean', description: '查询' },
     zerofill: { type: 'boolean', description: '零填充' },
-
+    
   },
 
   // 模型索引
@@ -154,21 +155,21 @@ module.exports = {
     unique: { type: 'boolean', description: '唯一' },
     updatedAt: { type: 'string', description: '更新时间' },
     uuid: { type: 'string', description: 'uuid' },
-
+    
   },
   sys_models_indexes_add: {
     fields: { type: 'string', description: '索引字段', required: false },
     models_uuid: { type: 'string', description: '关联模型uuid', required: true },
     sort: { type: 'string', description: '排序', required: true },
     unique: { type: 'boolean', description: '唯一', required: true },
-
+    
   },
   sys_models_indexes_edit: {
     fields: { type: 'string', description: '索引字段' },
     models_uuid: { type: 'string', description: '关联模型uuid' },
     sort: { type: 'string', description: '排序' },
     unique: { type: 'boolean', description: '唯一' },
-
+    
   },
 
   // 模型关联
@@ -187,7 +188,7 @@ module.exports = {
     type: { type: 'string', description: '关联类型' },
     updatedAt: { type: 'string', description: '更新时间' },
     uuid: { type: 'string', description: 'uuid' },
-
+    
   },
   sys_models_associate_add: {
     child_uuid: { type: 'string', description: '子表', required: true },
@@ -200,7 +201,7 @@ module.exports = {
     through_uuid: { type: 'string', description: '中间表', required: false },
     throughKey: { type: 'string', description: '中间键', required: false },
     type: { type: 'string', description: '关联类型', required: true },
-
+    
   },
   sys_models_associate_edit: {
     child_uuid: { type: 'string', description: '子表' },
@@ -213,7 +214,7 @@ module.exports = {
     through_uuid: { type: 'string', description: '中间表' },
     throughKey: { type: 'string', description: '中间键' },
     type: { type: 'string', description: '关联类型' },
-
+    
   },
 
   // 路由管理
@@ -239,7 +240,7 @@ module.exports = {
     updatedAt: { type: 'string', description: '更新时间' },
     uuid: { type: 'string', description: 'uuid' },
     verb: { type: 'string', description: '用户触发动作，支持 get，post 等所有 HTTP 方法' },
-
+    
   },
   sys_routes_add: {
     action: { type: 'string', description: '控制器方法', required: false },
@@ -260,7 +261,7 @@ module.exports = {
     role: { type: 'boolean', description: '是否为角色权限节点', required: false },
     sort: { type: 'string', description: '排序', required: false },
     verb: { type: 'string', description: '用户触发动作，支持 get，post 等所有 HTTP 方法', required: true },
-
+    
   },
   sys_routes_edit: {
     action: { type: 'string', description: '控制器方法' },
@@ -281,7 +282,7 @@ module.exports = {
     sort: { type: 'string', description: '排序' },
     updatedAt: { type: 'string', description: '更新时间' },
     verb: { type: 'string', description: '用户触发动作，支持 get，post 等所有 HTTP 方法' },
-
+    
   },
 
   // 路由分类
@@ -295,21 +296,21 @@ module.exports = {
     sys: { type: 'boolean', description: '是否系统' },
     updatedAt: { type: 'string', description: '更新时间' },
     uuid: { type: 'string', description: 'uuid' },
-
+    
   },
   sys_routes_classify_add: {
     middleware: { type: 'string', description: '在 Router 里面可以配置多个 Middleware', required: false },
     name: { type: 'string', description: '分类名称', required: true },
     remarks: { type: 'string', description: '备注', required: false },
     sort: { type: 'string', description: '越小越靠前', required: false },
-
+    
   },
   sys_routes_classify_edit: {
     middleware: { type: 'string', description: '在 Router 里面可以配置多个 Middleware' },
     name: { type: 'string', description: '分类名称' },
     remarks: { type: 'string', description: '备注' },
     sort: { type: 'string', description: '越小越靠前' },
-
+    
   },
 
   // 系统用户组
@@ -322,7 +323,7 @@ module.exports = {
     sort: { type: 'string', description: '排序' },
     updatedAt: { type: 'string', description: '更新时间' },
     uuid: { type: 'string', description: 'uuid' },
-
+    
   },
   sys_user_group_add: {
     desc: { type: 'string', description: '分组说明', required: false },
@@ -330,7 +331,7 @@ module.exports = {
     puuid: { type: 'string', description: '父uuid', required: false },
     sort: { type: 'string', description: '排序', required: false },
     uuid: { type: 'string', description: 'uuid', required: true },
-
+    
   },
   sys_user_group_edit: {
     desc: { type: 'string', description: '分组说明' },
@@ -338,7 +339,7 @@ module.exports = {
     puuid: { type: 'string', description: '父uuid' },
     sort: { type: 'string', description: '排序' },
     uuid: { type: 'string', description: 'uuid' },
-
+    
   },
 
   // 角色表
@@ -352,7 +353,7 @@ module.exports = {
     state: { type: 'boolean', description: '状态' },
     updatedAt: { type: 'string', description: '更新时间' },
     uuid: { type: 'string', description: 'uuid' },
-
+    
   },
   sys_role_add: {
     desc: { type: 'string', description: '角色说明', required: false },
@@ -361,7 +362,7 @@ module.exports = {
     r_uuids: { type: 'string', description: '路由节点', required: false },
     state: { type: 'boolean', description: '状态', required: false },
     uuid: { type: 'string', description: 'uuid', required: true },
-
+    
   },
   sys_role_edit: {
     desc: { type: 'string', description: '角色说明' },
@@ -369,7 +370,7 @@ module.exports = {
     name: { type: 'string', description: '角色名称' },
     r_uuids: { type: 'string', description: '路由节点' },
     state: { type: 'boolean', description: '状态' },
-
+    
   },
 
   // 用户角色中间表
@@ -379,17 +380,17 @@ module.exports = {
     role_uuid: { type: 'string', description: '角色uuid' },
     updatedAt: { type: 'string', description: '更新时间' },
     user_uuid: { type: 'string', description: '用户uuid' },
-
+    
   },
   sys_user_role_add: {
     role_uuid: { type: 'string', description: '角色uuid', required: true },
     user_uuid: { type: 'string', description: '用户uuid', required: true },
-
+    
   },
   sys_user_role_edit: {
     role_uuid: { type: 'string', description: '角色uuid' },
     user_uuid: { type: 'string', description: '用户uuid' },
-
+    
   },
 
   // 开放接口
@@ -399,17 +400,17 @@ module.exports = {
     open_uuids: { type: 'string', description: '开放接口节点' },
     updatedAt: { type: 'string', description: '更新时间' },
     uuid: { type: 'string', description: 'uuid' },
-
+    
   },
   sys_openApi_add: {
     open_uuids: { type: 'string', description: '开放接口节点', required: false },
     uuid: { type: 'string', description: 'uuid', required: false },
-
+    
   },
   sys_openApi_edit: {
     open_uuids: { type: 'string', description: '开放接口节点' },
     uuid: { type: 'string', description: 'uuid' },
-
+    
   },
 
   // cms内容主表
@@ -437,7 +438,7 @@ module.exports = {
     updatedAt: { type: 'string', description: '更新时间' },
     user_uuid: { type: 'string', description: '作者uuid' },
     view: { type: 'string', description: '浏览量' },
-
+    
   },
   cms_doc_add: {
     classify_id: { type: 'string', description: '分类ID', required: false },
@@ -460,7 +461,7 @@ module.exports = {
     type: { type: 'string', description: '内容类型（1-目录，2-主题，3-段落）', required: true },
     user_uuid: { type: 'string', description: '作者uuid', required: false },
     view: { type: 'string', description: '浏览量', required: false },
-
+    
   },
   cms_doc_edit: {
     classify_id: { type: 'string', description: '分类ID' },
@@ -483,7 +484,7 @@ module.exports = {
     type: { type: 'string', description: '内容类型（1-目录，2-主题，3-段落）' },
     user_uuid: { type: 'string', description: '作者uuid' },
     view: { type: 'string', description: '浏览量' },
-
+    
   },
 
   // cms分类
@@ -511,7 +512,7 @@ module.exports = {
     title: { type: 'string', description: '标题' },
     type: { type: 'string', description: '允许发布的内容类型' },
     updatedAt: { type: 'string', description: '更新时间' },
-
+    
   },
   cms_classify_add: {
     allow_publish: { type: 'boolean', description: '是否允许发布内容', required: false },
@@ -534,13 +535,13 @@ module.exports = {
     template_lists: { type: 'string', description: '列表页模板', required: false },
     title: { type: 'string', description: '标题', required: true },
     type: { type: 'string', description: '允许发布的内容类型', required: false },
-
+    
   },
   cms_classify_edit: {
     allow_publish: { type: 'boolean', description: '是否允许发布内容' },
     check: { type: 'boolean', description: '发布的文章是否需要审核' },
     description: { type: 'string', description: '描述' },
-    display: { type: 'boolean', description: '可见性' },
+    display: { type: 'string', description: '可见性' },
     icon: { type: 'string', description: '分类图片' },
     keywords: { type: 'string', description: '关键字' },
     list_row: { type: 'string', description: '列表每页行数' },
@@ -557,7 +558,7 @@ module.exports = {
     template_lists: { type: 'string', description: '列表页模板' },
     title: { type: 'string', description: '标题' },
     type: { type: 'string', description: '允许发布的内容类型' },
-
+    
   },
 
   // 文章
@@ -567,15 +568,15 @@ module.exports = {
     doc_id: { type: 'string', description: '主表id' },
     id: { type: 'string', description: '主键' },
     updatedAt: { type: 'string', description: '更新时间' },
-
+    
   },
   cms_doc_article_add: {
     content: { type: 'string', description: '文章内容', required: true },
-
+    
   },
   cms_doc_article_edit: {
     content: { type: 'string', description: '文章内容' },
-
+    
   },
 
   // 图片
@@ -585,15 +586,15 @@ module.exports = {
     doc_id: { type: 'string', description: '主表id' },
     id: { type: 'string', description: '主键' },
     updatedAt: { type: 'string', description: '更新时间' },
-
+    
   },
   cms_doc_picture_add: {
     content: { type: 'string', description: '图片内容', required: false },
-
+    
   },
   cms_doc_picture_edit: {
     content: { type: 'string', description: '图片内容' },
-
+    
   },
 
   // 下载
@@ -604,17 +605,17 @@ module.exports = {
     doc_id: { type: 'string', description: '主表id' },
     id: { type: 'string', description: '主键' },
     updatedAt: { type: 'string', description: '更新时间' },
-
+    
   },
   cms_doc_download_add: {
     content: { type: 'string', description: '下载内容', required: false },
     desc: { type: 'string', description: '下载介绍', required: false },
-
+    
   },
   cms_doc_download_edit: {
     content: { type: 'string', description: '下载内容' },
     desc: { type: 'string', description: '下载介绍' },
-
+    
   },
 
   // 系统导航
@@ -629,7 +630,7 @@ module.exports = {
     type: { type: 'string', description: '位置类型' },
     updatedAt: { type: 'string', description: '更新时间' },
     url: { type: 'string', description: '导航链接' },
-
+    
   },
   sys_navigation_add: {
     sort: { type: 'string', description: '排序', required: false },
@@ -638,7 +639,7 @@ module.exports = {
     title: { type: 'string', description: '导航标题', required: false },
     type: { type: 'string', description: '位置类型', required: false },
     url: { type: 'string', description: '导航链接', required: false },
-
+    
   },
   sys_navigation_edit: {
     sort: { type: 'string', description: '排序' },
@@ -647,7 +648,7 @@ module.exports = {
     title: { type: 'string', description: '导航标题' },
     type: { type: 'string', description: '位置类型' },
     url: { type: 'string', description: '导航链接' },
-
+    
   },
 
   // 会员管理
@@ -663,7 +664,7 @@ module.exports = {
     updatedAt: { type: 'string', description: '更新时间' },
     username: { type: 'string', description: '用户名' },
     uuid: { type: 'string', description: 'UUid' },
-
+    
   },
   mc_member_add: {
     avatar: { type: 'string', description: '头像', required: false },
@@ -674,7 +675,7 @@ module.exports = {
     third: { type: 'string', description: '第三方扩展', required: false },
     username: { type: 'string', description: '用户名', required: false },
     uuid: { type: 'string', description: 'UUid', required: true },
-
+    
   },
   mc_member_edit: {
     avatar: { type: 'string', description: '头像' },
@@ -685,7 +686,7 @@ module.exports = {
     third: { type: 'string', description: '第三方扩展' },
     username: { type: 'string', description: '用户名' },
     uuid: { type: 'string', description: 'UUid' },
-
+    
   },
 
   // cms评论
@@ -696,19 +697,19 @@ module.exports = {
     id: { type: 'string', description: '主键' },
     member_uuid: { type: 'string', description: '用户关联uuid' },
     updatedAt: { type: 'string', description: '更新时间' },
-
+    
   },
   cms_comments_add: {
     content: { type: 'string', description: '内容', required: false },
     doc_id: { type: 'string', description: '文档关联id', required: true },
     member_uuid: { type: 'string', description: '用户关联uuid', required: true },
-
+    
   },
   cms_comments_edit: {
     content: { type: 'string', description: '内容' },
     doc_id: { type: 'string', description: '文档关联id' },
     member_uuid: { type: 'string', description: '用户关联uuid' },
-
+    
   },
 
   // cms评论回复
@@ -719,19 +720,19 @@ module.exports = {
     id: { type: 'string', description: '主键' },
     member_uuid: { type: 'string', description: '用户关联uuid' },
     updatedAt: { type: 'string', description: '更新时间' },
-
+    
   },
   cms_comments_reply_add: {
     comments_id: { type: 'string', description: '评论关联id', required: false },
     content: { type: 'string', description: '回复内容', required: false },
     member_uuid: { type: 'string', description: '用户关联uuid', required: false },
-
+    
   },
   cms_comments_reply_edit: {
     comments_id: { type: 'string', description: '评论关联id' },
     content: { type: 'string', description: '回复内容' },
     member_uuid: { type: 'string', description: '用户关联uuid' },
-
+    
   },
 
   // cms模板管理
@@ -746,7 +747,7 @@ module.exports = {
     updatedAt: { type: 'string', description: '更新时间' },
     uuid: { type: 'string', description: 'uuid' },
     version: { type: 'string', description: '版本号' },
-
+    
   },
   cms_template_add: {
     author: { type: 'string', description: '作者', required: true },
@@ -756,7 +757,7 @@ module.exports = {
     sys: { type: 'boolean', description: '系统模板', required: false },
     uuid: { type: 'string', description: 'uuid', required: true },
     version: { type: 'string', description: '版本号', required: true },
-
+    
   },
   cms_template_edit: {
     author: { type: 'string', description: '作者' },
@@ -766,7 +767,7 @@ module.exports = {
     sys: { type: 'boolean', description: '系统模板' },
     uuid: { type: 'string', description: 'uuid' },
     version: { type: 'string', description: '版本号' },
-
+    
   },
 
   // 模板文件
@@ -782,7 +783,7 @@ module.exports = {
     type: { type: 'string', description: '类型' },
     updatedAt: { type: 'string', description: '更新时间' },
     uuid: { type: 'string', description: 'UUID' },
-
+    
   },
   cms_template_list_add: {
     html: { type: 'string', description: '文件内容', required: false },
@@ -793,7 +794,7 @@ module.exports = {
     title: { type: 'string', description: '模板名称', required: true },
     type: { type: 'string', description: '类型', required: true },
     uuid: { type: 'string', description: 'UUID', required: true },
-
+    
   },
   cms_template_list_edit: {
     html: { type: 'string', description: '文件内容' },
@@ -804,7 +805,7 @@ module.exports = {
     title: { type: 'string', description: '模板名称' },
     type: { type: 'string', description: '类型' },
     uuid: { type: 'string', description: 'UUID' },
-
+    
   },
 
   // 应用表
@@ -819,7 +820,7 @@ module.exports = {
     title: { type: 'string', description: '应用名称' },
     updatedAt: { type: 'string', description: '更新时间' },
     version: { type: 'string', description: '版本' },
-
+    
   },
   sys_application_add: {
     author: { type: 'string', description: '作者', required: false },
@@ -829,7 +830,7 @@ module.exports = {
     sys: { type: 'boolean', description: '是否系统', required: false },
     title: { type: 'string', description: '应用名称', required: true },
     version: { type: 'string', description: '版本', required: false },
-
+    
   },
   sys_application_edit: {
     author: { type: 'string', description: '作者' },
@@ -839,7 +840,7 @@ module.exports = {
     sys: { type: 'boolean', description: '是否系统' },
     title: { type: 'string', description: '应用名称' },
     version: { type: 'string', description: '版本' },
-
+    
   },
 
   // 系统配置
@@ -850,19 +851,19 @@ module.exports = {
     name: { type: 'string', description: '配置key' },
     updatedAt: { type: 'string', description: '更新时间' },
     value: { type: 'string', description: '配置value' },
-
+    
   },
   sys_config_add: {
     label: { type: 'string', description: '配置名称', required: true },
     name: { type: 'string', description: '配置key', required: true },
     value: { type: 'string', description: '配置value', required: true },
-
+    
   },
   sys_config_edit: {
     label: { type: 'string', description: '配置名称' },
     name: { type: 'string', description: '配置key' },
     value: { type: 'string', description: '配置value' },
-
+    
   },
 
   // 装修预算表
@@ -872,17 +873,17 @@ module.exports = {
     items: { type: 'string', description: '用户装修预算数据json' },
     uid: { type: 'string', description: '用户id' },
     updatedAt: { type: 'string', description: '更新时间' },
-
+    
   },
   mc_budget_add: {
     items: { type: 'string', description: '用户装修预算数据json', required: false },
     uid: { type: 'string', description: '用户id', required: true },
-
+    
   },
   mc_budget_edit: {
     items: { type: 'string', description: '用户装修预算数据json' },
     uid: { type: 'string', description: '用户id' },
-
+    
   },
 
   // 用户施工计划
@@ -892,41 +893,38 @@ module.exports = {
     items: { type: 'string', description: '用户施工计划json数据' },
     uid: { type: 'string', description: '用户id' },
     updatedAt: { type: 'string', description: '更新时间' },
-
+    
   },
   mc_construction_add: {
     items: { type: 'string', description: '用户施工计划json数据', required: false },
-
+    
   },
   mc_construction_edit: {
     items: { type: 'string', description: '用户施工计划json数据' },
     uid: { type: 'string', description: '用户id' },
-
+    
   },
 
   // 用户房间规划
   mc_house_plan_item: {
     createdAt: { type: 'string', description: '创建时间' },
     id: { type: 'string', description: '主键' },
-    layout_pictures: { type: 'string', description: '布局图集:图片地址,分割' },
-    layouts: { type: 'string', description: '房间空间布局子项,分割' },
-    space: { type: 'string', description: '房间空间' },
+    pictures: { type: 'string', description: '空间图片' },
+    spaceName: { type: 'string', description: '房间空间' },
     uid: { type: 'string', description: '用户id' },
     updatedAt: { type: 'string', description: '更新时间' },
-
+    
   },
   mc_house_plan_add: {
-    layout_pictures: { type: 'string', description: '布局图集:图片地址,分割', required: false },
-    layouts: { type: 'string', description: '房间空间布局子项,分割', required: false },
-    space: { type: 'string', description: '房间空间', required: true },
-
+    pictures: { type: 'string', description: '空间图片', required: false },
+    spaceName: { type: 'string', description: '房间空间', required: true },
+    
   },
   mc_house_plan_edit: {
-    layout_pictures: { type: 'string', description: '布局图集:图片地址,分割' },
-    layouts: { type: 'string', description: '房间空间布局子项,分割' },
-    space: { type: 'string', description: '房间空间' },
+    pictures: { type: 'string', description: '空间图片' },
+    spaceName: { type: 'string', description: '房间空间' },
     uid: { type: 'string', description: '用户id' },
-
+    
   },
 
   // 我的咨询信息记录
@@ -938,20 +936,20 @@ module.exports = {
     response_time: { type: 'string', description: '管理员回复时间' },
     uid: { type: 'string', description: '关联用户id' },
     updatedAt: { type: 'string', description: '更新时间' },
-
+    
   },
   mc_aq_add: {
     answer: { type: 'string', description: '管理员回复内容', required: false },
     question: { type: 'string', description: '咨询内容', required: true },
     response_time: { type: 'string', description: '管理员回复时间', required: false },
-
+    
   },
   mc_aq_edit: {
     answer: { type: 'string', description: '管理员回复内容' },
     question: { type: 'string', description: '咨询内容' },
     response_time: { type: 'string', description: '管理员回复时间' },
     uid: { type: 'string', description: '关联用户id' },
-
+    
   },
 
   // 找工人数据表
@@ -965,7 +963,7 @@ module.exports = {
     phone: { type: 'string', description: '联系电话' },
     updatedAt: { type: 'string', description: '更新时间' },
     workType: { type: 'string', description: '工种' },
-
+    
   },
   cms_worker_add: {
     avatar: { type: 'string', description: '工人照片', required: false },
@@ -974,7 +972,7 @@ module.exports = {
     name: { type: 'string', description: '姓名', required: true },
     phone: { type: 'string', description: '联系电话', required: true },
     workType: { type: 'string', description: '工种', required: true },
-
+    
   },
   cms_worker_edit: {
     avatar: { type: 'string', description: '工人照片' },
@@ -983,7 +981,7 @@ module.exports = {
     name: { type: 'string', description: '姓名' },
     phone: { type: 'string', description: '联系电话' },
     workType: { type: 'string', description: '工种' },
-
+    
   },
 
   // 系统默认的工人类型数据
@@ -992,25 +990,185 @@ module.exports = {
     id: { type: 'string', description: '主键' },
     name: { type: 'string', description: '类型名称' },
     updatedAt: { type: 'string', description: '更新时间' },
-
+    
   },
   sys_worker_types_add: {
     name: { type: 'string', description: '类型名称', required: true },
-
+    
   },
   sys_worker_types_edit: {
     name: { type: 'string', description: '类型名称' },
-
+    
   },
 
-  // 发送短信验证码请求
-  sys_send_sms_request: {
-    mobile: { type: 'string', required: true, description: '手机号' },
+  // 施工项目
+  sys_projects_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    key: { type: 'string', description: '项目key-关联工艺流程标准，施工准备信息唯一key' },
+    name: { type: 'string', description: '项目名称' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
   },
-  // 验证短信验证码请求
-  sys_verify_sms_request: {
-    mobile: { type: 'string', required: true, description: '手机号' },
-    code: { type: 'string', required: true, description: '短信验证码' },
+  sys_projects_add: {
+    key: { type: 'string', description: '项目key-关联工艺流程标准，施工准备信息唯一key', required: true },
+    name: { type: 'string', description: '项目名称', required: true },
+    
+  },
+  sys_projects_edit: {
+    key: { type: 'string', description: '项目key-关联工艺流程标准，施工准备信息唯一key' },
+    name: { type: 'string', description: '项目名称' },
+    
+  },
+
+  // 工艺流程标准介绍
+  sys_process_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    key: { type: 'string', description: '关联项目key' },
+    notes: { type: 'string', description: '注意事项' },
+    process: { type: 'string', description: '流程介绍' },
+    standard: { type: 'string', description: '工艺标准介绍' },
+    type: { type: 'string', description: '施工类型' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  sys_process_add: {
+    key: { type: 'string', description: '关联项目key', required: false },
+    notes: { type: 'string', description: '注意事项', required: false },
+    process: { type: 'string', description: '流程介绍', required: false },
+    standard: { type: 'string', description: '工艺标准介绍', required: false },
+    type: { type: 'string', description: '施工类型', required: false },
+    
+  },
+  sys_process_edit: {
+    key: { type: 'string', description: '关联项目key' },
+    notes: { type: 'string', description: '注意事项' },
+    process: { type: 'string', description: '流程介绍' },
+    standard: { type: 'string', description: '工艺标准介绍' },
+    type: { type: 'string', description: '施工类型' },
+    
+  },
+
+  // 施工前期准备
+  sys_project_ready_item: {
+    auxiliaryMaterial: { type: 'string', description: '辅材' },
+    createdAt: { type: 'string', description: '创建时间' },
+    deliveryCycle: { type: 'string', description: '到货周期' },
+    id: { type: 'string', description: '主键' },
+    key: { type: 'string', description: '关联项目key' },
+    mainMaterial: { type: 'string', description: '主材' },
+    other: { type: 'string', description: 'others' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    workerContact: { type: 'string', description: '工人联系' },
+    
+  },
+  sys_project_ready_add: {
+    auxiliaryMaterial: { type: 'string', description: '辅材', required: false },
+    deliveryCycle: { type: 'string', description: '到货周期', required: false },
+    key: { type: 'string', description: '关联项目key', required: false },
+    mainMaterial: { type: 'string', description: '主材', required: false },
+    other: { type: 'string', description: 'others', required: false },
+    workerContact: { type: 'string', description: '工人联系', required: false },
+    
+  },
+  sys_project_ready_edit: {
+    auxiliaryMaterial: { type: 'string', description: '辅材' },
+    deliveryCycle: { type: 'string', description: '到货周期' },
+    key: { type: 'string', description: '关联项目key' },
+    mainMaterial: { type: 'string', description: '主材' },
+    other: { type: 'string', description: 'others' },
+    workerContact: { type: 'string', description: '工人联系' },
+    
+  },
+
+  // 省份
+  sys_province_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '省份名称' },
+    province_id: { type: 'string', description: '省份id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  sys_province_add: {
+    name: { type: 'string', description: '省份名称', required: true },
+    province_id: { type: 'string', description: '省份id', required: true },
+    
+  },
+  sys_province_edit: {
+    name: { type: 'string', description: '省份名称' },
+    province_id: { type: 'string', description: '省份id' },
+    
+  },
+
+  // 城市
+  sys_city_item: {
+    city_id: { type: 'string', description: '城市id' },
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '城市名' },
+    province_id: { type: 'string', description: '关联省份id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  sys_city_add: {
+    city_id: { type: 'string', description: '城市id', required: true },
+    name: { type: 'string', description: '城市名', required: true },
+    province_id: { type: 'string', description: '关联省份id', required: true },
+    
+  },
+  sys_city_edit: {
+    city_id: { type: 'string', description: '城市id' },
+    name: { type: 'string', description: '城市名' },
+    province_id: { type: 'string', description: '关联省份id' },
+    
+  },
+
+  // 区县
+  sys_county_item: {
+    city_id: { type: 'string', description: '城市id' },
+    county_id: { type: 'string', description: '区县id' },
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '区县名' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  sys_county_add: {
+    city_id: { type: 'string', description: '城市id', required: true },
+    county_id: { type: 'string', description: '区县id', required: true },
+    name: { type: 'string', description: '区县名', required: true },
+    
+  },
+  sys_county_edit: {
+    city_id: { type: 'string', description: '城市id' },
+    county_id: { type: 'string', description: '区县id' },
+    name: { type: 'string', description: '区县名' },
+    
+  },
+
+  // 会员房间规划图集
+  mc_house_paln_pics_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    picture: { type: 'string', description: '图片地址' },
+    spaceId: { type: 'string', description: '空间id' },
+    uid: { type: 'string', description: '关联用户id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  mc_house_paln_pics_add: {
+    picture: { type: 'string', description: '图片地址', required: false },
+    spaceId: { type: 'string', description: '空间id', required: false },
+    uid: { type: 'string', description: '关联用户id', required: false },
+    
+  },
+  mc_house_paln_pics_edit: {
+    picture: { type: 'string', description: '图片地址' },
+    spaceId: { type: 'string', description: '空间id' },
+    uid: { type: 'string', description: '关联用户id' },
+    
   },
 
 };

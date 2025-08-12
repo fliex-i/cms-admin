@@ -5,11 +5,11 @@
       id:ID
       updatedAt:Date
       uid:Int
-      space:String
-      layouts:String
-      layout_pictures:String
+      spaceName:String
+      pictures:String
       
-      
+      mc_house_paln_pics(order:[[String]],limit:Int,offset:Int): [McHousePalnPics]
+
     }
     
     
@@ -85,7 +85,7 @@
   op_endsWith: String
   op_substring: String
       }
-      input WhereMcHousePlan_space {
+      input WhereMcHousePlan_spaceName {
         op_eq: String
   op_ne: String
   op_or: [String]
@@ -103,25 +103,7 @@
   op_endsWith: String
   op_substring: String
       }
-      input WhereMcHousePlan_layouts {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
-  op_like: String
-  op_notLike: String
-  op_startsWith: String
-  op_endsWith: String
-  op_substring: String
-      }
-      input WhereMcHousePlan_layout_pictures {
+      input WhereMcHousePlan_pictures {
         op_eq: String
   op_ne: String
   op_or: [String]
@@ -145,9 +127,8 @@
       id:WhereMcHousePlan_id
       updatedAt:WhereMcHousePlan_updatedAt
       uid:WhereMcHousePlan_uid
-      space:WhereMcHousePlan_space
-      layouts:WhereMcHousePlan_layouts
-      layout_pictures:WhereMcHousePlan_layout_pictures
+      spaceName:WhereMcHousePlan_spaceName
+      pictures:WhereMcHousePlan_pictures
       
     }
 
@@ -156,9 +137,8 @@
       id:WhereMcHousePlan_id
       updatedAt:WhereMcHousePlan_updatedAt
       uid:WhereMcHousePlan_uid
-      space:WhereMcHousePlan_space
-      layouts:WhereMcHousePlan_layouts
-      layout_pictures:WhereMcHousePlan_layout_pictures
+      spaceName:WhereMcHousePlan_spaceName
+      pictures:WhereMcHousePlan_pictures
       
       op_and: [WhereFieldMcHousePlan]
       op_or: [WhereFieldMcHousePlan]
@@ -167,18 +147,16 @@
     
     
     input AddMcHousePlan {
-    space: String!
-      layouts: String
-      layout_pictures: String
+    spaceName: String!
+      pictures: String
       
     }
     
     
     input EditMcHousePlan {
     uid: Int
-      space: String
-      layouts: String
-      layout_pictures: String
+      spaceName: String
+      pictures: String
       
     }
     

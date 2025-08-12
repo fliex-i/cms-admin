@@ -1,0 +1,152 @@
+
+    
+    type SysProjects {
+      createdAt:Date
+      id:ID
+      updatedAt:Date
+      name:String
+      key:ID
+      
+      sys_process: SysProcess
+sys_project_ready: SysProjectReady
+
+    }
+    
+    
+    input WhereSysProjects_createdAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereSysProjects_id {
+        op_eq: ID
+  op_ne: ID
+  op_or: [ID]
+  op_gt: ID
+  op_gte: ID
+  op_lt: ID
+  op_lte: ID
+  op_between: [ID]
+  op_notBetween: [ID]
+  op_in: [ID]
+  op_notIn: [ID]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereSysProjects_updatedAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereSysProjects_name {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereSysProjects_key {
+        op_eq: ID
+  op_ne: ID
+  op_or: [ID]
+  op_gt: ID
+  op_gte: ID
+  op_lt: ID
+  op_lte: ID
+  op_between: [ID]
+  op_notBetween: [ID]
+  op_in: [ID]
+  op_notIn: [ID]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      
+    input WhereFieldSysProjects{
+    createdAt:WhereSysProjects_createdAt
+      id:WhereSysProjects_id
+      updatedAt:WhereSysProjects_updatedAt
+      name:WhereSysProjects_name
+      key:WhereSysProjects_key
+      
+    }
+
+    input WhereSysProjects {
+      createdAt:WhereSysProjects_createdAt
+      id:WhereSysProjects_id
+      updatedAt:WhereSysProjects_updatedAt
+      name:WhereSysProjects_name
+      key:WhereSysProjects_key
+      
+      op_and: [WhereFieldSysProjects]
+      op_or: [WhereFieldSysProjects]
+      op_not: [WhereFieldSysProjects]
+    }
+    
+    
+    input AddSysProjects {
+    name: String!
+      key: ID!
+      
+    }
+    
+    
+    input EditSysProjects {
+    name: String
+      key: ID
+      
+    }
+    
+    type CountSysProjects {
+      count: Int
+      rows: [SysProjects]
+    }
+    type ResDelSysProjects {
+      count: Int
+    }
+    type ResEditSysProjects {
+      ids: [Int]
+    }
+    
