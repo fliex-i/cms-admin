@@ -1,23 +1,22 @@
 
     
-    type CmsWorker {
+    type CmsMaterials {
       createdAt:Date
       id:ID
       updatedAt:Date
-      workType:Int
-      avatar:String
-      desc:String
+      thumb:String
+      photos:String
+      address:String
       phone:String
-      case:String
-      name:String
-      tags:String
       weixin:String
+      desc:String
+      type:Int
       
       
     }
     
     
-    input WhereCmsWorker_createdAt {
+    input WhereCmsMaterials_createdAt {
         op_eq: Date
   op_ne: Date
   op_or: [Date]
@@ -35,7 +34,7 @@
   op_endsWith: String
   op_substring: String
       }
-      input WhereCmsWorker_id {
+      input WhereCmsMaterials_id {
         op_eq: ID
   op_ne: ID
   op_or: [ID]
@@ -53,7 +52,7 @@
   op_endsWith: String
   op_substring: String
       }
-      input WhereCmsWorker_updatedAt {
+      input WhereCmsMaterials_updatedAt {
         op_eq: Date
   op_ne: Date
   op_or: [Date]
@@ -71,7 +70,115 @@
   op_endsWith: String
   op_substring: String
       }
-      input WhereCmsWorker_workType {
+      input WhereCmsMaterials_thumb {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_photos {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_address {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_phone {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_weixin {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_desc {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_type {
         op_eq: Int
   op_ne: Int
   op_or: [Int]
@@ -89,200 +196,70 @@
   op_endsWith: String
   op_substring: String
       }
-      input WhereCmsWorker_avatar {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
-  op_like: String
-  op_notLike: String
-  op_startsWith: String
-  op_endsWith: String
-  op_substring: String
-      }
-      input WhereCmsWorker_desc {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
-  op_like: String
-  op_notLike: String
-  op_startsWith: String
-  op_endsWith: String
-  op_substring: String
-      }
-      input WhereCmsWorker_phone {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
-  op_like: String
-  op_notLike: String
-  op_startsWith: String
-  op_endsWith: String
-  op_substring: String
-      }
-      input WhereCmsWorker_case {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
-  op_like: String
-  op_notLike: String
-  op_startsWith: String
-  op_endsWith: String
-  op_substring: String
-      }
-      input WhereCmsWorker_name {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
-  op_like: String
-  op_notLike: String
-  op_startsWith: String
-  op_endsWith: String
-  op_substring: String
-      }
-      input WhereCmsWorker_tags {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
-  op_like: String
-  op_notLike: String
-  op_startsWith: String
-  op_endsWith: String
-  op_substring: String
-      }
-      input WhereCmsWorker_weixin {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
-  op_like: String
-  op_notLike: String
-  op_startsWith: String
-  op_endsWith: String
-  op_substring: String
-      }
       
-    input WhereFieldCmsWorker{
-    createdAt:WhereCmsWorker_createdAt
-      id:WhereCmsWorker_id
-      updatedAt:WhereCmsWorker_updatedAt
-      workType:WhereCmsWorker_workType
-      avatar:WhereCmsWorker_avatar
-      desc:WhereCmsWorker_desc
-      phone:WhereCmsWorker_phone
-      case:WhereCmsWorker_case
-      name:WhereCmsWorker_name
-      tags:WhereCmsWorker_tags
-      weixin:WhereCmsWorker_weixin
+    input WhereFieldCmsMaterials{
+    createdAt:WhereCmsMaterials_createdAt
+      id:WhereCmsMaterials_id
+      updatedAt:WhereCmsMaterials_updatedAt
+      thumb:WhereCmsMaterials_thumb
+      photos:WhereCmsMaterials_photos
+      address:WhereCmsMaterials_address
+      phone:WhereCmsMaterials_phone
+      weixin:WhereCmsMaterials_weixin
+      desc:WhereCmsMaterials_desc
+      type:WhereCmsMaterials_type
       
     }
 
-    input WhereCmsWorker {
-      createdAt:WhereCmsWorker_createdAt
-      id:WhereCmsWorker_id
-      updatedAt:WhereCmsWorker_updatedAt
-      workType:WhereCmsWorker_workType
-      avatar:WhereCmsWorker_avatar
-      desc:WhereCmsWorker_desc
-      phone:WhereCmsWorker_phone
-      case:WhereCmsWorker_case
-      name:WhereCmsWorker_name
-      tags:WhereCmsWorker_tags
-      weixin:WhereCmsWorker_weixin
+    input WhereCmsMaterials {
+      createdAt:WhereCmsMaterials_createdAt
+      id:WhereCmsMaterials_id
+      updatedAt:WhereCmsMaterials_updatedAt
+      thumb:WhereCmsMaterials_thumb
+      photos:WhereCmsMaterials_photos
+      address:WhereCmsMaterials_address
+      phone:WhereCmsMaterials_phone
+      weixin:WhereCmsMaterials_weixin
+      desc:WhereCmsMaterials_desc
+      type:WhereCmsMaterials_type
       
-      op_and: [WhereFieldCmsWorker]
-      op_or: [WhereFieldCmsWorker]
-      op_not: [WhereFieldCmsWorker]
+      op_and: [WhereFieldCmsMaterials]
+      op_or: [WhereFieldCmsMaterials]
+      op_not: [WhereFieldCmsMaterials]
     }
     
     
-    input AddCmsWorker {
-    workType: Int!
-      avatar: String
-      desc: String!
-      phone: String!
-      case: String
-      name: String!
-      tags: String
-      weixin: String
-      
-    }
-    
-    
-    input EditCmsWorker {
-    workType: Int
-      avatar: String
-      desc: String
+    input AddCmsMaterials {
+    thumb: String
+      photos: String
+      address: String
       phone: String
-      case: String
-      name: String
-      tags: String
       weixin: String
+      desc: String
+      type: Int
       
     }
     
-    type CountCmsWorker {
-      count: Int
-      rows: [CmsWorker]
+    
+    input EditCmsMaterials {
+    thumb: String
+      photos: String
+      address: String
+      phone: String
+      weixin: String
+      desc: String
+      type: Int
+      
     }
-    type ResDelCmsWorker {
+    
+    type CountCmsMaterials {
+      count: Int
+      rows: [CmsMaterials]
+    }
+    type ResDelCmsMaterials {
       count: Int
     }
-    type ResEditCmsWorker {
+    type ResEditCmsMaterials {
       ids: [Int]
     }
     

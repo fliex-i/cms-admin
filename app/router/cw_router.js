@@ -1,4 +1,7 @@
 'use strict';
+
+const authMcToken = require('../middleware/mc/authMcToken');
+
 module.exports = app => {
   app.router.get('路由列表', '/admin/sys/routes/routesList', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.routes.routesList');
   app.router.post('添加回复', '/cms/comments/replyAdd', app.middleware.mc.authMcToken(), 'cms.comments.replyAdd');
@@ -135,10 +138,9 @@ module.exports = app => {
   app.router.get('/api/mc/housePlan/:id', app.middleware.mc.authMcToken(), 'mc.housePlan.destroy');
 
   // 工人管理
-  app.router.get('/api/cms/worker', app.middleware.sys.authAdminToken(), 'cms.worker.list');
-  app.router.post('/api/cms/worker', app.middleware.sys.authAdminToken(), 'cms.worker.create');
-  app.router.post('/api/cms/worker/:id', app.middleware.sys.authAdminToken(), 'cms.worker.update');
-  app.router.get('/api/cms/worker/:id', app.middleware.sys.authAdminToken(), 'cms.worker.destroy');
+  app.router.get('/api/cms/worker/index', app.middleware.mc.authMcToken(), 'cms.worker.list');
+  // 工种类型列表
+  app.router.get('/api/cms/worker/types', app.middleware.mc.authMcToken(), 'cms.worker.types');
 
   // 图片上传
   app.router.post('/api/upload', app.middleware.mc.authMcToken(), 'cms.upload.image');
@@ -148,4 +150,13 @@ module.exports = app => {
   app.router.post('/mc/sendSms', 'mc.index.sendSms');
   // 验证短信验证码
   app.router.post('/mc/verifySms', 'mc.index.verifySms');
+
+  // 工人管理接口
+  app.router.get('/admin/cms/worker/index', app.middleware.sys.authAdminToken(), 'cms.worker.list');
+  app.router.post('/admin/cms/worker/create', app.middleware.sys.authAdminToken(), 'cms.worker.create');
+  app.router.post('/admin/cms/worker/update', app.middleware.sys.authAdminToken(), 'cms.worker.update');
+  app.router.get('/admin/cms/worker/destroy', app.middleware.sys.authAdminToken(), 'cms.worker.destroy');
+  app.router.post('/admin/cms/worker/bulkDel', app.middleware.sys.authAdminToken(), 'cms.worker.bulkDel');
+  app.router.get('/admin/cms/worker/types', 'cms.worker.types');
+  app.router.post('/admin/cms/worker/saveOrder', app.middleware.sys.authAdminToken(), 'cms.worker.saveOrder');
 };

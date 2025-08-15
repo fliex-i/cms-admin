@@ -961,8 +961,10 @@ module.exports = {
     id: { type: 'string', description: '主键' },
     name: { type: 'string', description: '姓名' },
     phone: { type: 'string', description: '联系电话' },
+    tags: { type: 'string', description: '标签' },
     updatedAt: { type: 'string', description: '更新时间' },
-    workType: { type: 'string', description: '工种' },
+    weixin: { type: 'string', description: '微信号' },
+    workType: { type: 'string', description: '工种类型ID' },
     
   },
   cms_worker_add: {
@@ -971,7 +973,9 @@ module.exports = {
     desc: { type: 'string', description: '工人介绍', required: true },
     name: { type: 'string', description: '姓名', required: true },
     phone: { type: 'string', description: '联系电话', required: true },
-    workType: { type: 'string', description: '工种', required: true },
+    tags: { type: 'string', description: '标签', required: false },
+    weixin: { type: 'string', description: '微信号', required: false },
+    workType: { type: 'string', description: '工种类型ID', required: true },
     
   },
   cms_worker_edit: {
@@ -980,7 +984,9 @@ module.exports = {
     desc: { type: 'string', description: '工人介绍' },
     name: { type: 'string', description: '姓名' },
     phone: { type: 'string', description: '联系电话' },
-    workType: { type: 'string', description: '工种' },
+    tags: { type: 'string', description: '标签' },
+    weixin: { type: 'string', description: '微信号' },
+    workType: { type: 'string', description: '工种类型ID' },
     
   },
 
@@ -1168,6 +1174,58 @@ module.exports = {
     picture: { type: 'string', description: '图片地址' },
     spaceId: { type: 'string', description: '空间id' },
     uid: { type: 'string', description: '关联用户id' },
+    
+  },
+
+  // 找材料数据表
+  cms_materials_item: {
+    address: { type: 'string', description: '商家地址' },
+    createdAt: { type: 'string', description: '创建时间' },
+    desc: { type: 'string', description: '商家简介' },
+    id: { type: 'string', description: '主键' },
+    phone: { type: 'string', description: '商家电话' },
+    photos: { type: 'string', description: '商家门店内部照片' },
+    thumb: { type: 'string', description: '商家门头照片' },
+    type: { type: 'string', description: '商家类型Id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    weixin: { type: 'string', description: '商家微信' },
+    
+  },
+  cms_materials_add: {
+    address: { type: 'string', description: '商家地址', required: false },
+    desc: { type: 'string', description: '商家简介', required: false },
+    phone: { type: 'string', description: '商家电话', required: false },
+    photos: { type: 'string', description: '商家门店内部照片', required: false },
+    thumb: { type: 'string', description: '商家门头照片', required: false },
+    type: { type: 'string', description: '商家类型Id', required: false },
+    weixin: { type: 'string', description: '商家微信', required: false },
+    
+  },
+  cms_materials_edit: {
+    address: { type: 'string', description: '商家地址' },
+    desc: { type: 'string', description: '商家简介' },
+    phone: { type: 'string', description: '商家电话' },
+    photos: { type: 'string', description: '商家门店内部照片' },
+    thumb: { type: 'string', description: '商家门头照片' },
+    type: { type: 'string', description: '商家类型Id' },
+    weixin: { type: 'string', description: '商家微信' },
+    
+  },
+
+  // 商家类型
+  cms_materials_types_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '材料商家类型' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  cms_materials_types_add: {
+    name: { type: 'string', description: '材料商家类型', required: true },
+    
+  },
+  cms_materials_types_edit: {
+    name: { type: 'string', description: '材料商家类型' },
     
   },
 

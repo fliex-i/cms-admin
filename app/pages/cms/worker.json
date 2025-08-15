@@ -1,117 +1,59 @@
 {
   "type": "page",
-  "css": {
-    ".cxd-TreeControl": {
-      "padding-left": "0 !important",
-      "max-height": "90vh !important"
-    },
-    ".cxd-Link.is-disabled":{
-      "color":"#333 !important"
-    }
-  },
-  "aside": {
-    "type": "form",
-    "wrapWithPanel": false,
-    "target": "docList?pid=0&classifyId=${classifyId}",
-    "submitOnInit": true,
-    "body": [
-      {
-        "type": "input-tree",
-        "name": "classifyId",
-        "inputClassName": "no-border",
-        "submitOnChange": true,
-        "selectFirst": true,
-        "source": "/admin/cms/doc/topClassify"
-      }
-    ]
-  },
+  "css": {},
   "body": [
     {
       "type": "crud",
       "draggable": true,
-      "name": "docList",
-      "id": "docList",
-      "api": "/admin/cms/doc/index",
-      "saveOrderApi":"/admin/cms/doc/saveOrder",
-      "defaultParams": {
-        "pid": 0,
-        "classifyId": "0"
-      },
-      "itemBadge": {
-        "text": "${level}",
-        "mode": "ribbon",
-        "position": "top-left",
-        "level": "info",
-        "visibleOn": "this.level"
-      },
-      "perPageAvailable":[5, 10, 20, 50, 100],
+      "name": "workerList",
+      "id": "workerList",
+      "api": "/admin/cms/worker/index",
+      "saveOrderApi": "/admin/cms/worker/saveOrder",
+      "perPageAvailable": [
+        5,
+        10,
+        20,
+        50,
+        100
+      ],
       "filter": {
-        "title": "${classify.title}",
+        "title": "工人管理",
         "body": [
           {
             "type": "input-text",
-            "name": "doc_title",
-            "label": "标题",
+            "name": "name",
+            "label": "姓名",
             "clearable": true,
-            "placeholder": "通过标题搜索",
+            "placeholder": "通过姓名搜索",
             "size": "sm"
           },
           {
-            "label": "推荐位",
+            "type": "input-text",
+            "name": "phone",
+            "label": "手机号",
+            "clearable": true,
+            "placeholder": "通过手机号搜索",
+            "size": "sm"
+          },
+          {
             "type": "select",
-            "name": "doc_position",
-            "multiple": true,
+            "name": "workType",
+            "label": "工种",
             "clearable": true,
-            "options": [
-              {
-                "label": "列表",
-                "value": "1"
-              },
-              {
-                "label": "频道",
-                "value": "2"
-              },
-              {
-                "label": "首页",
-                "value": "4"
-              }
-            ],
-            "size": "sm"
+            "placeholder": "请选择工种",
+            "size": "sm",
+            "source": "/admin/cms/worker/types",
+            "searchable": true
           },
           {
-            "name": "doc_type",
             "type": "select",
-            "label": "类型",
-            "clearable": true,
-            "options": [
-              {
-                "label": "目录",
-                "value": 1
-              },
-              {
-                "label": "主题",
-                "value": 2
-              },
-              {
-                "label": "段落",
-                "value": 3
-              }
-            ],
-            "size": "sm"
-          },
-          {
+            "name": "status",
             "label": "状态",
-            "type": "select",
-            "name": "doc_status",
             "clearable": true,
             "options": [
               {
                 "label": "正常",
                 "value": 1
-              },
-              {
-                "label": "草稿",
-                "value": 3
               },
               {
                 "label": "禁用",
@@ -121,26 +63,15 @@
             "size": "sm"
           },
           {
-            "name": "noclassify",
-            "type": "checkbox",
-            "label": false,
-            "option": "未分类",
-            "trueValue": "1",
-            "falseValue": "0",
-            "value": "0",
-            "size": "xs"
-          },
-          {
-            "type": "service",
-            "schemaApi": "get:/admin/cms/doc/classifySub?id=${classifyId}"
+            "type": "input-text",
+            "name": "weixin",
+            "label": "微信号",
+            "clearable": true,
+            "placeholder": "通过微信号搜索",
+            "size": "sm"
           }
         ],
         "actions": [
-          {
-            "type": "service",
-            "className":"float-left",
-            "schemaApi": "get:/admin/cms/doc/pdoc?pid=${pid}"
-          },
           {
             "type": "reset",
             "label": "重置"
@@ -174,13 +105,12 @@
         {
           "type": "button",
           "actionType": "drawer",
-          "label": "新增内容",
+          "label": "新增工人",
           "primary": true,
-          "hiddenOn": "${classifyId==0}",
           "align": "right",
           "drawer": {
-            "title": "新增内容",
-            "size": "xl",
+            "title": "新增工人",
+            "size": "md",
             "body": {
               "type": "form",
               "debug": false,
@@ -188,197 +118,73 @@
               "horizontal": {
                 "leftFixed": "xs"
               },
-              "api": "/admin/cms/doc/docAdd",
+              "api": "/admin/cms/worker/create",
               "body": [
                 {
-                  "type": "hidden",
-                  "name": "pid"
+                  "type": "input-text",
+                  "name": "name",
+                  "label": "姓名",
+                  "required": true
                 },
                 {
-                  "type": "group",
-                  "body": [
-                    {
-                      "type": "input-text",
-                      "name": "title",
-                      "placeholder": "请输入标题",
-                      "label": "标题",
-                      "required": true
-                    }
-                  ]
+                  "type": "input-text",
+                  "name": "phone",
+                  "label": "手机号",
+                  "required": true
+                },
+                 {
+                  "type": "input-text",
+                  "name": "weixin",
+                  "label": "微信号",
+                  "required": false
                 },
                 {
-                  "type": "group",
-                  "body": [
-                    {
-                      "type": "input-image",
-                      "name": "cover_url",
-                      "label": "封面",
-                      "maxLength": 1,
-                      "receiver": "/upload/adminToken",
-                      "columnRatio": 2
-                    },
-                    {
-                      "name": "description",
-                      "type": "textarea",
-                      "clearable": true,
-                      "minRows": 4,
-                      "showCounter": true,
-                      "maxLength": 800,
-                      "label": "简介"
-                    }
-                  ]
+                  "type": "select",
+                  "name": "workType",
+                  "label": "工种",
+                  "required": true,
+                  "source": "/admin/cms/worker/types",
+                  "searchable": true,
+                  "clearable": true
                 },
                 {
-                  "type": "group",
-
-                  "body": [
-                    {
-                      "name": "classify_modelName",
-                      "type": "static",
-                      "label": "模型",
-                      "value": "${classify.modelName}",
-                      "columnRatio": 1
-                    },
-                    {
-                      "type": "hidden",
-                      "name": "models_uuid",
-                      "value": "${classify.models_uuid}"
-                    },
-                    {
-                      "name": "classify_title",
-                      "type": "static",
-                      "label": "分类",
-                      "value": "${classify.title}",
-                      "columnRatio": 2
-                    },
-                    {
-                      "type": "hidden",
-                      "name": "classify_id",
-                      "value": "${classify.id}"
-                    },
-                    {
-                      "type": "service",
-                      "schemaApi": "get:/admin/cms/doc/classifySubFrom?id=${classifyId}"
-                    }
-                  ]
+                  "type": "input-image",
+                  "name": "avatar",
+                  "label": "工人照片",
+                  "maxLength": 1,
+                  "receiver": "/upload/adminToken"
                 },
                 {
-                  "type": "group",
-                  "body": [
-                    {
-                      "name": "type",
-                      "type": "radios",
-                      "label": "类型",
-                      "selectFirst": true,
-                      "source": "${classify.type}",
-                      "columnRatio": 3
-                    },
-                    {
-                      "label": "状态",
-                      "type": "select",
-                      "name": "status",
-                      "columnRatio": 3,
-                      "value": 1,
-                      "options": [
-                        {
-                          "label": "正常",
-                          "value": 1
-                        },
-                        {
-                          "label": "草稿",
-                          "value": 3
-                        },
-                        {
-                          "label": "禁用",
-                          "value": 0
-                        }
-                      ]
-                    },
-                     {
-                      "label": "推荐",
-                      "type": "select",
-                      "name": "position",
-                      "multiple": true,
-                      "columnRatio": 3,
-                      "options": [
-                        {
-                          "label": "列表推荐",
-                          "value": "1"
-                        },
-                        {
-                          "label": "频道页推荐",
-                          "value": "2"
-                        },
-                        {
-                          "label": "首页推荐",
-                          "value": "4"
-                        }
-                      ]
-                    },
-                    {
-                      "label": "排序",
-                      "type": "input-number",
-                      "name": "level",
-                      "columnRatio": 3,
-                      "value": 0
-                    }
-                  ]
+                  "type": "textarea",
+                  "name": "desc",
+                  "label": "工人介绍",
+                  "maxLength": 800
                 },
                 {
-                  "type": "group",
-                  "body": [
-                    {
-                      "type": "select",
-                      "name": "template",
-                      "placeholder": "请输入详情模板",
-                      "label": "详情模板",
-                      "searchable": true,
-                      "selectFirst": true,
-                      "source": "/admin/cms/template/getTemplate?type=detail",
-                      "description": "模板在/app/view/cms内,命名规则 detail_模板名称.html"
-                    },
-                    {
-                      "type": "input-text",
-                      "name": "ext_link",
-                      "placeholder": "请输入外链接",
-                      "label": "外链",
-                      "description": "如果填写链接,会跳转到这个链接,不填不跳转"
-                    }
-                  ]
-                },
-                {
-                  "type": "group",
-                  "mode": "horizontal",
-                  "body": [
-                    {
-                      "type": "input-tag",
-                      "name": "tags",
-                      "label": "标签",
-                      "placeholder": "请选择标签"
-                    }
-                  ]
-                },
-                {
-                  "type": "service",
-                  "schemaApi": "get:/admin/cms/doc/getContent?models_uuid=${classify.models_uuid}&type=add"
+                  "type": "input-image",
+                  "name": "case",
+                  "label": "施工案例图片",
+                  "maxLength": 6,
+                  "receiver": "/upload/adminToken"
                 }
               ]
             }
           }
         }
-        
       ],
       "bulkActions": [
         {
           "label": "批量删除",
           "actionType": "ajax",
-          "api": "/admin/cms/doc/bulkDel",
+          "api": "/admin/cms/worker/bulkDel",
           "confirmText": "确定要批量删除?"
         }
       ],
-      "footerToolbar":["switch-per-page","statistics", "pagination"],
-      "quickSaveApi": "/amis/api/sample/bulkUpdate",
-      "quickSaveItemApi": "/amis/api/sample/$id",
+      "footerToolbar": [
+        "switch-per-page",
+        "statistics",
+        "pagination"
+      ],
       "columns": [
         {
           "name": "id",
@@ -389,78 +195,63 @@
           "toggled": true
         },
         {
-          "label": "封面",
+          "label": "照片",
           "type": "image",
-          "name": "cover_url",
+          "name": "avatar",
           "className": "tdimg"
         },
         {
-          "label": "标题",
-          "type": "action",
-          "body": [
-            {
-              "type": "link",
-              "name": "title",
-              "className":"mr-2",
-              "disabledOn": "${type===3}"
-            },{
-              "name": "positionarr",
-              "type": "mapping",
-              "map": {
-                "1": "<span class='label label-info'>列</span>",
-                "2": "<span class='label label-success'>频</span>",
-                "4": "<span class='label label-warning'>首</span>",
-                "*": "<span class='label label-default'>其他</span>"
-              }
-            }
-          ],
+          "name": "name",
+          "label": "姓名",
+          "type": "text",
+          "toggled": true
+        },
+        {
+          "name": "phone",
+          "label": "手机号",
+          "type": "text",
+          "toggled": true
+        },
+         {
+          "name": "weixin",
+          "label": "微信号",
+          "type": "text",
+          "toggled": true
+        },
+        {
+          "name": "workType",
+          "label": "工种",
+          "type": "select",
           "toggled": true,
-          "actionType": "reload",
-          "target": "docList?pid=${id}",
-          "disabledOn": "${type===3}"
+          "source": "/admin/cms/worker/types",
+          "searchable": true,
+          "clearable": true
         },
         {
-          "name": "type",
-          "label": "类型",
-          "type": "mapping",
-          "map": {
-            "1": "<span class='label label-info'>目录</span>",
-            "2": "<span class='label label-success'>主题</span>",
-            "3": "<span class='label label-warning'>段落</span>",
-            "*": "其他：${type}"
-          }
-        },
-        {
-          "name": "pathTitle",
-          "label": "分类",
+          "name": "desc",
+          "label": "介绍",
           "type": "text",
           "toggled": true
         },
         {
-          "name": "modelName",
-          "label": "模型",
-          "type": "text",
+          "name": "case",
+          "label": "案例图片",
+          "type": "image",
           "toggled": true
         },
         {
-          "name": "updatedAt",
-          "label": "最后更新时间",
-          "sortable": true,
+          "name": "createdAt",
+          "label": "创建时间",
           "type": "date",
           "toggled": true,
           "format": "YYYY-MM-DD HH:mm"
         },
         {
-          "name": "status",
-          "label": "状态",
-          "type": "mapping",
-          "map": {
-            "0": "<span class='label label-danger'>禁用</span>",
-            "1": "<span class='label label-success'>正常</span>",
-            "2": "<span class='label label-warning'>待审核</span>",
-            "3": "<span class='label label-info'>草稿</span>",
-            "*": "其他：${type}"
-          }
+          "name": "updatedAt",
+          "label": "更新时间",
+          "type": "date",
+          "toggled": true,
+          "format": "YYYY-MM-DD HH:mm"
         },
         {
           "type": "operation",
@@ -469,18 +260,11 @@
           "buttons": [
             {
               "type": "button",
-              "icon": "fa fa-link",
-              "actionType": "url",
-              "url": "/cms/detail/${id}",
-              "blank":true
-            },
-            {
-              "type": "button",
               "icon": "fa fa-pencil",
               "actionType": "drawer",
               "drawer": {
-                "title": "编辑内容",
-                "size": "xl",
+                "title": "编辑工人",
+                "size": "md",
                 "body": {
                   "type": "form",
                   "debug": false,
@@ -488,164 +272,38 @@
                   "horizontal": {
                     "leftFixed": "xs"
                   },
-                  "api": "/admin/cms/doc/docEdit",
+                  "api": "/admin/cms/worker/update",
                   "body": [
-                    {
-                      "type": "hidden",
-                      "name": "pid"
-                    },
                     {
                       "type": "hidden",
                       "name": "id"
                     },
                     {
-                      "type": "group",
-                      "body": [
-                        {
-                          "type": "input-text",
-                          "name": "title",
-                          "placeholder": "请输入标题",
-                          "label": "标题",
-                          "required": true
-                        }
-                        
-                      ]
+                      "type": "input-text",
+                      "name": "name",
+                      "label": "姓名",
+                      "required": true
                     },
                     {
-                      "type": "group",
-                      "body": [
-                        {
-                          "type": "input-image",
-                          "name": "cover_url",
-                          "label": "封面",
-                          "maxLength": 1,
-                          "receiver": "/upload/adminToken",
-                          "columnRatio": 2
-                        },
-                        {
-                          "name": "description",
-                          "type": "textarea",
-                          "clearable": true,
-                          "minRows": 4,
-                          "showCounter": true,
-                          "maxLength": 800,
-                          "label": "简介"
-                        }
-                      ]
+                      "type": "input-text",
+                      "name": "phone",
+                      "label": "手机号",
+                      "required": true
+                    },
+                     {
+                      "type": "input-text",
+                      "name": "weixin",
+                      "label": "微信号",
+                      "required": false
                     },
                     {
-                      "type": "group",
-                      "body": [
-                        {
-                          "name": "classify_modelName",
-                          "type": "static",
-                          "label": "模型",
-                          "value": "${modelName}",
-                          "columnRatio": 1
-                        },
-                        {
-                          "type": "hidden",
-                          "name": "models_uuid",
-                          "value": "${models_uuid}"
-                        },
-                        {
-                          "label": "分类",
-                          "type": "tree-select",
-                          "name": "classify_id",
-                          "required": true,
-                          "searchable": true,
-                          "columnRatio": 2,
-                          "source": "/admin/cms/doc/selectClassify?models_uuid=${models_uuid}"
-                        },
-                        {
-                          "type": "service",
-                          "schemaApi": "get:/admin/cms/doc/classifySubFrom?id=${classify_id}"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "group",
-                      "body": [
-                        {
-                          "name": "type",
-                          "type": "radios",
-                          "label": "类型",
-                          "selectFirst": true,
-                          "source": "${classify.type}",
-                          "columnRatio": 3
-                        },
-                        {
-                          "label": "状态",
-                          "type": "select",
-                          "name": "status",
-                          "columnRatio": 3,
-                          "value": 1,
-                          "options": [
-                            {
-                              "label": "正常",
-                              "value": 1
-                            },
-                            {
-                              "label": "草稿",
-                              "value": 3
-                            },
-                            {
-                              "label": "禁用",
-                              "value": 0
-                            }
-                          ]
-                        },
-                         {
-                          "label": "推荐",
-                          "type": "select",
-                          "name": "position",
-                          "multiple": true,
-                          "columnRatio": 3,
-                          "options": [
-                            {
-                              "label": "列表推荐",
-                              "value": "1"
-                            },
-                            {
-                              "label": "频道页推荐",
-                              "value": "2"
-                            },
-                            {
-                              "label": "首页推荐",
-                              "value": "4"
-                            }
-                          ]
-                        },
-                        {
-                          "label": "排序",
-                          "type": "input-number",
-                          "name": "level",
-                          "columnRatio": 3,
-                          "value": 0
-                        }
-                      ]
-                    },
-                    {
-                      "type": "group",
-                      "body": [
-                        {
-                          "type": "select",
-                          "name": "template",
-                          "placeholder": "请输入详情模板",
-                          "label": "详情模板",
-                          "searchable": true,
-                          "selectFirst": true,
-                          "source": "/admin/cms/template/getTemplate?type=detail",
-                          "description": "模板在/app/view/cms内,命名规则 detail_模板名称.html"
-                        },
-                        {
-                          "type": "input-text",
-                          "name": "ext_link",
-                          "placeholder": "请输入外链接",
-                          "label": "外链",
-                          "description": "如果填写链接,会跳转到这个链接,不填不跳转"
-                        }
-                      ]
+                      "type": "select",
+                      "name": "workType",
+                      "label": "工种",
+                      "required": true,
+                      "source": "/admin/cms/worker/types",
+                      "searchable": true,
+                      "clearable": true
                     },
                     {
                       "type": "group",
@@ -660,8 +318,24 @@
                       ]
                     },
                     {
-                      "type": "service",
-                      "schemaApi": "get:/admin/cms/doc/getContent?models_uuid=${models_uuid}&type=edit"
+                      "type": "input-image",
+                      "name": "avatar",
+                      "label": "工人照片",
+                      "maxLength": 1,
+                      "receiver": "/upload/adminToken"
+                    },
+                    {
+                      "type": "textarea",
+                      "name": "desc",
+                      "label": "工人介绍",
+                      "maxLength": 800
+                    },
+                    {
+                      "type": "input-image",
+                      "name": "case",
+                      "label": "施工案例图片",
+                      "maxLength": 6,
+                      "receiver": "/upload/adminToken"
                     }
                   ]
                 }
@@ -672,7 +346,7 @@
               "icon": "fa fa-times text-danger",
               "actionType": "ajax",
               "confirmText": "您确认要删除?",
-              "api": "get:/admin/cms/doc/docDel?id=$id"
+              "api": "/admin/cms/worker/destroy?id=$id"
             }
           ],
           "toggled": true

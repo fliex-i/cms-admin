@@ -260,4 +260,18 @@ type Mutation {
   #会员房间规划图集 更新
   McHousePalnPics_update(data:EditMcHousePalnPics!,where:WhereMcHousePalnPics!):ResEditMcHousePalnPics
 
+  #找材料数据表 添加
+  CmsMaterials_create(data:AddCmsMaterials):CmsMaterials
+  #找材料数据表 删除
+  CmsMaterials_destroy(where:WhereCmsMaterials!):ResDelCmsMaterials
+  #找材料数据表 更新
+  CmsMaterials_update(data:EditCmsMaterials!,where:WhereCmsMaterials!):ResEditCmsMaterials
+
+  #商家类型 添加
+  CmsMaterialsTypes_create(data:AddCmsMaterialsTypes):CmsMaterialsTypes
+  #商家类型 删除
+  CmsMaterialsTypes_destroy(where:WhereCmsMaterialsTypes!):ResDelCmsMaterialsTypes
+  #商家类型 更新
+  CmsMaterialsTypes_update(data:EditCmsMaterialsTypes!,where:WhereCmsMaterialsTypes!):ResEditCmsMaterialsTypes
+
 }

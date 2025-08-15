@@ -15,9 +15,12 @@ class WorkerController extends Controller {
     const data = ctx.query;
     const page = data.page || 1;
     const limit = data.perPage || 15;
-    const map = { where: {}, offset: (Number(page) - 1) * limit, limit: Number(limit) };
+    const workType = data.workType && data.workType !== 'all' ? data.workType : '';
+    const map = { where: workType ? { workType } : {}, offset: (Number(page) - 1) * limit, limit: Number(limit) };
     const list = await ctx.model.CmsWorker.findAndCountAll(map);
-    this.success(list);
+    const typeMap = { where: workType ? { id: Number(workType) } : {} };
+    const types = await ctx.model.SysWorkerTypes.findAll(typeMap);
+    this.success({ ...list, types });
   }
   /**
    * @summary 新建工人
@@ -55,6 +58,59 @@ class WorkerController extends Controller {
     const { ctx } = this;
     const result = await ctx.model.CmsWorker.destroy({ where: { id: ctx.query.id } });
     this.success(result);
+  }
+  /**
+   * @summary 批量删除工人
+   * @description 批量删除工人
+   * @router post /api/cms/worker/bulkDel
+   * @request body array ids 工人ID数组
+   * @response 200 baseRes 成功
+   */
+  async bulkDel() {
+    const { ctx } = this;
+    const ids = ctx.request.body.ids;
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return this.fail('参数错误');
+    }
+    const result = await ctx.model.CmsWorker.destroy({ where: { id: ids } });
+    this.success(result);
+  }
+  /**
+   * @summary 获取工种类型列表
+   * @description 查询所有工种信息
+   * @router get /api/cms/worker/types
+   * @response 200 baseRes 成功
+   */
+  async types() {
+    const { ctx } = this;
+    const map = {};
+    // map.order = [[ 'id', 'ASC' ]];
+    map.where = {};
+    map.attributes = [[ 'name', 'label' ], [ 'id', 'value' ]];
+    const list = await ctx.model.SysWorkerTypes.findAll(map);
+    // const tree = ctx.helper.arr_to_tree(list, 0);
+    this.success({ options: list });
+
+  }
+  /**
+   * @summary 保存工人排序
+   * @description 批量保存工人排序
+   * @router post /api/cms/worker/saveOrder
+   * @request body array list 工人排序数组 [{id, order}]
+   * @response 200 baseRes 成功
+   */
+  async saveOrder() {
+    const { ctx } = this;
+    const list = ctx.request.body.list;
+    if (!Array.isArray(list) || list.length === 0) {
+      return this.fail('参数错误');
+    }
+    // 批量更新排序字段（假设字段为 order）
+    const promises = list.map(item => {
+      return ctx.model.CmsWorker.update({ order: item.order }, { where: { id: item.id } });
+    });
+    await Promise.all(promises);
+    this.success('排序已保存');
   }
 }
 module.exports = WorkerController;
