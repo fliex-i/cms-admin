@@ -170,7 +170,7 @@ module.exports = app => {
   app.router.get('/admin/sys/process/index', app.middleware.sys.authAdminToken(), 'sys.process.list');
   app.router.post('/admin/sys/process/create', app.middleware.sys.authAdminToken(), 'sys.process.create');
   app.router.post('/admin/sys/process/update', app.middleware.sys.authAdminToken(), 'sys.process.update');
-  app.router.get('/admin/sys/process/destroy', app.middleware.sys.authAdminToken(), 'sys.process.destroy');
+  app.router.post('/admin/sys/process/destroy', app.middleware.sys.authAdminToken(), 'sys.process.destroy');
   app.router.post('/admin/sys/process/bulkDel', app.middleware.sys.authAdminToken(), 'sys.process.bulkDel');
   app.router.post('/admin/sys/process/saveOrder', app.middleware.sys.authAdminToken(), 'sys.process.saveOrder');
 
@@ -178,7 +178,7 @@ module.exports = app => {
   app.router.get('/admin/sys/project_ready/index', app.middleware.sys.authAdminToken(), 'sys.projectReady.list');
   app.router.post('/admin/sys/project_ready/create', app.middleware.sys.authAdminToken(), 'sys.projectReady.create');
   app.router.post('/admin/sys/project_ready/update', app.middleware.sys.authAdminToken(), 'sys.projectReady.update');
-  app.router.get('/admin/sys/project_ready/destroy', app.middleware.sys.authAdminToken(), 'sys.projectReady.destroy');
+  app.router.post('/admin/sys/project_ready/destroy', app.middleware.sys.authAdminToken(), 'sys.projectReady.destroy');
   app.router.post('/admin/sys/project_ready/bulkDel', app.middleware.sys.authAdminToken(), 'sys.projectReady.bulkDel');
   app.router.post('/admin/sys/project_ready/saveOrder', app.middleware.sys.authAdminToken(), 'sys.projectReady.saveOrder');
 

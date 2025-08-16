@@ -3,11 +3,13 @@ const Controller = require('egg').Controller;
 class ProcessController extends Controller {
   async list() {
     const { ctx } = this;
-    const { page = 1, pageSize = 10, ...where } = ctx.query;
+    const { page = 1, pageSize } = ctx.query;
+    const limit = Number(pageSize || 10);
+    const where = {};
     const result = await ctx.model.SysProcess.findAndCountAll({
       where,
-      offset: (page - 1) * pageSize,
-      limit: Number(pageSize),
+      offset: (page - 1) * limit,
+      limit,
       order: [[ 'id', 'DESC' ]],
     });
     ctx.body = { code: 0, data: result.rows, count: result.count };

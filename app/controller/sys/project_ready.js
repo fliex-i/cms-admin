@@ -3,7 +3,8 @@ const Controller = require('egg').Controller;
 class ProjectReadyController extends Controller {
   async list() {
     const { ctx } = this;
-    const { page = 1, pageSize = 10, ...where } = ctx.query;
+    const { page = 1, pageSize = 10 } = ctx.query;
+    const where = {};
     const result = await ctx.model.SysProjectReady.findAndCountAll({
       where,
       offset: (page - 1) * pageSize,
