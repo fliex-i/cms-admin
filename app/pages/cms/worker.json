@@ -9,348 +9,91 @@
       "id": "workerList",
       "api": "/admin/cms/worker/index",
       "saveOrderApi": "/admin/cms/worker/saveOrder",
-      "perPageAvailable": [
-        5,
-        10,
-        20,
-        50,
-        100
-      ],
+      "perPageAvailable": [5, 10, 20, 50, 100],
       "filter": {
         "title": "工人管理",
         "body": [
-          {
-            "type": "input-text",
-            "name": "name",
-            "label": "姓名",
-            "clearable": true,
-            "placeholder": "通过姓名搜索",
-            "size": "sm"
-          },
-          {
-            "type": "input-text",
-            "name": "phone",
-            "label": "手机号",
-            "clearable": true,
-            "placeholder": "通过手机号搜索",
-            "size": "sm"
-          },
-          {
-            "type": "select",
-            "name": "workType",
-            "label": "工种",
-            "clearable": true,
-            "placeholder": "请选择工种",
-            "size": "sm",
-            "source": "/admin/cms/worker/types",
-            "searchable": true
-          },
-          {
-            "type": "select",
-            "name": "status",
-            "label": "状态",
-            "clearable": true,
-            "options": [
-              {
-                "label": "正常",
-                "value": 1
-              },
-              {
-                "label": "禁用",
-                "value": 0
-              }
-            ],
-            "size": "sm"
-          },
-          {
-            "type": "input-text",
-            "name": "weixin",
-            "label": "微信号",
-            "clearable": true,
-            "placeholder": "通过微信号搜索",
-            "size": "sm"
-          }
+          { "type": "input-text", "name": "name", "label": "姓名", "clearable": true, "placeholder": "通过姓名搜索", "size": "sm" },
+          { "type": "input-text", "name": "phone", "label": "手机号", "clearable": true, "placeholder": "通过手机号搜索", "size": "sm" },
+          { "type": "input-text", "name": "workType", "label": "工种", "clearable": true, "placeholder": "通过工种搜索", "size": "sm" },
+          { "type": "select", "name": "status", "label": "状态", "clearable": true, "options": [ { "label": "正常", "value": 1 }, { "label": "禁用", "value": 0 } ], "size": "sm" }
         ],
         "actions": [
-          {
-            "type": "reset",
-            "label": "重置"
-          },
-          {
-            "type": "submit",
-            "level": "primary",
-            "label": "查询"
-          }
+          { "type": "reset", "label": "重置" },
+          { "type": "submit", "level": "primary", "label": "查询" }
         ]
       },
       "filterTogglable": true,
       "headerToolbar": [
-        {
-          "type": "columns-toggler",
-          "align": "left"
-        },
-        {
-          "type": "drag-toggler",
-          "align": "left"
-        },
+        { "type": "columns-toggler", "align": "left" },
+        { "type": "drag-toggler", "align": "left" },
         "bulkActions",
-        {
-          "type": "filter-toggler",
-          "align": "right"
-        },
-        {
-          "type": "reload",
-          "align": "right"
-        },
-        {
-          "type": "button",
-          "actionType": "drawer",
-          "label": "新增工人",
-          "primary": true,
-          "align": "right",
-          "drawer": {
-            "title": "新增工人",
-            "size": "md",
-            "body": {
-              "type": "form",
-              "debug": false,
-              "mode": "normal",
-              "horizontal": {
-                "leftFixed": "xs"
-              },
-              "api": "/admin/cms/worker/create",
-              "body": [
-                {
-                  "type": "input-text",
-                  "name": "name",
-                  "label": "姓名",
-                  "required": true
-                },
-                {
-                  "type": "input-text",
-                  "name": "phone",
-                  "label": "手机号",
-                  "required": true
-                },
-                 {
-                  "type": "input-text",
-                  "name": "weixin",
-                  "label": "微信号",
-                  "required": false
-                },
-                {
-                  "type": "select",
-                  "name": "workType",
-                  "label": "工种",
-                  "required": true,
-                  "source": "/admin/cms/worker/types",
-                  "searchable": true,
-                  "clearable": true
-                },
-                {
-                  "type": "input-image",
-                  "name": "avatar",
-                  "label": "工人照片",
-                  "maxLength": 1,
-                  "receiver": "/upload/adminToken"
-                },
-                {
-                  "type": "textarea",
-                  "name": "desc",
-                  "label": "工人介绍",
-                  "maxLength": 800
-                },
-                {
-                  "type": "input-image",
-                  "name": "case",
-                  "label": "施工案例图片",
-                  "maxLength": 6,
-                  "receiver": "/upload/adminToken"
-                }
-              ]
-            }
+        { "type": "filter-toggler", "align": "right" },
+        { "type": "reload", "align": "right" },
+        { "type": "button", "actionType": "drawer", "label": "新增工人", "primary": true, "align": "right", "drawer": {
+          "title": "新增工人",
+          "size": "md",
+          "body": {
+            "type": "form",
+            "debug": false,
+            "mode": "normal",
+            "horizontal": { "leftFixed": "xs" },
+            "api": "/admin/cms/worker/create",
+            "body": [
+              { "type": "input-text", "name": "name", "label": "姓名", "required": true },
+              { "type": "input-text", "name": "phone", "label": "手机号", "required": true },
+              { "type": "input-text", "name": "workType", "label": "工种", "required": true },
+              { "type": "input-image", "name": "avatar", "label": "工人照片", "maxLength": 1, "receiver": "/upload/adminToken" },
+              { "type": "textarea", "name": "desc", "label": "工人介绍", "maxLength": 800 },
+              { "type": "input-image", "name": "case", "label": "施工案例图片", "maxLength": 6, "receiver": "/upload/adminToken", "multiple": true,"addButtonText": "新增照片" }
+            ]
           }
-        }
+        } }
       ],
       "bulkActions": [
-        {
-          "label": "批量删除",
-          "actionType": "ajax",
-          "api": "/admin/cms/worker/bulkDel",
-          "confirmText": "确定要批量删除?"
-        }
+        { "label": "批量删除", "actionType": "ajax", "api": "/admin/cms/worker/bulkDel", "confirmText": "确定要批量删除?" }
       ],
-      "footerToolbar": [
-        "switch-per-page",
-        "statistics",
-        "pagination"
-      ],
+      "footerToolbar": ["switch-per-page", "statistics", "pagination"],
       "columns": [
-        {
-          "name": "id",
-          "label": "ID",
-          "width": 20,
-          "sortable": true,
-          "type": "text",
-          "toggled": true
-        },
-        {
-          "label": "照片",
-          "type": "image",
-          "name": "avatar",
-          "className": "tdimg"
-        },
-        {
-          "name": "name",
-          "label": "姓名",
-          "type": "text",
-          "toggled": true
-        },
-        {
-          "name": "phone",
-          "label": "手机号",
-          "type": "text",
-          "toggled": true
-        },
-         {
-          "name": "weixin",
-          "label": "微信号",
-          "type": "text",
-          "toggled": true
-        },
+        { "name": "id", "label": "ID", "width": 20, "sortable": true, "type": "text", "toggled": true },
+        { "label": "照片", "type": "image", "name": "avatar", "className": "tdimg" },
+        { "name": "name", "label": "姓名", "type": "text", "toggled": true },
+        { "name": "phone", "label": "手机号", "type": "text", "toggled": true },
         {
           "name": "workType",
           "label": "工种",
           "type": "select",
           "toggled": true,
-          "source": "/admin/cms/worker/types",
+          "source": "/admin/cms/worker/types", 
           "searchable": true,
           "clearable": true
         },
-        {
-          "name": "desc",
-          "label": "介绍",
-          "type": "text",
-          "toggled": true
-        },
-        {
-          "name": "case",
-          "label": "案例图片",
-          "type": "image",
-          "toggled": true
-        },
-        {
-          "name": "createdAt",
-          "label": "创建时间",
-          "type": "date",
-          "toggled": true,
-          "format": "YYYY-MM-DD HH:mm"
-        },
-        {
-          "name": "updatedAt",
-          "label": "更新时间",
-          "type": "date",
-          "toggled": true,
-          "format": "YYYY-MM-DD HH:mm"
-        },
-        {
-          "type": "operation",
-          "label": "操作",
-          "width": 80,
-          "buttons": [
-            {
-              "type": "button",
-              "icon": "fa fa-pencil",
-              "actionType": "drawer",
-              "drawer": {
-                "title": "编辑工人",
-                "size": "md",
-                "body": {
-                  "type": "form",
-                  "debug": false,
-                  "mode": "normal",
-                  "horizontal": {
-                    "leftFixed": "xs"
-                  },
-                  "api": "/admin/cms/worker/update",
-                  "body": [
-                    {
-                      "type": "hidden",
-                      "name": "id"
-                    },
-                    {
-                      "type": "input-text",
-                      "name": "name",
-                      "label": "姓名",
-                      "required": true
-                    },
-                    {
-                      "type": "input-text",
-                      "name": "phone",
-                      "label": "手机号",
-                      "required": true
-                    },
-                     {
-                      "type": "input-text",
-                      "name": "weixin",
-                      "label": "微信号",
-                      "required": false
-                    },
-                    {
-                      "type": "select",
-                      "name": "workType",
-                      "label": "工种",
-                      "required": true,
-                      "source": "/admin/cms/worker/types",
-                      "searchable": true,
-                      "clearable": true
-                    },
-                    {
-                      "type": "group",
-                      "mode": "horizontal",
-                      "body": [
-                        {
-                          "type": "input-tag",
-                          "name": "tags",
-                          "label": "标签",
-                          "placeholder": "请选择标签"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "input-image",
-                      "name": "avatar",
-                      "label": "工人照片",
-                      "maxLength": 1,
-                      "receiver": "/upload/adminToken"
-                    },
-                    {
-                      "type": "textarea",
-                      "name": "desc",
-                      "label": "工人介绍",
-                      "maxLength": 800
-                    },
-                    {
-                      "type": "input-image",
-                      "name": "case",
-                      "label": "施工案例图片",
-                      "maxLength": 6,
-                      "receiver": "/upload/adminToken"
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "type": "button",
-              "icon": "fa fa-times text-danger",
-              "actionType": "ajax",
-              "confirmText": "您确认要删除?",
-              "api": "/admin/cms/worker/destroy?id=$id"
+        { "name": "desc", "label": "介绍", "type": "text", "toggled": true },
+        { "name": "createdAt", "label": "创建时间", "type": "date", "toggled": true, "format": "YYYY-MM-DD HH:mm" },
+        { "name": "updatedAt", "label": "更新时间", "type": "date", "toggled": true, "format": "YYYY-MM-DD HH:mm" },
+        { "type": "operation", "label": "操作", "width": 80, "buttons": [
+          { "type": "button", "icon": "fa fa-pencil", "actionType": "drawer", "drawer": {
+            "title": "编辑工人",
+            "size": "md",
+            "body": {
+              "type": "form",
+              "debug": false,
+              "mode": "normal",
+              "horizontal": { "leftFixed": "xs" },
+              "api": "/admin/cms/worker/update",
+              "body": [
+                { "type": "hidden", "name": "id" },
+                { "type": "input-text", "name": "name", "label": "姓名", "required": true },
+                { "type": "input-text", "name": "phone", "label": "手机号", "required": true },
+                { "type": "input-text", "name": "workType", "label": "工种", "required": true },
+                { "type": "input-image", "name": "avatar", "label": "工人照片", "maxLength": 1, "receiver": "/upload/adminToken" },
+                { "type": "textarea", "name": "desc", "label": "工人介绍", "maxLength": 800 },
+                { "type": "input-image", "name": "case", "label": "施工案例图片", "maxLength": 6, "receiver": "/upload/adminToken", "multiple": true,"addButtonText": "新增照片" }
+              ]
             }
-          ],
-          "toggled": true
-        }
+          } },
+          { "type": "button", "icon": "fa fa-times text-danger", "actionType": "ajax", "confirmText": "您确认要删除?", "api": "/admin/cms/worker/destroy?id=$id" }
+        ], "toggled": true }
       ]
     }
   ]

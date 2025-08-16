@@ -1180,9 +1180,11 @@ module.exports = {
   // 找材料数据表
   cms_materials_item: {
     address: { type: 'string', description: '商家地址' },
+    contact: { type: 'string', description: '联系人' },
     createdAt: { type: 'string', description: '创建时间' },
     desc: { type: 'string', description: '商家简介' },
     id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '商家名称' },
     phone: { type: 'string', description: '商家电话' },
     photos: { type: 'string', description: '商家门店内部照片' },
     thumb: { type: 'string', description: '商家门头照片' },
@@ -1193,7 +1195,9 @@ module.exports = {
   },
   cms_materials_add: {
     address: { type: 'string', description: '商家地址', required: false },
+    contact: { type: 'string', description: '联系人', required: false },
     desc: { type: 'string', description: '商家简介', required: false },
+    name: { type: 'string', description: '商家名称', required: false },
     phone: { type: 'string', description: '商家电话', required: false },
     photos: { type: 'string', description: '商家门店内部照片', required: false },
     thumb: { type: 'string', description: '商家门头照片', required: false },
@@ -1203,7 +1207,9 @@ module.exports = {
   },
   cms_materials_edit: {
     address: { type: 'string', description: '商家地址' },
+    contact: { type: 'string', description: '联系人' },
     desc: { type: 'string', description: '商家简介' },
+    name: { type: 'string', description: '商家名称' },
     phone: { type: 'string', description: '商家电话' },
     photos: { type: 'string', description: '商家门店内部照片' },
     thumb: { type: 'string', description: '商家门头照片' },

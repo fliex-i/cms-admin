@@ -11,6 +11,8 @@
       weixin:String
       desc:String
       type:Int
+      name:String
+      contact:String
       
       
     }
@@ -196,6 +198,42 @@
   op_endsWith: String
   op_substring: String
       }
+      input WhereCmsMaterials_name {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_contact {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
       
     input WhereFieldCmsMaterials{
     createdAt:WhereCmsMaterials_createdAt
@@ -208,6 +246,8 @@
       weixin:WhereCmsMaterials_weixin
       desc:WhereCmsMaterials_desc
       type:WhereCmsMaterials_type
+      name:WhereCmsMaterials_name
+      contact:WhereCmsMaterials_contact
       
     }
 
@@ -222,6 +262,8 @@
       weixin:WhereCmsMaterials_weixin
       desc:WhereCmsMaterials_desc
       type:WhereCmsMaterials_type
+      name:WhereCmsMaterials_name
+      contact:WhereCmsMaterials_contact
       
       op_and: [WhereFieldCmsMaterials]
       op_or: [WhereFieldCmsMaterials]
@@ -237,6 +279,8 @@
       weixin: String
       desc: String
       type: Int
+      name: String
+      contact: String
       
     }
     
@@ -249,6 +293,8 @@
       weixin: String
       desc: String
       type: Int
+      name: String
+      contact: String
       
     }
     

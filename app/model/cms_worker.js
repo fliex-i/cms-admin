@@ -10,7 +10,7 @@ module.exports = app => {
     avatar: { type: DataTypes.STRING, comment: '工人照片' },
     desc: { type: DataTypes.STRING, comment: '工人介绍' },
     phone: { type: DataTypes.STRING(11), comment: '联系电话' },
-    case: { type: DataTypes.STRING, comment: '施工案例图片' },
+    case: { type: DataTypes.JSON, comment: '施工案例图片' },
     name: { type: DataTypes.STRING, comment: '姓名' },
     tags: { type: DataTypes.STRING, comment: '标签' },
     weixin: { type: DataTypes.STRING, comment: '微信号' },

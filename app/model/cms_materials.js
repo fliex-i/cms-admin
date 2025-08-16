@@ -13,6 +13,8 @@ module.exports = app => {
     weixin: { type: DataTypes.STRING, comment: '商家微信' },
     desc: { type: DataTypes.JSON, comment: '商家简介' },
     type: { type: DataTypes.INTEGER, comment: '商家类型Id' },
+    name: { type: DataTypes.STRING, comment: '商家名称' },
+    contact: { type: DataTypes.STRING, comment: '联系人' },
   },{
   
   paranoid: false,
