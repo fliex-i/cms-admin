@@ -9,11 +9,18 @@
       "filter": {
         "title": "工艺标准管理",
         "body": [
-          { "type": "input-text", "name": "process", "label": "流程介绍", "clearable": true },
-          { "type": "input-text", "name": "standard", "label": "工艺标准", "clearable": true },
-          { "type": "input-text", "name": "type", "label": "施工类型", "clearable": true },
-          { "type": "input-text", "name": "notes", "label": "注意事项", "clearable": true },
-          { "type": "input-text", "name": "key", "label": "关联项目key", "clearable": true }
+          { "type": "select", "name": "type","size": "sm", "label": "施工类型", "options": [ { "label": "静音施工", "value": "quiet" }, { "label": "噪音施工", "value": "noise" } ] },
+          { 
+            "type": "select", 
+            "name": "key", 
+            "label": "关联项目key", 
+            "clearable": true,
+            "size": "sm",
+            "source": "/admin/sys/projects/index?page=1&pageSize=100",
+            "searchable": true,
+            "labelField": "name",
+            "valueField": "key"
+          }
         ],
         "actions": [
           { "type": "reset", "label": "重置" },
@@ -28,11 +35,15 @@
             "type": "form",
             "api": "/admin/sys/process/create",
             "body": [
-              { "type": "input-text", "name": "process", "label": "流程介绍", "required": true },
-              { "type": "input-text", "name": "standard", "label": "工艺标准", "required": true },
-              { "type": "input-text", "name": "type", "label": "施工类型" },
-              { "type": "input-text", "name": "notes", "label": "注意事项" },
-              { "type": "input-text", "name": "key", "label": "关联项目key" }
+              { "type": "textarea", "name": "process", "label": "流程介绍", "required": true },
+              { "type": "textarea", "name": "standard", "label": "工艺标准", "required": true },
+              { "type": "select", "name": "type", "label": "施工类型", "options": [ { "label": "静音施工", "value": "quiet" }, { "label": "噪音施工", "value": "noise" } ] },
+              { "type": "textarea", "name": "notes", "label": "注意事项" },
+              { "type": "select", "name": "key", "label": "关联项目key", "size": "sm", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                "searchable": true,
+                "labelField": "name",
+                "valueField": "key"
+              } 
             ]
           }
         }}
@@ -44,9 +55,9 @@
         { "name": "id", "label": "ID", "type": "text", "sortable": true },
         { "name": "process", "label": "流程介绍", "type": "text" },
         { "name": "standard", "label": "工艺标准", "type": "text" },
-        { "name": "type", "label": "施工类型", "type": "text" },
+        { "type": "select", "name": "type", "label": "施工类型", "options": [ { "label": "静音施工", "value": "quiet" }, { "label": "噪音施工", "value": "noise" } ]},
         { "name": "notes", "label": "注意事项", "type": "text" },
-        { "name": "key", "label": "关联项目key", "type": "text" },
+         { "type": "select", "name": "key", "label": "关联项目key","source": "/admin/sys/projects/index?page=1&pageSize=100", "labelField":"name","valueField":"key"},
         { "name": "createdAt", "label": "创建时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
         { "name": "updatedAt", "label": "更新时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
         { "type": "operation", "label": "操作", "buttons": [
@@ -57,11 +68,15 @@
               "api": "/admin/sys/process/update",
               "body": [
                 { "type": "hidden", "name": "id" },
-                { "type": "input-text", "name": "process", "label": "流程介绍", "required": true },
-                { "type": "input-text", "name": "standard", "label": "工艺标准", "required": true },
-                { "type": "input-text", "name": "type", "label": "施工类型" },
-                { "type": "input-text", "name": "notes", "label": "注意事项" },
-                { "type": "input-text", "name": "key", "label": "关联项目key" }
+                { "type": "textarea", "name": "process", "label": "流程介绍", "required": true },
+                { "type": "textarea", "name": "standard", "label": "工艺标准", "required": true },
+                { "type": "select", "name": "type", "label": "施工类型", "options": [ { "label": "静音施工", "value": "quiet" }, { "label": "噪音施工", "value": "noise" } ] },
+                { "type": "textarea", "name": "notes", "label": "注意事项" },
+                { "type": "select", "name": "key", "label": "关联项目key", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                  "searchable": true,
+                  "labelField": "name",
+                  "valueField": "key"
+                }
               ]
             }
           }},

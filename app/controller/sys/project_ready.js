@@ -3,12 +3,24 @@ const Controller = require('egg').Controller;
 class ProjectReadyController extends Controller {
   async list() {
     const { ctx } = this;
-    const { page = 1, pageSize = 10 } = ctx.query;
-    const where = {};
+    const { page = 1, perPage = 10 } = ctx.query;
+    const where = { ...ctx.query };
+    Object.keys(where).forEach(key => {
+      if (
+        where[key] === undefined ||
+        where[key] === null ||
+        where[key] === '' ||
+        [ 'page', 'perPage', 'pageSize' ].includes(key) ||
+        (Array.isArray(where[key]) && where[key].length === 0)
+      ) {
+        delete where[key];
+      }
+    });
+    ctx.logger.info('Query parameters:', where);
     const result = await ctx.model.SysProjectReady.findAndCountAll({
       where,
-      offset: (page - 1) * pageSize,
-      limit: Number(pageSize),
+      offset: (page - 1) * perPage,
+      limit: Number(perPage),
       order: [[ 'id', 'DESC' ]],
     });
     ctx.body = { code: 0, data: result.rows, count: result.count };

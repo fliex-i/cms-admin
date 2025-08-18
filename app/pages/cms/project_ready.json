@@ -9,12 +9,12 @@
       "filter": {
         "title": "前期准备管理",
         "body": [
-          { "type": "input-text", "name": "mainMaterial", "label": "主材", "clearable": true },
-          { "type": "input-text", "name": "auxiliaryMaterial", "label": "辅材", "clearable": true },
-          { "type": "input-text", "name": "deliveryCycle", "label": "到货周期", "clearable": true },
-          { "type": "input-text", "name": "workerContact", "label": "工人联系", "clearable": true },
-          { "type": "input-text", "name": "other", "label": "其他", "clearable": true },
-          { "type": "input-text", "name": "key", "label": "关联项目key", "clearable": true }
+          { "type": "select", "name": "key", "label": "关联项目key","size": "sm", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                  "searchable": true,
+                  "clearable": true,
+                  "labelField": "name",
+                  "valueField": "key"
+                }
         ],
         "actions": [
           { "type": "reset", "label": "重置" },
@@ -29,12 +29,17 @@
             "type": "form",
             "api": "/admin/sys/project_ready/create",
             "body": [
-              { "type": "input-text", "name": "mainMaterial", "label": "主材", "required": true },
-              { "type": "input-text", "name": "auxiliaryMaterial", "label": "辅材" },
+              { "type": "textarea", "name": "mainMaterial", "label": "主材", "required": true },
+              { "type": "textarea", "name": "auxiliaryMaterial", "label": "辅材" },
               { "type": "input-text", "name": "deliveryCycle", "label": "到货周期" },
               { "type": "input-text", "name": "workerContact", "label": "工人联系" },
-              { "type": "input-text", "name": "other", "label": "其他" },
-              { "type": "input-text", "name": "key", "label": "关联项目key" }
+              { "type": "textarea", "name": "other", "label": "其他" },
+              { "type": "select", "name": "key", "label": "关联项目key", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                  "searchable": true,
+                  "clearable": true,
+                  "labelField": "name",
+                  "valueField": "key"
+                }
             ]
           }
         }}
@@ -49,7 +54,11 @@
         { "name": "deliveryCycle", "label": "到货周期", "type": "text" },
         { "name": "workerContact", "label": "工人联系", "type": "text" },
         { "name": "other", "label": "其他", "type": "text" },
-        { "name": "key", "label": "关联项目key", "type": "text" },
+        { "type": "select", "name": "key", "label": "关联项目key", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                  "searchable": true,
+                  "labelField": "name",
+                  "valueField": "key"
+                },
         { "name": "createdAt", "label": "创建时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
         { "name": "updatedAt", "label": "更新时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
         { "type": "operation", "label": "操作", "buttons": [
@@ -60,12 +69,17 @@
               "api": "/admin/sys/project_ready/update",
               "body": [
                 { "type": "hidden", "name": "id" },
-                { "type": "input-text", "name": "mainMaterial", "label": "主材", "required": true },
-                { "type": "input-text", "name": "auxiliaryMaterial", "label": "辅材" },
+                { "type": "textarea", "name": "mainMaterial", "label": "主材", "required": true },
+                { "type": "textarea", "name": "auxiliaryMaterial", "label": "辅材" },
                 { "type": "input-text", "name": "deliveryCycle", "label": "到货周期" },
                 { "type": "input-text", "name": "workerContact", "label": "工人联系" },
-                { "type": "input-text", "name": "other", "label": "其他" },
-                { "type": "input-text", "name": "key", "label": "关联项目key" }
+                { "type": "textarea", "name": "other", "label": "其他" },
+                { "type": "select", "name": "key", "label": "关联项目key", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                  "searchable": true,
+                  "clearable": true,
+                  "labelField": "name",
+                  "valueField": "key"
+                }
               ]
             }
           }},

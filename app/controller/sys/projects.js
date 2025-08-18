@@ -1,10 +1,10 @@
 'use strict';
 const Controller = require('egg').Controller;
-class ProcessController extends Controller {
+class ProjectsController extends Controller {
   async list() {
     const { ctx } = this;
-    const { page = 1, perPage } = ctx.query;
-    const limit = Number(perPage || 10);
+    const { page = 1, pageSize, perPage } = ctx.query;
+    const limit = Number(pageSize || perPage || 10);
     const where = { ...ctx.query };
     Object.keys(where).forEach(key => {
       if (
@@ -17,7 +17,7 @@ class ProcessController extends Controller {
         delete where[key];
       }
     });
-    const result = await ctx.model.SysProcess.findAndCountAll({
+    const result = await ctx.model.SysProjects.findAndCountAll({
       where,
       offset: (page - 1) * limit,
       limit,
@@ -28,25 +28,25 @@ class ProcessController extends Controller {
   async create() {
     const { ctx } = this;
     const data = ctx.request.body;
-    const res = await ctx.model.SysProcess.create(data);
+    const res = await ctx.model.SysProjects.create(data);
     ctx.body = { code: 0, data: res };
   }
   async update() {
     const { ctx } = this;
     const { id, ...data } = ctx.request.body;
-    await ctx.model.SysProcess.update(data, { where: { id } });
+    await ctx.model.SysProjects.update(data, { where: { id } });
     ctx.body = { code: 0 };
   }
   async destroy() {
     const { ctx } = this;
     const { id } = ctx.query;
-    await ctx.model.SysProcess.destroy({ where: { id } });
+    await ctx.model.SysProjects.destroy({ where: { id } });
     ctx.body = { code: 0 };
   }
   async bulkDel() {
     const { ctx } = this;
     const { ids } = ctx.request.body;
-    await ctx.model.SysProcess.destroy({ where: { id: ids } });
+    await ctx.model.SysProjects.destroy({ where: { id: ids } });
     ctx.body = { code: 0 };
   }
   async saveOrder() {
@@ -55,4 +55,4 @@ class ProcessController extends Controller {
     ctx.body = { code: 0 };
   }
 }
-module.exports = ProcessController;
+module.exports = ProjectsController;
