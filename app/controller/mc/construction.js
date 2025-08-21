@@ -15,7 +15,7 @@ class ConstructionController extends Controller {
     const data = ctx.query;
     const page = data.page || 1;
     const limit = data.perPage || 15;
-    const map = { where: {}, offset: (Number(page) - 1) * limit, limit: Number(limit) };
+    const map = { where: { uid: ctx.userInfo.id }, offset: (Number(page) - 1) * limit, limit: Number(limit) };
     const list = await ctx.model.McConstruction.findAndCountAll(map);
     this.success(list);
   }

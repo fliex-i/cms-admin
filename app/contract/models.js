@@ -891,16 +891,19 @@ module.exports = {
     createdAt: { type: 'string', description: '创建时间' },
     id: { type: 'string', description: '主键' },
     items: { type: 'string', description: '用户施工计划json数据' },
+    startAt: { type: 'string', description: '开工时间' },
     uid: { type: 'string', description: '用户id' },
     updatedAt: { type: 'string', description: '更新时间' },
     
   },
   mc_construction_add: {
     items: { type: 'string', description: '用户施工计划json数据', required: false },
+    startAt: { type: 'string', description: '开工时间', required: false },
     
   },
   mc_construction_edit: {
     items: { type: 'string', description: '用户施工计划json数据' },
+    startAt: { type: 'string', description: '开工时间' },
     uid: { type: 'string', description: '用户id' },
     
   },
