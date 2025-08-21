@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'cmsAdmin',
       script: 'npm',
-      args: 'run start',
+      args: 'run dev',
       cwd: __dirname,
       env: {
         NODE_ENV: 'development',
