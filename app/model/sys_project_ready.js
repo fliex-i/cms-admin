@@ -11,7 +11,7 @@ module.exports = app => {
     auxiliaryMaterial: { type: DataTypes.STRING, comment: '辅材' },
     deliveryCycle: { type: DataTypes.STRING, comment: '到货周期' },
     workerContact: { type: DataTypes.STRING, comment: '工人联系' },
-    其他: { type: DataTypes.STRING, comment: 'others' },
+    other: { type: DataTypes.STRING, comment: 'others' },
   }, {
 
     paranoid: false,

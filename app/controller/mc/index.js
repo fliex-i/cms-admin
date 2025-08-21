@@ -46,8 +46,14 @@ class IndexController extends Controller {
     if (member) {
       const token = ctx.helper.generateToken(member);
       // 设置 Session
+      ctx.logger.info('登录成功，设置 Session:', { token, memberId: member.id, session: ctx.session });
+      // 确保 session 已经初始化并且可以设置
       ctx.session.mcToken = token;
-      this.success(member, '登录成功');
+      if (typeof ctx.session.save === 'function') {
+        await ctx.session.save(); // 强制保存 session（部分框架需要）
+      }
+      ctx.logger.info('member:', member);
+      this.success({ ...member.dataValues, token }, '登录成功');
     } else {
       this.fail('手机号或密码错误');
     }

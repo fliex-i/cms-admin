@@ -8,6 +8,7 @@ module.exports = app => {
     updatedAt: { type: DataTypes.DATE, comment: '更新时间' },
     uid: { type: DataTypes.INTEGER, comment: '用户id' },
     items: { type: DataTypes.JSON, comment: '用户施工计划json数据' },
+    startAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW, comment: '开工时间' },
   },{
   indexes:[{"unique":false,"fields":["id"]}],
   paranoid: false,

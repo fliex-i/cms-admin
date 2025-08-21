@@ -6,6 +6,7 @@
       updatedAt:Date
       uid:Int
       items:String
+      startAt:Date
       
       
     }
@@ -101,6 +102,24 @@
   op_endsWith: String
   op_substring: String
       }
+      input WhereMcConstruction_startAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
       
     input WhereFieldMcConstruction{
     createdAt:WhereMcConstruction_createdAt
@@ -108,6 +127,7 @@
       updatedAt:WhereMcConstruction_updatedAt
       uid:WhereMcConstruction_uid
       items:WhereMcConstruction_items
+      startAt:WhereMcConstruction_startAt
       
     }
 
@@ -117,6 +137,7 @@
       updatedAt:WhereMcConstruction_updatedAt
       uid:WhereMcConstruction_uid
       items:WhereMcConstruction_items
+      startAt:WhereMcConstruction_startAt
       
       op_and: [WhereFieldMcConstruction]
       op_or: [WhereFieldMcConstruction]
@@ -126,6 +147,7 @@
     
     input AddMcConstruction {
     items: String
+      startAt: Date
       
     }
     
@@ -133,6 +155,7 @@
     input EditMcConstruction {
     uid: Int
       items: String
+      startAt: Date
       
     }
     

@@ -117,10 +117,10 @@ module.exports = app => {
   app.router.get('删除文档', '/admin/cms/doc/docDel', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.doc.docDel');
   app.router.get('获取所属分类', '/admin/cms/doc/selectClassify', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.doc.selectClassify');
   // 获取装修预算
-  app.router.get('获取装修预算', '/api/mc/budget/list', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.list');
-  app.router.post('添加装修预算', '/api/mc/budget/create', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.create');
-  app.router.put('更新装修预算', '/api/mc/budget/update', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.update');
-  app.router.delete('删除装修预算', '/api/mc/budget/destroy', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.destroy');
+  app.router.get('/api/mc/budget/list', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.list');
+  app.router.post('/api/mc/budget/create', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.create');
+  app.router.put('/api/mc/budget/update', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.update');
+  app.router.delete('/api/mc/budget/destroy', app.middleware.sys.authAdminToken(), app.middleware.mc.authMcToken(), 'mc.budget.destroy');
 
   // 工程管理
   app.router.get('/api/mc/construction', app.middleware.mc.authMcToken(), 'mc.construction.list');
@@ -129,16 +129,69 @@ module.exports = app => {
   app.router.get('/api/mc/construction/:id', app.middleware.mc.authMcToken(), 'mc.construction.destroy');
 
   // 户型方案
-  app.router.get('/api/mc/house_plan', app.middleware.mc.authMcToken(), 'mc.housePlan.list');
+  app.router.get('/api/mc/housePlan', app.middleware.mc.authMcToken(), 'mc.housePlan.list');
   app.router.post('/api/mc/housePlan', app.middleware.mc.authMcToken(), 'mc.housePlan.create');
-  app.router.post('/api/mc/house_plan/:id', app.middleware.mc.authMcToken(), 'mc.housePlan.update');
-  app.router.get('/api/mc/house_plan/:id', app.middleware.mc.authMcToken(), 'mc.housePlan.destroy');
+  app.router.post('/api/mc/housePlan/:id', app.middleware.mc.authMcToken(), 'mc.housePlan.update');
+  app.router.get('/api/mc/housePlan/:id', app.middleware.mc.authMcToken(), 'mc.housePlan.destroy');
 
   // 工人管理
-  app.router.get('/api/cms/worker', app.middleware.sys.authAdminToken(), 'cms.worker.list');
-  app.router.post('/api/cms/worker', app.middleware.sys.authAdminToken(), 'cms.worker.create');
-  app.router.post('/api/cms/worker/:id', app.middleware.sys.authAdminToken(), 'cms.worker.update');
-  app.router.get('/api/cms/worker/:id', app.middleware.sys.authAdminToken(), 'cms.worker.destroy');
+  app.router.get('/api/cms/worker/index', app.middleware.mc.authMcToken(), 'cms.worker.list');
+  // 工种类型列表
+  app.router.get('/api/cms/worker/types', 'cms.worker.types');
+
+  // 图片上传
+  app.router.post('/api/upload', app.middleware.mc.authMcToken(), 'cms.upload.image');
   // 省市区三级联动
-  app.router.get('/api/sys/region', 'sys.region.list');
+  // app.router.get('/api/sys/region', 'sys.region.list');
+  // 获取短信验证码
+  app.router.post('/mc/sendSms', 'mc.index.sendSms');
+  // 验证短信验证码
+  app.router.post('/mc/verifySms', 'mc.index.verifySms');
+
+  // 工人管理接口
+  app.router.get('/api/cms/worker/index', 'cms.worker.list');
+  app.router.get('/admin/cms/worker/index', app.middleware.sys.authAdminToken(), 'cms.worker.list');
+  app.router.post('/admin/cms/worker/create', app.middleware.sys.authAdminToken(), 'cms.worker.create');
+  app.router.post('/admin/cms/worker/update', app.middleware.sys.authAdminToken(), 'cms.worker.update');
+  app.router.post('/admin/cms/worker/destroy', app.middleware.sys.authAdminToken(), 'cms.worker.destroy');
+  app.router.post('/admin/cms/worker/bulkDel', app.middleware.sys.authAdminToken(), 'cms.worker.bulkDel');
+  app.router.post('/admin/cms/worker/saveOrder', app.middleware.sys.authAdminToken(), 'cms.worker.saveOrder');
+
+  // 材料商管理接口
+  app.router.get('/api/cms/materials/index', 'cms.materials.list');
+  app.router.get('/api/cms/materials/types', 'cms.materials.types');
+  app.router.get('/admin/cms/materials/index', app.middleware.sys.authAdminToken(), 'cms.materials.list');
+  app.router.post('/admin/cms/materials/create', app.middleware.sys.authAdminToken(), 'cms.materials.create');
+  app.router.post('/admin/cms/materials/update', app.middleware.sys.authAdminToken(), 'cms.materials.update');
+  app.router.post('/admin/cms/materials/destroy', app.middleware.sys.authAdminToken(), 'cms.materials.destroy');
+  app.router.post('/admin/cms/materials/bulkDel', app.middleware.sys.authAdminToken(), 'cms.materials.bulkDel');
+  app.router.get('/admin/cms/materials/types', app.middleware.sys.authAdminToken(), 'cms.materials.types');
+  app.router.post('/admin/cms/materials/saveOrder', app.middleware.sys.authAdminToken(), 'cms.materials.saveOrder');
+
+  // 工艺标准管理
+  app.router.get('/api/sys/process/index', 'sys.process.list');
+  app.router.get('/admin/sys/process/index', app.middleware.sys.authAdminToken(), 'sys.process.list');
+  app.router.post('/admin/sys/process/create', app.middleware.sys.authAdminToken(), 'sys.process.create');
+  app.router.post('/admin/sys/process/update', app.middleware.sys.authAdminToken(), 'sys.process.update');
+  app.router.post('/admin/sys/process/destroy', app.middleware.sys.authAdminToken(), 'sys.process.destroy');
+  app.router.post('/admin/sys/process/bulkDel', app.middleware.sys.authAdminToken(), 'sys.process.bulkDel');
+  app.router.post('/admin/sys/process/saveOrder', app.middleware.sys.authAdminToken(), 'sys.process.saveOrder');
+
+  // 前期准备管理
+  app.router.get('/api/sys/project_ready/index', 'sys.projectReady.list');
+  app.router.get('/admin/sys/project_ready/index', app.middleware.sys.authAdminToken(), 'sys.projectReady.list');
+  app.router.post('/admin/sys/project_ready/create', app.middleware.sys.authAdminToken(), 'sys.projectReady.create');
+  app.router.post('/admin/sys/project_ready/update', app.middleware.sys.authAdminToken(), 'sys.projectReady.update');
+  app.router.post('/admin/sys/project_ready/destroy', app.middleware.sys.authAdminToken(), 'sys.projectReady.destroy');
+  app.router.post('/admin/sys/project_ready/bulkDel', app.middleware.sys.authAdminToken(), 'sys.projectReady.bulkDel');
+  app.router.post('/admin/sys/project_ready/saveOrder', app.middleware.sys.authAdminToken(), 'sys.projectReady.saveOrder');
+
+  // 项目管理
+  app.router.get('/admin/sys/projects/index', 'sys.projects.list');
+  app.router.post('/admin/sys/projects/create', app.middleware.sys.authAdminToken(), 'sys.projects.create');
+  app.router.post('/admin/sys/projects/update', app.middleware.sys.authAdminToken(), 'sys.projects.update');
+  app.router.post('/admin/sys/projects/destroy', app.middleware.sys.authAdminToken(), 'sys.projects.destroy');
+  app.router.post('/admin/sys/projects/bulkDel', app.middleware.sys.authAdminToken(), 'sys.projects.bulkDel');
+  app.router.post('/admin/sys/projects/saveOrder', app.middleware.sys.authAdminToken(), 'sys.projects.saveOrder');
+
 };

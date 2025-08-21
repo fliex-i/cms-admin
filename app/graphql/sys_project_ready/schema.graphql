@@ -9,7 +9,7 @@
       auxiliaryMaterial:String
       deliveryCycle:String
       workerContact:String
-      其他:String
+      other:String
       
       
     }
@@ -159,7 +159,7 @@
   op_endsWith: String
   op_substring: String
       }
-      input WhereSysProjectReady_其他 {
+      input WhereSysProjectReady_other {
         op_eq: String
   op_ne: String
   op_or: [String]
@@ -187,7 +187,7 @@
       auxiliaryMaterial:WhereSysProjectReady_auxiliaryMaterial
       deliveryCycle:WhereSysProjectReady_deliveryCycle
       workerContact:WhereSysProjectReady_workerContact
-      其他:WhereSysProjectReady_其他
+      other:WhereSysProjectReady_other
       
     }
 
@@ -200,7 +200,7 @@
       auxiliaryMaterial:WhereSysProjectReady_auxiliaryMaterial
       deliveryCycle:WhereSysProjectReady_deliveryCycle
       workerContact:WhereSysProjectReady_workerContact
-      其他:WhereSysProjectReady_其他
+      other:WhereSysProjectReady_other
       
       op_and: [WhereFieldSysProjectReady]
       op_or: [WhereFieldSysProjectReady]
@@ -214,7 +214,7 @@
       auxiliaryMaterial: String
       deliveryCycle: String
       workerContact: String
-      其他: String
+      other: String
       
     }
     
@@ -225,7 +225,7 @@
       auxiliaryMaterial: String
       deliveryCycle: String
       workerContact: String
-      其他: String
+      other: String
       
     }
     

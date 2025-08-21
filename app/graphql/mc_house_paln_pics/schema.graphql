@@ -1,0 +1,173 @@
+
+    
+    type McHousePalnPics {
+      createdAt:Date
+      id:ID
+      updatedAt:Date
+      picture:String
+      uid:Int
+      spaceId:Int
+      
+      
+    }
+    
+    
+    input WhereMcHousePalnPics_createdAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcHousePalnPics_id {
+        op_eq: ID
+  op_ne: ID
+  op_or: [ID]
+  op_gt: ID
+  op_gte: ID
+  op_lt: ID
+  op_lte: ID
+  op_between: [ID]
+  op_notBetween: [ID]
+  op_in: [ID]
+  op_notIn: [ID]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcHousePalnPics_updatedAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcHousePalnPics_picture {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcHousePalnPics_uid {
+        op_eq: Int
+  op_ne: Int
+  op_or: [Int]
+  op_gt: Int
+  op_gte: Int
+  op_lt: Int
+  op_lte: Int
+  op_between: [Int]
+  op_notBetween: [Int]
+  op_in: [Int]
+  op_notIn: [Int]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcHousePalnPics_spaceId {
+        op_eq: Int
+  op_ne: Int
+  op_or: [Int]
+  op_gt: Int
+  op_gte: Int
+  op_lt: Int
+  op_lte: Int
+  op_between: [Int]
+  op_notBetween: [Int]
+  op_in: [Int]
+  op_notIn: [Int]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      
+    input WhereFieldMcHousePalnPics{
+    createdAt:WhereMcHousePalnPics_createdAt
+      id:WhereMcHousePalnPics_id
+      updatedAt:WhereMcHousePalnPics_updatedAt
+      picture:WhereMcHousePalnPics_picture
+      uid:WhereMcHousePalnPics_uid
+      spaceId:WhereMcHousePalnPics_spaceId
+      
+    }
+
+    input WhereMcHousePalnPics {
+      createdAt:WhereMcHousePalnPics_createdAt
+      id:WhereMcHousePalnPics_id
+      updatedAt:WhereMcHousePalnPics_updatedAt
+      picture:WhereMcHousePalnPics_picture
+      uid:WhereMcHousePalnPics_uid
+      spaceId:WhereMcHousePalnPics_spaceId
+      
+      op_and: [WhereFieldMcHousePalnPics]
+      op_or: [WhereFieldMcHousePalnPics]
+      op_not: [WhereFieldMcHousePalnPics]
+    }
+    
+    
+    input AddMcHousePalnPics {
+    picture: String
+      uid: Int
+      spaceId: Int
+      
+    }
+    
+    
+    input EditMcHousePalnPics {
+    picture: String
+      uid: Int
+      spaceId: Int
+      
+    }
+    
+    type CountMcHousePalnPics {
+      count: Int
+      rows: [McHousePalnPics]
+    }
+    type ResDelMcHousePalnPics {
+      count: Int
+    }
+    type ResEditMcHousePalnPics {
+      ids: [Int]
+    }
+    

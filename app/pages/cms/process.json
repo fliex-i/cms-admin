@@ -1,0 +1,88 @@
+{
+  "type": "page",
+  "body": [
+    {
+      "type": "crud",
+      "name": "processList",
+      "api": "/admin/sys/process/index",
+      "saveOrderApi": "/admin/sys/process/saveOrder",
+      "filter": {
+        "title": "工艺标准管理",
+        "body": [
+          { "type": "select", "name": "type","size": "sm", "label": "施工类型", "options": [ { "label": "静音施工", "value": "quiet" }, { "label": "噪音施工", "value": "noise" } ] },
+          { 
+            "type": "select", 
+            "name": "key", 
+            "label": "关联项目key", 
+            "clearable": true,
+            "size": "sm",
+            "source": "/admin/sys/projects/index?page=1&pageSize=100",
+            "searchable": true,
+            "labelField": "name",
+            "valueField": "key"
+          }
+        ],
+        "actions": [
+          { "type": "reset", "label": "重置" },
+          { "type": "submit", "level": "primary", "label": "查询" }
+        ]
+      },
+      "headerToolbar": [
+        "bulkActions",
+        { "type": "button", "actionType": "drawer", "label": "新增工艺标准", "primary": true, "drawer": {
+          "title": "新增工艺标准",
+          "body": {
+            "type": "form",
+            "api": "/admin/sys/process/create",
+            "body": [
+              { "type": "textarea", "name": "process", "label": "流程介绍", "required": true },
+              { "type": "textarea", "name": "standard", "label": "工艺标准", "required": true },
+              { "type": "select", "name": "type", "label": "施工类型", "options": [ { "label": "静音施工", "value": "quiet" }, { "label": "噪音施工", "value": "noise" } ] },
+              { "type": "textarea", "name": "notes", "label": "注意事项" },
+              { "type": "select", "name": "key", "label": "关联项目key", "size": "sm", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                "searchable": true,
+                "labelField": "name",
+                "valueField": "key"
+              } 
+            ]
+          }
+        }}
+      ],
+      "bulkActions": [
+        { "label": "批量删除", "actionType": "ajax", "api": "/admin/sys/process/bulkDel", "confirmText": "确定要批量删除?" }
+      ],
+      "columns": [
+        { "name": "id", "label": "ID", "type": "text", "sortable": true },
+        { "name": "process", "label": "流程介绍", "type": "text" },
+        { "name": "standard", "label": "工艺标准", "type": "text" },
+        { "type": "select", "name": "type", "label": "施工类型", "options": [ { "label": "静音施工", "value": "quiet" }, { "label": "噪音施工", "value": "noise" } ]},
+        { "name": "notes", "label": "注意事项", "type": "text" },
+         { "type": "select", "name": "key", "label": "关联项目key","source": "/admin/sys/projects/index?page=1&pageSize=100", "labelField":"name","valueField":"key"},
+        { "name": "createdAt", "label": "创建时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
+        { "name": "updatedAt", "label": "更新时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
+        { "type": "operation", "label": "操作", "buttons": [
+          { "type": "button", "icon": "fa fa-pencil", "actionType": "drawer", "drawer": {
+            "title": "编辑工艺标准",
+            "body": {
+              "type": "form",
+              "api": "/admin/sys/process/update",
+              "body": [
+                { "type": "hidden", "name": "id" },
+                { "type": "textarea", "name": "process", "label": "流程介绍", "required": true },
+                { "type": "textarea", "name": "standard", "label": "工艺标准", "required": true },
+                { "type": "select", "name": "type", "label": "施工类型", "options": [ { "label": "静音施工", "value": "quiet" }, { "label": "噪音施工", "value": "noise" } ] },
+                { "type": "textarea", "name": "notes", "label": "注意事项" },
+                { "type": "select", "name": "key", "label": "关联项目key", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                  "searchable": true,
+                  "labelField": "name",
+                  "valueField": "key"
+                }
+              ]
+            }
+          }},
+          { "type": "button", "icon": "fa fa-times text-danger", "actionType": "ajax", "confirmText": "您确认要删除?", "api": "/admin/sys/process/destroy?id=$id" }
+        ]}
+      ]
+    }
+  ]
+}

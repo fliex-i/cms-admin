@@ -891,16 +891,19 @@ module.exports = {
     createdAt: { type: 'string', description: '创建时间' },
     id: { type: 'string', description: '主键' },
     items: { type: 'string', description: '用户施工计划json数据' },
+    startAt: { type: 'string', description: '开工时间' },
     uid: { type: 'string', description: '用户id' },
     updatedAt: { type: 'string', description: '更新时间' },
 
   },
   mc_construction_add: {
     items: { type: 'string', description: '用户施工计划json数据', required: false },
+    startAt: { type: 'string', description: '开工时间', required: false },
 
   },
   mc_construction_edit: {
     items: { type: 'string', description: '用户施工计划json数据' },
+    startAt: { type: 'string', description: '开工时间' },
     uid: { type: 'string', description: '用户id' },
 
   },
@@ -909,23 +912,20 @@ module.exports = {
   mc_house_plan_item: {
     createdAt: { type: 'string', description: '创建时间' },
     id: { type: 'string', description: '主键' },
-    layout_pictures: { type: 'string', description: '布局图集:图片地址,分割' },
-    layouts: { type: 'string', description: '房间空间布局子项,分割' },
-    space: { type: 'string', description: '房间空间' },
+    pictures: { type: 'string', description: '空间图片' },
+    spaceName: { type: 'string', description: '房间空间' },
     uid: { type: 'string', description: '用户id' },
     updatedAt: { type: 'string', description: '更新时间' },
 
   },
   mc_house_plan_add: {
-    layout_pictures: { type: 'string', description: '布局图集:图片地址,分割', required: false },
-    layouts: { type: 'string', description: '房间空间布局子项,分割', required: false },
-    space: { type: 'string', description: '房间空间', required: true },
+    pictures: { type: 'string', description: '空间图片', required: false },
+    spaceName: { type: 'string', description: '房间空间', required: true },
 
   },
   mc_house_plan_edit: {
-    layout_pictures: { type: 'string', description: '布局图集:图片地址,分割' },
-    layouts: { type: 'string', description: '房间空间布局子项,分割' },
-    space: { type: 'string', description: '房间空间' },
+    pictures: { type: 'string', description: '空间图片' },
+    spaceName: { type: 'string', description: '房间空间' },
     uid: { type: 'string', description: '用户id' },
 
   },
@@ -964,8 +964,10 @@ module.exports = {
     id: { type: 'string', description: '主键' },
     name: { type: 'string', description: '姓名' },
     phone: { type: 'string', description: '联系电话' },
+    tags: { type: 'string', description: '标签' },
     updatedAt: { type: 'string', description: '更新时间' },
-    workType: { type: 'string', description: '工种' },
+    weixin: { type: 'string', description: '微信号' },
+    workType: { type: 'string', description: '工种类型ID' },
 
   },
   cms_worker_add: {
@@ -974,7 +976,9 @@ module.exports = {
     desc: { type: 'string', description: '工人介绍', required: true },
     name: { type: 'string', description: '姓名', required: true },
     phone: { type: 'string', description: '联系电话', required: true },
-    workType: { type: 'string', description: '工种', required: true },
+    tags: { type: 'string', description: '标签', required: false },
+    weixin: { type: 'string', description: '微信号', required: false },
+    workType: { type: 'string', description: '工种类型ID', required: true },
 
   },
   cms_worker_edit: {
@@ -983,7 +987,9 @@ module.exports = {
     desc: { type: 'string', description: '工人介绍' },
     name: { type: 'string', description: '姓名' },
     phone: { type: 'string', description: '联系电话' },
-    workType: { type: 'string', description: '工种' },
+    tags: { type: 'string', description: '标签' },
+    weixin: { type: 'string', description: '微信号' },
+    workType: { type: 'string', description: '工种类型ID' },
 
   },
 
@@ -1061,9 +1067,9 @@ module.exports = {
     id: { type: 'string', description: '主键' },
     key: { type: 'string', description: '关联项目key' },
     mainMaterial: { type: 'string', description: '主材' },
+    other: { type: 'string', description: 'others' },
     updatedAt: { type: 'string', description: '更新时间' },
     workerContact: { type: 'string', description: '工人联系' },
-    其他: { type: 'string', description: 'others' },
 
   },
   sys_project_ready_add: {
@@ -1071,8 +1077,8 @@ module.exports = {
     deliveryCycle: { type: 'string', description: '到货周期', required: false },
     key: { type: 'string', description: '关联项目key', required: false },
     mainMaterial: { type: 'string', description: '主材', required: false },
+    other: { type: 'string', description: 'others', required: false },
     workerContact: { type: 'string', description: '工人联系', required: false },
-    其他: { type: 'string', description: 'others', required: false },
 
   },
   sys_project_ready_edit: {
@@ -1080,8 +1086,155 @@ module.exports = {
     deliveryCycle: { type: 'string', description: '到货周期' },
     key: { type: 'string', description: '关联项目key' },
     mainMaterial: { type: 'string', description: '主材' },
+    other: { type: 'string', description: 'others' },
     workerContact: { type: 'string', description: '工人联系' },
-    其他: { type: 'string', description: 'others' },
+
+  },
+
+  // 省份
+  sys_province_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '省份名称' },
+    province_id: { type: 'string', description: '省份id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+
+  },
+  sys_province_add: {
+    name: { type: 'string', description: '省份名称', required: true },
+    province_id: { type: 'string', description: '省份id', required: true },
+
+  },
+  sys_province_edit: {
+    name: { type: 'string', description: '省份名称' },
+    province_id: { type: 'string', description: '省份id' },
+
+  },
+
+  // 城市
+  sys_city_item: {
+    city_id: { type: 'string', description: '城市id' },
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '城市名' },
+    province_id: { type: 'string', description: '关联省份id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+
+  },
+  sys_city_add: {
+    city_id: { type: 'string', description: '城市id', required: true },
+    name: { type: 'string', description: '城市名', required: true },
+    province_id: { type: 'string', description: '关联省份id', required: true },
+
+  },
+  sys_city_edit: {
+    city_id: { type: 'string', description: '城市id' },
+    name: { type: 'string', description: '城市名' },
+    province_id: { type: 'string', description: '关联省份id' },
+
+  },
+
+  // 区县
+  sys_county_item: {
+    city_id: { type: 'string', description: '城市id' },
+    county_id: { type: 'string', description: '区县id' },
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '区县名' },
+    updatedAt: { type: 'string', description: '更新时间' },
+
+  },
+  sys_county_add: {
+    city_id: { type: 'string', description: '城市id', required: true },
+    county_id: { type: 'string', description: '区县id', required: true },
+    name: { type: 'string', description: '区县名', required: true },
+
+  },
+  sys_county_edit: {
+    city_id: { type: 'string', description: '城市id' },
+    county_id: { type: 'string', description: '区县id' },
+    name: { type: 'string', description: '区县名' },
+
+  },
+
+  // 会员房间规划图集
+  mc_house_paln_pics_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    picture: { type: 'string', description: '图片地址' },
+    spaceId: { type: 'string', description: '空间id' },
+    uid: { type: 'string', description: '关联用户id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+
+  },
+  mc_house_paln_pics_add: {
+    picture: { type: 'string', description: '图片地址', required: false },
+    spaceId: { type: 'string', description: '空间id', required: false },
+    uid: { type: 'string', description: '关联用户id', required: false },
+
+  },
+  mc_house_paln_pics_edit: {
+    picture: { type: 'string', description: '图片地址' },
+    spaceId: { type: 'string', description: '空间id' },
+    uid: { type: 'string', description: '关联用户id' },
+
+  },
+
+  // 找材料数据表
+  cms_materials_item: {
+    address: { type: 'string', description: '商家地址' },
+    contact: { type: 'string', description: '联系人' },
+    createdAt: { type: 'string', description: '创建时间' },
+    desc: { type: 'string', description: '商家简介' },
+    id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '商家名称' },
+    phone: { type: 'string', description: '商家电话' },
+    photos: { type: 'string', description: '商家门店内部照片' },
+    thumb: { type: 'string', description: '商家门头照片' },
+    type: { type: 'string', description: '商家类型Id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    weixin: { type: 'string', description: '商家微信' },
+
+  },
+  cms_materials_add: {
+    address: { type: 'string', description: '商家地址', required: false },
+    contact: { type: 'string', description: '联系人', required: false },
+    desc: { type: 'string', description: '商家简介', required: false },
+    name: { type: 'string', description: '商家名称', required: false },
+    phone: { type: 'string', description: '商家电话', required: false },
+    photos: { type: 'string', description: '商家门店内部照片', required: false },
+    thumb: { type: 'string', description: '商家门头照片', required: false },
+    type: { type: 'string', description: '商家类型Id', required: false },
+    weixin: { type: 'string', description: '商家微信', required: false },
+
+  },
+  cms_materials_edit: {
+    address: { type: 'string', description: '商家地址' },
+    contact: { type: 'string', description: '联系人' },
+    desc: { type: 'string', description: '商家简介' },
+    name: { type: 'string', description: '商家名称' },
+    phone: { type: 'string', description: '商家电话' },
+    photos: { type: 'string', description: '商家门店内部照片' },
+    thumb: { type: 'string', description: '商家门头照片' },
+    type: { type: 'string', description: '商家类型Id' },
+    weixin: { type: 'string', description: '商家微信' },
+
+  },
+
+  // 商家类型
+  cms_materials_types_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '材料商家类型' },
+    updatedAt: { type: 'string', description: '更新时间' },
+
+  },
+  cms_materials_types_add: {
+    name: { type: 'string', description: '材料商家类型', required: true },
+
+  },
+  cms_materials_types_edit: {
+    name: { type: 'string', description: '材料商家类型' },
 
   },
 

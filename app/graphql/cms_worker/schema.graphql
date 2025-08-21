@@ -4,12 +4,14 @@
       createdAt:Date
       id:ID
       updatedAt:Date
-      workType:String
+      workType:Int
       avatar:String
       desc:String
       phone:String
       case:String
       name:String
+      tags:String
+      weixin:String
       
       
     }
@@ -70,17 +72,17 @@
   op_substring: String
       }
       input WhereCmsWorker_workType {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
+        op_eq: Int
+  op_ne: Int
+  op_or: [Int]
+  op_gt: Int
+  op_gte: Int
+  op_lt: Int
+  op_lte: Int
+  op_between: [Int]
+  op_notBetween: [Int]
+  op_in: [Int]
+  op_notIn: [Int]
   op_like: String
   op_notLike: String
   op_startsWith: String
@@ -177,6 +179,42 @@
   op_endsWith: String
   op_substring: String
       }
+      input WhereCmsWorker_tags {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsWorker_weixin {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
       
     input WhereFieldCmsWorker{
     createdAt:WhereCmsWorker_createdAt
@@ -188,6 +226,8 @@
       phone:WhereCmsWorker_phone
       case:WhereCmsWorker_case
       name:WhereCmsWorker_name
+      tags:WhereCmsWorker_tags
+      weixin:WhereCmsWorker_weixin
       
     }
 
@@ -201,6 +241,8 @@
       phone:WhereCmsWorker_phone
       case:WhereCmsWorker_case
       name:WhereCmsWorker_name
+      tags:WhereCmsWorker_tags
+      weixin:WhereCmsWorker_weixin
       
       op_and: [WhereFieldCmsWorker]
       op_or: [WhereFieldCmsWorker]
@@ -209,23 +251,27 @@
     
     
     input AddCmsWorker {
-    workType: String!
+    workType: Int!
       avatar: String
       desc: String!
       phone: String!
       case: String
       name: String!
+      tags: String
+      weixin: String
       
     }
     
     
     input EditCmsWorker {
-    workType: String
+    workType: Int
       avatar: String
       desc: String
       phone: String
       case: String
       name: String
+      tags: String
+      weixin: String
       
     }
     

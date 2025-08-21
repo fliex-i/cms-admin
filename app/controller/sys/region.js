@@ -15,6 +15,7 @@ class RegionController extends Controller {
     try {
       // 查询所有省
       const provinces = await ctx.model.SysProvince.findAll({ raw: true });
+      console.log('provinces', provinces);
       // 查询所有市
       const cities = await ctx.model.SysCity.findAll({ raw: true });
       // 查询所有区县

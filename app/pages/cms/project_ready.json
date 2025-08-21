@@ -1,0 +1,91 @@
+{
+  "type": "page",
+  "body": [
+    {
+      "type": "crud",
+      "name": "projectReadyList",
+      "api": "/admin/sys/project_ready/index",
+      "saveOrderApi": "/admin/sys/project_ready/saveOrder",
+      "filter": {
+        "title": "前期准备管理",
+        "body": [
+          { "type": "select", "name": "key", "label": "关联项目key","size": "sm", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                  "searchable": true,
+                  "clearable": true,
+                  "labelField": "name",
+                  "valueField": "key"
+                }
+        ],
+        "actions": [
+          { "type": "reset", "label": "重置" },
+          { "type": "submit", "level": "primary", "label": "查询" }
+        ]
+      },
+      "headerToolbar": [
+        "bulkActions",
+        { "type": "button", "actionType": "drawer", "label": "新增前期准备", "primary": true, "drawer": {
+          "title": "新增前期准备",
+          "body": {
+            "type": "form",
+            "api": "/admin/sys/project_ready/create",
+            "body": [
+              { "type": "textarea", "name": "mainMaterial", "label": "主材", "required": true },
+              { "type": "textarea", "name": "auxiliaryMaterial", "label": "辅材" },
+              { "type": "input-text", "name": "deliveryCycle", "label": "到货周期" },
+              { "type": "input-text", "name": "workerContact", "label": "工人联系" },
+              { "type": "textarea", "name": "other", "label": "其他" },
+              { "type": "select", "name": "key", "label": "关联项目key", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                  "searchable": true,
+                  "clearable": true,
+                  "labelField": "name",
+                  "valueField": "key"
+                }
+            ]
+          }
+        }}
+      ],
+      "bulkActions": [
+        { "label": "批量删除", "actionType": "ajax", "api": "/admin/sys/project_ready/bulkDel", "confirmText": "确定要批量删除?" }
+      ],
+      "columns": [
+        { "name": "id", "label": "ID", "type": "text", "sortable": true },
+        { "name": "mainMaterial", "label": "主材", "type": "text" },
+        { "name": "auxiliaryMaterial", "label": "辅材", "type": "text" },
+        { "name": "deliveryCycle", "label": "到货周期", "type": "text" },
+        { "name": "workerContact", "label": "工人联系", "type": "text" },
+        { "name": "other", "label": "其他", "type": "text" },
+        { "type": "select", "name": "key", "label": "关联项目key", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                  "searchable": true,
+                  "labelField": "name",
+                  "valueField": "key"
+                },
+        { "name": "createdAt", "label": "创建时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
+        { "name": "updatedAt", "label": "更新时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
+        { "type": "operation", "label": "操作", "buttons": [
+          { "type": "button", "icon": "fa fa-pencil", "actionType": "drawer", "drawer": {
+            "title": "编辑前期准备",
+            "body": {
+              "type": "form",
+              "api": "/admin/sys/project_ready/update",
+              "body": [
+                { "type": "hidden", "name": "id" },
+                { "type": "textarea", "name": "mainMaterial", "label": "主材", "required": true },
+                { "type": "textarea", "name": "auxiliaryMaterial", "label": "辅材" },
+                { "type": "input-text", "name": "deliveryCycle", "label": "到货周期" },
+                { "type": "input-text", "name": "workerContact", "label": "工人联系" },
+                { "type": "textarea", "name": "other", "label": "其他" },
+                { "type": "select", "name": "key", "label": "关联项目key", "source": "/admin/sys/projects/index?page=1&pageSize=100",
+                  "searchable": true,
+                  "clearable": true,
+                  "labelField": "name",
+                  "valueField": "key"
+                }
+              ]
+            }
+          }},
+          { "type": "button", "icon": "fa fa-times text-danger", "actionType": "ajax", "confirmText": "您确认要删除?", "api": "/admin/sys/project_ready/destroy?id=$id" }
+        ]}
+      ]
+    }
+  ]
+}

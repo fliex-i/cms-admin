@@ -3,7 +3,7 @@ module.exports = options => {
   return async function authMcToken(ctx, next) {
     // 支持 options.exclude
     if (options && ctx.helper._.find(options.exclude, o => ctx.url.indexOf(o) !== -1)) return await next();
-    const token = ctx.session.mcToken || ctx.get('token');
+    const token = ctx.session.mcToken || ctx.get('token') || ctx.request.headers.authorization;
     const userInfo = ctx.helper.deToken(token);
     if (userInfo) {
       ctx.userInfo = userInfo;

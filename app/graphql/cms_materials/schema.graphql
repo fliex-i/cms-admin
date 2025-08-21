@@ -1,0 +1,311 @@
+
+    
+    type CmsMaterials {
+      createdAt:Date
+      id:ID
+      updatedAt:Date
+      thumb:String
+      photos:String
+      address:String
+      phone:String
+      weixin:String
+      desc:String
+      type:Int
+      name:String
+      contact:String
+      
+      
+    }
+    
+    
+    input WhereCmsMaterials_createdAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_id {
+        op_eq: ID
+  op_ne: ID
+  op_or: [ID]
+  op_gt: ID
+  op_gte: ID
+  op_lt: ID
+  op_lte: ID
+  op_between: [ID]
+  op_notBetween: [ID]
+  op_in: [ID]
+  op_notIn: [ID]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_updatedAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_thumb {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_photos {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_address {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_phone {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_weixin {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_desc {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_type {
+        op_eq: Int
+  op_ne: Int
+  op_or: [Int]
+  op_gt: Int
+  op_gte: Int
+  op_lt: Int
+  op_lte: Int
+  op_between: [Int]
+  op_notBetween: [Int]
+  op_in: [Int]
+  op_notIn: [Int]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_name {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsMaterials_contact {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      
+    input WhereFieldCmsMaterials{
+    createdAt:WhereCmsMaterials_createdAt
+      id:WhereCmsMaterials_id
+      updatedAt:WhereCmsMaterials_updatedAt
+      thumb:WhereCmsMaterials_thumb
+      photos:WhereCmsMaterials_photos
+      address:WhereCmsMaterials_address
+      phone:WhereCmsMaterials_phone
+      weixin:WhereCmsMaterials_weixin
+      desc:WhereCmsMaterials_desc
+      type:WhereCmsMaterials_type
+      name:WhereCmsMaterials_name
+      contact:WhereCmsMaterials_contact
+      
+    }
+
+    input WhereCmsMaterials {
+      createdAt:WhereCmsMaterials_createdAt
+      id:WhereCmsMaterials_id
+      updatedAt:WhereCmsMaterials_updatedAt
+      thumb:WhereCmsMaterials_thumb
+      photos:WhereCmsMaterials_photos
+      address:WhereCmsMaterials_address
+      phone:WhereCmsMaterials_phone
+      weixin:WhereCmsMaterials_weixin
+      desc:WhereCmsMaterials_desc
+      type:WhereCmsMaterials_type
+      name:WhereCmsMaterials_name
+      contact:WhereCmsMaterials_contact
+      
+      op_and: [WhereFieldCmsMaterials]
+      op_or: [WhereFieldCmsMaterials]
+      op_not: [WhereFieldCmsMaterials]
+    }
+    
+    
+    input AddCmsMaterials {
+    thumb: String
+      photos: String
+      address: String
+      phone: String
+      weixin: String
+      desc: String
+      type: Int
+      name: String
+      contact: String
+      
+    }
+    
+    
+    input EditCmsMaterials {
+    thumb: String
+      photos: String
+      address: String
+      phone: String
+      weixin: String
+      desc: String
+      type: Int
+      name: String
+      contact: String
+      
+    }
+    
+    type CountCmsMaterials {
+      count: Int
+      rows: [CmsMaterials]
+    }
+    type ResDelCmsMaterials {
+      count: Int
+    }
+    type ResEditCmsMaterials {
+      ids: [Int]
+    }
+    

@@ -12,10 +12,12 @@ class HousePlanController extends Controller {
    */
   async list() {
     const { ctx } = this;
+
     const data = ctx.query;
     const page = data.page || 1;
     const limit = data.perPage || 15;
-    const map = { where: {}, offset: (Number(page) - 1) * limit, limit: Number(limit) };
+    // const userId = ctx.session.userId;
+    const map = { where: { uid: ctx.userInfo.id }, offset: (Number(page) - 1) * limit, limit: Number(limit) };
     const list = await ctx.model.McHousePlan.findAndCountAll(map);
     this.success(list);
   }
