@@ -2,8 +2,8 @@ module.exports = {
   apps: [
     {
       name: 'zizhuangbao',
-      script: 'node_modules/.bin/egg-scripts',
-      args: 'start --title=zizhuangbao',
+      script: 'npm',
+      args: 'run start',
       cwd: __dirname,
       env: {
         NODE_ENV: 'production',
