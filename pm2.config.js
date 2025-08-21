@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'zizhuangbao',
+      name: 'cmsAdmin',
       script: 'npm',
       args: 'run start',
       cwd: __dirname,
@@ -10,12 +10,14 @@ module.exports = {
         EGG_SERVER_ENV: 'prod',
       },
       interpreter: 'node',
-      watch: false,
+      watch: true,
       max_memory_restart: '500M',
       error_file: './logs/pm2-error.log',
       out_file: './logs/pm2-out.log',
       merge_logs: true,
       log_date_format: 'YYYY-MM-DD HH:mm:ss',
+      // 新增如下行
+      post_stop: 'npm run stop',
     },
   ],
 };
