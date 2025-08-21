@@ -7,7 +7,6 @@ module.exports = {
       cwd: __dirname,
       env: {
         NODE_ENV: 'development',
-        EGG_SERVER_ENV: 'local',
         PORT: 7001,
         MYSQL_HOST: '127.0.0.1',
         MYSQL_PORT: 3306,
@@ -16,7 +15,7 @@ module.exports = {
         MYSQL_PASSWORD: 'xiaolin.fang2025',
       },
       interpreter: 'node',
-      watch: true,
+      watch: false,
       max_memory_restart: '500M',
       error_file: '../logs/pm2-error.log',
       out_file: '../logs/pm2-out.log',
