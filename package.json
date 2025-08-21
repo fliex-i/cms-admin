@@ -46,8 +46,8 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "start": "dotenv -e .env egg-scripts start --daemon --title=egg-server-CmsWing",
-    "stop": "egg-scripts stop --title=egg-server-CmsWing",
+    "start": "dotenv -e .env egg-scripts start --daemon --title=zizhuangjia",
+    "stop": "egg-scripts stop --title=zizhuangjia",
     "dev": "dotenv -e .env egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
