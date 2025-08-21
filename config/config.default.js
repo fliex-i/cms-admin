@@ -108,6 +108,7 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     myAppName: 'App',
+    keys: [ 'apps-cms-key-5a99b254-488b-4aa1-b265-d9fd74719e52', 'apps-admin-key-97c96d31-63cb-47da-89cf-e643a0b7f31e', 'apps-api-keys-e45558ec-9379-4ff2-94ad-5388e2720429' ],
   };
 
   return {
