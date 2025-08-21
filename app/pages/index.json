@@ -32,7 +32,7 @@
         },
         {
           "type": "panel",
-          "title": "CmsWing 开发团队",
+          "title": "自装家开发团队",
           "name": "chart-local",
           "body": [
             {
@@ -56,11 +56,6 @@
           ]
         }
       ]
-    },
-    {
-      "type": "iframe",
-      "height":"450px",
-      "src": "/admin/sys/gitee"
     }
   ],
   "id": "u:0fdc9e106470",

@@ -172,19 +172,19 @@ class IndexController extends Controller {
   }
   async team() {
     const items = [];
-    items.push({ name: '总策划&主开发', value: '<a href=\'https://www.cmswing.com\' target=\'_blank\'>阿特</a>' });
-    items.push({ name: '研发团队', value: '<a href=\'https://www.cmswing.com\' target=\'_blank\'>阿特</a>' });
+    items.push({ name: '总策划&主开发', value: 'Fliex.fang、roger.hu、waston.luo' });
+    items.push({ name: '研发团队', value: 'Julie.Han、Runzhi.li、Garry.zhang、Gene.ye' });
     items.push({ name: '开源贡献者', value: '-' });
-    items.push({ name: '开源协议', value: '<a href=\'https://gitee.com/cmswing/CmsWing/blob/master/LICENSE\' target=\'_blank\'> MulanPSL-2.0</a>' });
-    items.push({ name: '相关链接', value: '<a href=\'https://www.cmswing.com\' target=\'_blank\'>CmsWing官网</a>，<a href=\'https://www.eggjs.org/zh-CN\' target=\'_blank\'>EggJS官网</a>' });
+    items.push({ name: '使用协议', value: ' MulanPSL-2.0' });
+    items.push({ name: '联系我们', value: 'Fliex 18111250878' });
     this.success({ items });
   }
   async sysInfo() {
     const items = [];
     const packagePath = path.join(this.app.baseDir, 'package.json');
     const packageInfo = await fs.readJson(packagePath, { throws: false });
-    items.push({ name: 'CmsWing 程序版本', value: packageInfo.version });
-    items.push({ name: 'egg 程序版本', value: packageInfo.dependencies.egg });
+    items.push({ name: '自装家 程序版本', value: packageInfo.version });
+    items.push({ name: '服务程序版本', value: packageInfo.dependencies.egg });
     items.push({ name: 'Node.js 版本', value: process.version });
     items.push({ name: '服务器系统', value: `${process.platform}/${process.arch}` });
     items.push({ name: '服务器 MySQL 版本', value: (await this.ctx.model.query('select version()'))[0][0]['version()'] });
