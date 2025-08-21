@@ -1,23 +1,7 @@
 
 'use strict';
 module.exports = {
-  SysCity: {
-  async sys_county(root, params, ctx) {
-    const map = {};
-    map.where = { city_id: root.city_id };
-    if (Object.hasOwnProperty.call(params, 'limit')) {
-      map.limit = params.limit;
-    }
-    if (Object.hasOwnProperty.call(params, 'offset')) {
-      map.offset = params.offset;
-    }
-    if (Object.hasOwnProperty.call(params, 'order')) {
-      map.order = params.order;
-    }
-    return await ctx.connector.sys_county.findAll(map);
-  },
-},
-    
+  
   Query: {
     async SysCity_findAll(_root, params, ctx) {
       return await ctx.connector.sys_city.findAll(params);

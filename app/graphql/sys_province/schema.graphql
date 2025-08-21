@@ -7,8 +7,7 @@
       name:String
       province_id:String
       
-      sys_city(order:[[String]],limit:Int,offset:Int): [SysCity]
-
+      
     }
     
     

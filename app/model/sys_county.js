@@ -13,14 +13,7 @@ module.exports = app => {
   
   paranoid: false,
 });
-  SysCounty.associate = function() {
-       app.model.SysCity.hasMany(app.model.SysCounty, {
-            foreignKey: 'city_id',
-            sourceKey: 'city_id',
-            constraints: true,
-          });
-          
-      };
+  
   //SysCounty.sync({ alter: true });
   return SysCounty;
 };
