@@ -5,7 +5,7 @@
       id:ID
       updatedAt:Date
       name:String
-      province_id:String
+      province_id:Int
       
       
     }
@@ -84,17 +84,17 @@
   op_substring: String
       }
       input WhereSysProvince_province_id {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
+        op_eq: Int
+  op_ne: Int
+  op_or: [Int]
+  op_gt: Int
+  op_gte: Int
+  op_lt: Int
+  op_lte: Int
+  op_between: [Int]
+  op_notBetween: [Int]
+  op_in: [Int]
+  op_notIn: [Int]
   op_like: String
   op_notLike: String
   op_startsWith: String
@@ -126,14 +126,14 @@
     
     input AddSysProvince {
     name: String!
-      province_id: String!
+      province_id: Int
       
     }
     
     
     input EditSysProvince {
     name: String
-      province_id: String
+      province_id: Int
       
     }
     

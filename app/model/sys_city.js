@@ -8,7 +8,7 @@ module.exports = app => {
     updatedAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW, comment: '更新时间' },
     name: { type: DataTypes.STRING, comment: '城市名' },
     city_id: { type: DataTypes.STRING, comment: '城市id' },
-    province_id: { type: DataTypes.STRING(12), comment: '关联省份id' },
+    province_id: { type: DataTypes.BIGINT, comment: '关联省份id' },
   },{
   
   paranoid: false,

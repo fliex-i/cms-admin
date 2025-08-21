@@ -5,8 +5,8 @@
       id:ID
       updatedAt:Date
       name:String
-      county_id:String
-      city_id:String
+      city_id:Int
+      county_id:Int
       
       
     }
@@ -84,36 +84,36 @@
   op_endsWith: String
   op_substring: String
       }
-      input WhereSysCounty_county_id {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
+      input WhereSysCounty_city_id {
+        op_eq: Int
+  op_ne: Int
+  op_or: [Int]
+  op_gt: Int
+  op_gte: Int
+  op_lt: Int
+  op_lte: Int
+  op_between: [Int]
+  op_notBetween: [Int]
+  op_in: [Int]
+  op_notIn: [Int]
   op_like: String
   op_notLike: String
   op_startsWith: String
   op_endsWith: String
   op_substring: String
       }
-      input WhereSysCounty_city_id {
-        op_eq: String
-  op_ne: String
-  op_or: [String]
-  op_gt: String
-  op_gte: String
-  op_lt: String
-  op_lte: String
-  op_between: [String]
-  op_notBetween: [String]
-  op_in: [String]
-  op_notIn: [String]
+      input WhereSysCounty_county_id {
+        op_eq: Int
+  op_ne: Int
+  op_or: [Int]
+  op_gt: Int
+  op_gte: Int
+  op_lt: Int
+  op_lte: Int
+  op_between: [Int]
+  op_notBetween: [Int]
+  op_in: [Int]
+  op_notIn: [Int]
   op_like: String
   op_notLike: String
   op_startsWith: String
@@ -126,8 +126,8 @@
       id:WhereSysCounty_id
       updatedAt:WhereSysCounty_updatedAt
       name:WhereSysCounty_name
-      county_id:WhereSysCounty_county_id
       city_id:WhereSysCounty_city_id
+      county_id:WhereSysCounty_county_id
       
     }
 
@@ -136,8 +136,8 @@
       id:WhereSysCounty_id
       updatedAt:WhereSysCounty_updatedAt
       name:WhereSysCounty_name
-      county_id:WhereSysCounty_county_id
       city_id:WhereSysCounty_city_id
+      county_id:WhereSysCounty_county_id
       
       op_and: [WhereFieldSysCounty]
       op_or: [WhereFieldSysCounty]
@@ -147,16 +147,16 @@
     
     input AddSysCounty {
     name: String!
-      county_id: String!
-      city_id: String!
+      city_id: Int
+      county_id: Int
       
     }
     
     
     input EditSysCounty {
     name: String
-      county_id: String
-      city_id: String
+      city_id: Int
+      county_id: Int
       
     }
     

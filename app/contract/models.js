@@ -1102,7 +1102,7 @@ module.exports = {
   },
   sys_province_add: {
     name: { type: 'string', description: '省份名称', required: true },
-    province_id: { type: 'string', description: '省份id', required: true },
+    province_id: { type: 'string', description: '省份id', required: false },
     
   },
   sys_province_edit: {
@@ -1124,7 +1124,7 @@ module.exports = {
   sys_city_add: {
     city_id: { type: 'string', description: '城市id', required: true },
     name: { type: 'string', description: '城市名', required: true },
-    province_id: { type: 'string', description: '关联省份id', required: true },
+    province_id: { type: 'string', description: '关联省份id', required: false },
     
   },
   sys_city_edit: {
@@ -1145,8 +1145,8 @@ module.exports = {
     
   },
   sys_county_add: {
-    city_id: { type: 'string', description: '城市id', required: true },
-    county_id: { type: 'string', description: '区县id', required: true },
+    city_id: { type: 'string', description: '城市id', required: false },
+    county_id: { type: 'string', description: '区县id', required: false },
     name: { type: 'string', description: '区县名', required: true },
     
   },

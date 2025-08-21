@@ -7,8 +7,8 @@ module.exports = app => {
     id: { type: DataTypes.INTEGER, autoIncrement:true, primaryKey: true, comment: '主键' },
     updatedAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW, comment: '更新时间' },
     name: { type: DataTypes.STRING, comment: '区县名' },
-    county_id: { type: DataTypes.STRING(12), comment: '区县id' },
-    city_id: { type: DataTypes.STRING(12), comment: '城市id' },
+    city_id: { type: DataTypes.BIGINT, comment: '城市id' },
+    county_id: { type: DataTypes.BIGINT, comment: '区县id' },
   },{
   
   paranoid: false,
