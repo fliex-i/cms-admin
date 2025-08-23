@@ -9,6 +9,8 @@ module.exports = app => {
     uid: { type: DataTypes.INTEGER, comment: '用户id' },
     items: { type: DataTypes.JSON, comment: '用户施工计划json数据' },
     startAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW, comment: '开工时间' },
+    endDate: { type: DataTypes.DATE, comment: '完工日期' },
+    allDays: { type: DataTypes.INTEGER, comment: '装修耗时{n}天数' },
   },{
   indexes:[{"unique":false,"fields":["id"]}],
   paranoid: false,

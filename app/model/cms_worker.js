@@ -14,6 +14,7 @@ module.exports = app => {
     name: { type: DataTypes.STRING, comment: '姓名' },
     tags: { type: DataTypes.STRING, comment: '标签' },
     weixin: { type: DataTypes.STRING, comment: '微信号' },
+    region: { type: DataTypes.STRING, comment: '服务区域说明' },
   },{
   indexes:[{"unique":true,"fields":["name","phone","id"]}],
   paranoid: false,

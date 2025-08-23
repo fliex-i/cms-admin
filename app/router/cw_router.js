@@ -33,7 +33,7 @@ module.exports = app => {
   app.router.get('房间规划列表', '/api/mc/house-plans', app.middleware.mc.authMcToken(), 'mc.housePlan.list');
   app.router.get('装修预算列表', '/api/mc/budget/list', app.middleware.mc.authMcToken(), 'mc.budget.list');
   app.router.post('新建装修预算', '/api/mc/budget/create', app.middleware.mc.authMcToken(), 'mc.budget.create');
-  app.router.put('更新装修预算', '/api/mc/budget/update', app.middleware.mc.authMcToken(), 'mc.budget.update');
+  app.router.post('更新装修预算', '/api/mc/budget/update', app.middleware.mc.authMcToken(), 'mc.budget.update');
   app.router.post('删除装修预算', '/api/mc/budget/destroy', app.middleware.mc.authMcToken(), 'mc.budget.destroy');
   app.router.get('用户施工计划', '/api/mc/construction', app.middleware.mc.authMcToken(), 'mc.construction.list');
   app.router.post('创建施工计划', '/api/mc/construction', app.middleware.mc.authMcToken(), 'mc.construction.create');
@@ -90,12 +90,12 @@ module.exports = app => {
   app.router.post('删除项目', '/admin/sys/projects/destroy', app.middleware.sys.authAdminToken(), 'sys.projects.destroy');
   app.router.post('批量删除项目', '/admin/sys/projects/bulkDel', app.middleware.sys.authAdminToken(), 'sys.projects.bulkDel');
   app.router.post('保存排序', '/admin/sys/projects/saveOrder', app.middleware.sys.authAdminToken(), 'sys.projects.saveOrder');
-  app.router.get('工种列表', '/admin/sys/workerTypes/index', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.list');
-  app.router.post('新增工种', '/admin/sys/workerTypes/create', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.create');
-  app.router.post('更新工种', '/admin/sys/workerTypes/update', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.update');
-  app.router.post('删除工种', '/admin/sys/workerTypes/destroy', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.destroy');
-  app.router.post('批量删除', '/admin/sys/workerTypes/bulkDel', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.bulkDel');
-  app.router.post('保存排序', '/admin/sys/workerTypes/saveOrder', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.saveOrder');
+  app.router.get('工种列表', '/admin/sys/worker_types/index', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.list');
+  app.router.post('新增工种', '/admin/sys/worker_types/create', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.create');
+  app.router.post('更新工种', '/admin/sys/worker_types/update', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.update');
+  app.router.post('删除工种', '/admin/sys/worker_types/destroy', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.destroy');
+  app.router.post('批量删除', '/admin/sys/worker_types/bulkDel', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.bulkDel');
+  app.router.post('保存排序', '/admin/sys/worker_types/saveOrder', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.saveOrder');
   app.router.get('graphQL权限节点', '/admin/sys/role/graphQL', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.role.graphQL');
   app.router.post('添加分组', '/admin/sys/user/groupAdd', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.user.groupAdd');
   app.router.get('获取上级分类', '/admin/cms/classify/topClassify', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.classify.topClassify');

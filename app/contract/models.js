@@ -868,7 +868,10 @@ module.exports = {
 
   // 装修预算表
   mc_budget_item: {
+    amount: { type: 'string', description: '预算总计' },
     createdAt: { type: 'string', description: '创建时间' },
+    customs: { type: 'string', description: '表单' },
+    form: { type: 'string', description: '表单基础数据' },
     id: { type: 'string', description: '主键' },
     items: { type: 'string', description: '用户装修预算数据json' },
     uid: { type: 'string', description: '用户id' },
@@ -876,11 +879,17 @@ module.exports = {
     
   },
   mc_budget_add: {
+    amount: { type: 'string', description: '预算总计', required: false },
+    customs: { type: 'string', description: '表单', required: false },
+    form: { type: 'string', description: '表单基础数据', required: false },
     items: { type: 'string', description: '用户装修预算数据json', required: false },
     uid: { type: 'string', description: '用户id', required: true },
     
   },
   mc_budget_edit: {
+    amount: { type: 'string', description: '预算总计' },
+    customs: { type: 'string', description: '表单' },
+    form: { type: 'string', description: '表单基础数据' },
     items: { type: 'string', description: '用户装修预算数据json' },
     uid: { type: 'string', description: '用户id' },
     
@@ -888,7 +897,9 @@ module.exports = {
 
   // 用户施工计划
   mc_construction_item: {
+    allDays: { type: 'string', description: '装修耗时{n}天数' },
     createdAt: { type: 'string', description: '创建时间' },
+    endDate: { type: 'string', description: '完工日期' },
     id: { type: 'string', description: '主键' },
     items: { type: 'string', description: '用户施工计划json数据' },
     startAt: { type: 'string', description: '开工时间' },
@@ -897,11 +908,15 @@ module.exports = {
     
   },
   mc_construction_add: {
+    allDays: { type: 'string', description: '装修耗时{n}天数', required: false },
+    endDate: { type: 'string', description: '完工日期', required: false },
     items: { type: 'string', description: '用户施工计划json数据', required: false },
     startAt: { type: 'string', description: '开工时间', required: true },
     
   },
   mc_construction_edit: {
+    allDays: { type: 'string', description: '装修耗时{n}天数' },
+    endDate: { type: 'string', description: '完工日期' },
     items: { type: 'string', description: '用户施工计划json数据' },
     startAt: { type: 'string', description: '开工时间' },
     uid: { type: 'string', description: '用户id' },
@@ -964,6 +979,7 @@ module.exports = {
     id: { type: 'string', description: '主键' },
     name: { type: 'string', description: '姓名' },
     phone: { type: 'string', description: '联系电话' },
+    region: { type: 'string', description: '服务区域说明' },
     tags: { type: 'string', description: '标签' },
     updatedAt: { type: 'string', description: '更新时间' },
     weixin: { type: 'string', description: '微信号' },
@@ -976,6 +992,7 @@ module.exports = {
     desc: { type: 'string', description: '工人介绍', required: true },
     name: { type: 'string', description: '姓名', required: true },
     phone: { type: 'string', description: '联系电话', required: true },
+    region: { type: 'string', description: '服务区域说明', required: false },
     tags: { type: 'string', description: '标签', required: false },
     weixin: { type: 'string', description: '微信号', required: false },
     workType: { type: 'string', description: '工种类型ID', required: true },
@@ -987,6 +1004,7 @@ module.exports = {
     desc: { type: 'string', description: '工人介绍' },
     name: { type: 'string', description: '姓名' },
     phone: { type: 'string', description: '联系电话' },
+    region: { type: 'string', description: '服务区域说明' },
     tags: { type: 'string', description: '标签' },
     weixin: { type: 'string', description: '微信号' },
     workType: { type: 'string', description: '工种类型ID' },
@@ -1065,7 +1083,7 @@ module.exports = {
     createdAt: { type: 'string', description: '创建时间' },
     deliveryCycle: { type: 'string', description: '到货周期' },
     id: { type: 'string', description: '主键' },
-    key: { type: 'string', description: '关联项目key' },
+    key: { type: 'string', description: '关联项目' },
     mainMaterial: { type: 'string', description: '主材' },
     other: { type: 'string', description: 'others' },
     updatedAt: { type: 'string', description: '更新时间' },
@@ -1075,7 +1093,7 @@ module.exports = {
   sys_project_ready_add: {
     auxiliaryMaterial: { type: 'string', description: '辅材', required: false },
     deliveryCycle: { type: 'string', description: '到货周期', required: false },
-    key: { type: 'string', description: '关联项目key', required: false },
+    key: { type: 'string', description: '关联项目', required: false },
     mainMaterial: { type: 'string', description: '主材', required: false },
     other: { type: 'string', description: 'others', required: false },
     workerContact: { type: 'string', description: '工人联系', required: false },
@@ -1084,7 +1102,7 @@ module.exports = {
   sys_project_ready_edit: {
     auxiliaryMaterial: { type: 'string', description: '辅材' },
     deliveryCycle: { type: 'string', description: '到货周期' },
-    key: { type: 'string', description: '关联项目key' },
+    key: { type: 'string', description: '关联项目' },
     mainMaterial: { type: 'string', description: '主材' },
     other: { type: 'string', description: 'others' },
     workerContact: { type: 'string', description: '工人联系' },
@@ -1190,6 +1208,7 @@ module.exports = {
     name: { type: 'string', description: '商家名称' },
     phone: { type: 'string', description: '商家电话' },
     photos: { type: 'string', description: '商家门店内部照片' },
+    region: { type: 'string', description: '服务区域说明' },
     thumb: { type: 'string', description: '商家门头照片' },
     type: { type: 'string', description: '商家类型Id' },
     updatedAt: { type: 'string', description: '更新时间' },
@@ -1203,6 +1222,7 @@ module.exports = {
     name: { type: 'string', description: '商家名称', required: false },
     phone: { type: 'string', description: '商家电话', required: false },
     photos: { type: 'string', description: '商家门店内部照片', required: false },
+    region: { type: 'string', description: '服务区域说明', required: false },
     thumb: { type: 'string', description: '商家门头照片', required: false },
     type: { type: 'string', description: '商家类型Id', required: false },
     weixin: { type: 'string', description: '商家微信', required: false },
@@ -1215,6 +1235,7 @@ module.exports = {
     name: { type: 'string', description: '商家名称' },
     phone: { type: 'string', description: '商家电话' },
     photos: { type: 'string', description: '商家门店内部照片' },
+    region: { type: 'string', description: '服务区域说明' },
     thumb: { type: 'string', description: '商家门头照片' },
     type: { type: 'string', description: '商家类型Id' },
     weixin: { type: 'string', description: '商家微信' },

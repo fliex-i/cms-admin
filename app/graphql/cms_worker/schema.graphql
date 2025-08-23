@@ -12,6 +12,7 @@
       name:String
       tags:String
       weixin:String
+      region:String
       
       
     }
@@ -215,6 +216,24 @@
   op_endsWith: String
   op_substring: String
       }
+      input WhereCmsWorker_region {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
       
     input WhereFieldCmsWorker{
     createdAt:WhereCmsWorker_createdAt
@@ -228,6 +247,7 @@
       name:WhereCmsWorker_name
       tags:WhereCmsWorker_tags
       weixin:WhereCmsWorker_weixin
+      region:WhereCmsWorker_region
       
     }
 
@@ -243,6 +263,7 @@
       name:WhereCmsWorker_name
       tags:WhereCmsWorker_tags
       weixin:WhereCmsWorker_weixin
+      region:WhereCmsWorker_region
       
       op_and: [WhereFieldCmsWorker]
       op_or: [WhereFieldCmsWorker]
@@ -259,6 +280,7 @@
       name: String!
       tags: String
       weixin: String
+      region: String
       
     }
     
@@ -272,6 +294,7 @@
       name: String
       tags: String
       weixin: String
+      region: String
       
     }
     

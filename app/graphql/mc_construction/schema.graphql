@@ -7,6 +7,8 @@
       uid:Int
       items:String
       startAt:Date
+      endDate:Date
+      allDays:Int
       
       
     }
@@ -120,6 +122,42 @@
   op_endsWith: String
   op_substring: String
       }
+      input WhereMcConstruction_endDate {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereMcConstruction_allDays {
+        op_eq: Int
+  op_ne: Int
+  op_or: [Int]
+  op_gt: Int
+  op_gte: Int
+  op_lt: Int
+  op_lte: Int
+  op_between: [Int]
+  op_notBetween: [Int]
+  op_in: [Int]
+  op_notIn: [Int]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
       
     input WhereFieldMcConstruction{
     createdAt:WhereMcConstruction_createdAt
@@ -128,6 +166,8 @@
       uid:WhereMcConstruction_uid
       items:WhereMcConstruction_items
       startAt:WhereMcConstruction_startAt
+      endDate:WhereMcConstruction_endDate
+      allDays:WhereMcConstruction_allDays
       
     }
 
@@ -138,6 +178,8 @@
       uid:WhereMcConstruction_uid
       items:WhereMcConstruction_items
       startAt:WhereMcConstruction_startAt
+      endDate:WhereMcConstruction_endDate
+      allDays:WhereMcConstruction_allDays
       
       op_and: [WhereFieldMcConstruction]
       op_or: [WhereFieldMcConstruction]
@@ -148,6 +190,8 @@
     input AddMcConstruction {
     items: String
       startAt: Date!
+      endDate: Date
+      allDays: Int
       
     }
     
@@ -156,6 +200,8 @@
     uid: Int
       items: String
       startAt: Date
+      endDate: Date
+      allDays: Int
       
     }
     

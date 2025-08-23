@@ -15,6 +15,7 @@ module.exports = app => {
     type: { type: DataTypes.INTEGER, comment: '商家类型Id' },
     name: { type: DataTypes.STRING, comment: '商家名称' },
     contact: { type: DataTypes.STRING, comment: '联系人' },
+    region: { type: DataTypes.STRING, comment: '服务区域说明' },
   },{
   
   paranoid: false,

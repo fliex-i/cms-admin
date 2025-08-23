@@ -8,6 +8,9 @@ module.exports = app => {
     updatedAt: { type: DataTypes.DATE, comment: '更新时间' },
     uid: { type: DataTypes.INTEGER, comment: '用户id' },
     items: { type: DataTypes.JSON, comment: '用户装修预算数据json' },
+    customs: { type: DataTypes.JSON, comment: '表单' },
+    form: { type: DataTypes.JSON, comment: '表单基础数据' },
+    amount: { type: DataTypes.INTEGER, comment: '预算总计' },
   },{
   indexes:[{"unique":false,"fields":["id"]}],
   paranoid: false,
