@@ -10,7 +10,7 @@ module.exports = app => {
     standard: { type: DataTypes.TEXT, comment: '工艺标准介绍' },
     type: { type: DataTypes.STRING, comment: '施工类型' },
     notes: { type: DataTypes.TEXT, comment: '注意事项' },
-    key: { type: DataTypes.STRING, comment: '关联项目key' },
+    key: { type: DataTypes.STRING, comment: '关联项目' },
   },{
   indexes:[{"unique":false,"fields":["key","id"]}],
   paranoid: false,

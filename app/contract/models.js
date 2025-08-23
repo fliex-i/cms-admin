@@ -1034,7 +1034,7 @@ module.exports = {
   sys_process_item: {
     createdAt: { type: 'string', description: '创建时间' },
     id: { type: 'string', description: '主键' },
-    key: { type: 'string', description: '关联项目key' },
+    key: { type: 'string', description: '关联项目' },
     notes: { type: 'string', description: '注意事项' },
     process: { type: 'string', description: '流程介绍' },
     standard: { type: 'string', description: '工艺标准介绍' },
@@ -1043,7 +1043,7 @@ module.exports = {
     
   },
   sys_process_add: {
-    key: { type: 'string', description: '关联项目key', required: false },
+    key: { type: 'string', description: '关联项目', required: false },
     notes: { type: 'string', description: '注意事项', required: false },
     process: { type: 'string', description: '流程介绍', required: false },
     standard: { type: 'string', description: '工艺标准介绍', required: false },
@@ -1051,7 +1051,7 @@ module.exports = {
     
   },
   sys_process_edit: {
-    key: { type: 'string', description: '关联项目key' },
+    key: { type: 'string', description: '关联项目' },
     notes: { type: 'string', description: '注意事项' },
     process: { type: 'string', description: '流程介绍' },
     standard: { type: 'string', description: '工艺标准介绍' },
