@@ -1,58 +1,57 @@
 'use strict';
-const Controller = require('egg').Controller;
+const Controller = require('../../core/base_controller');
 class ProjectsController extends Controller {
   async list() {
     const { ctx } = this;
-    const { page = 1, pageSize, perPage } = ctx.query;
-    const limit = Number(pageSize || perPage || 10);
-    const where = { ...ctx.query };
-    Object.keys(where).forEach(key => {
-      if (
-        where[key] === undefined ||
-        where[key] === null ||
-        where[key] === '' ||
-        [ 'page', 'perPage', 'pageSize' ].includes(key) ||
-        (Array.isArray(where[key]) && where[key].length === 0)
-      ) {
-        delete where[key];
-      }
-    });
+    const { page = 1, perPage = 100, ...where } = ctx.query;
+    const limit = Number(perPage || 100);
+    delete where.page;
+    delete where.pageSize;
+    delete where.perPage;
+    delete where.orderBy;
+    delete where.orderDir;
     const result = await ctx.model.SysProjects.findAndCountAll({
       where,
       offset: (page - 1) * limit,
       limit,
-      order: [[ 'id', 'DESC' ]],
+      order: [[ 'id', 'ASC' ]],
     });
-    ctx.body = { code: 0, data: result.rows, count: result.count };
+    this.success({ ...result });
   }
   async create() {
     const { ctx } = this;
-    const data = ctx.request.body;
-    const res = await ctx.model.SysProjects.create(data);
-    ctx.body = { code: 0, data: res };
+    const data = await ctx.model.SysProjects.create(ctx.request.body);
+    this.success(data);
   }
   async update() {
     const { ctx } = this;
     const { id, ...data } = ctx.request.body;
     await ctx.model.SysProjects.update(data, { where: { id } });
-    ctx.body = { code: 0 };
+    this.success();
   }
   async destroy() {
     const { ctx } = this;
-    const { id } = ctx.query;
+    const { id } = ctx.request.body;
     await ctx.model.SysProjects.destroy({ where: { id } });
-    ctx.body = { code: 0 };
+    this.success();
   }
   async bulkDel() {
     const { ctx } = this;
     const { ids } = ctx.request.body;
     await ctx.model.SysProjects.destroy({ where: { id: ids } });
-    ctx.body = { code: 0 };
+    this.success();
   }
   async saveOrder() {
     const { ctx } = this;
-    // 可根据实际需求实现排序逻辑
-    ctx.body = { code: 0 };
+    const list = ctx.request.body.list;
+    if (!Array.isArray(list) || list.length === 0) {
+      return this.fail('参数错误');
+    }
+    const promises = list.map(item => {
+      return ctx.model.SysProjects.update({ order: item.order }, { where: { id: item.id } });
+    });
+    await Promise.all(promises);
+    this.success('排序已保存');
   }
 }
 module.exports = ProjectsController;

@@ -147,7 +147,7 @@
     
     input AddMcConstruction {
     items: String
-      startAt: Date
+      startAt: Date!
       
     }
     

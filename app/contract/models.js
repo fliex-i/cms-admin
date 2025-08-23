@@ -898,7 +898,7 @@ module.exports = {
   },
   mc_construction_add: {
     items: { type: 'string', description: '用户施工计划json数据', required: false },
-    startAt: { type: 'string', description: '开工时间', required: false },
+    startAt: { type: 'string', description: '开工时间', required: true },
     
   },
   mc_construction_edit: {
