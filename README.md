@@ -16,6 +16,8 @@
 
 > 导出数据库
 mysqldump -u root -p --databases --default-character-set=utf8mb4 platform > mysql/init.sql
+ > 重置编码
+ COLLATE = utf8mb4_general_ci
 > 编译 启动docker
 docker-compose down && docker-compose build &&docker-compose up -d
 
