@@ -45,6 +45,7 @@
               { "type": "input-text", "name": "phone", "label": "联系电话", "required": true },
               { "type": "input-text", "name": "address", "label": "地址" },
               { "type": "input-text", "name": "weixin", "label": "微信号" },
+              { "type": "input-text", "name": "region", "label": "服务区域" },
               { "type": "input-image", "name": "thumb", "label": "商家Logo", "maxLength": 1, "receiver": "/upload/adminToken" },
               { "type": "input-image", "name": "photos", "label": "店内照片", "maxLength": 5, "receiver": "/upload/adminToken", "multiple": true },
               { "type": "textarea", "name": "desc", "label": "商家介绍", "maxLength": 800 }
@@ -64,7 +65,7 @@
         { "name": "phone", "label": "联系电话", "type": "text", "toggled": true },
         { "name": "address", "label": "地址", "type": "text", "toggled": true },
         { "name": "weixin", "label": "微信号", "type": "text", "toggled": true },
-        
+        { "type": "text", "name": "region", "label": "服务区域","toggled": true },
         { "name": "desc", "label": "介绍", "type": "text", "toggled": true },
         { "name": "createdAt", "label": "创建时间", "type": "date", "toggled": true, "format": "YYYY-MM-DD HH:mm" },
         { "name": "updatedAt", "label": "更新时间", "type": "date", "toggled": true, "format": "YYYY-MM-DD HH:mm" },
@@ -86,6 +87,7 @@
                 { "type": "select", "name": "type", "label": "商家类型", "required": true, "source": "/admin/cms/materials/types", "searchable": true, "clearable": true },
                 { "type": "input-text", "name": "address", "label": "地址" },
                 { "type": "input-text", "name": "weixin", "label": "微信号" },
+                { "type": "input-text", "name": "region", "label": "服务区域" },
                 { "type": "input-image", "name": "thumb", "label": "商家Logo", "maxLength": 1, "receiver": "/upload/adminToken" },
                 {
                   "type": "input-image",

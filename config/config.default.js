@@ -41,6 +41,14 @@ module.exports = appInfo => {
   config.middleware = [ 'graphql' ];
   config.multipart = {
     mode: 'file',
+    fileSize: 50 * 1024 * 1024, // 50MB
+  };
+  config.bodyParser = {
+    enable: true,
+    formLimit: '50mb',
+    jsonLimit: '50mb',
+    // 禁用 multipart 解析，交给 multipart 处理
+    enableTypes: [ 'json', 'form' ],
   };
   config.graphql = {
     router: '/graphql-dev',
