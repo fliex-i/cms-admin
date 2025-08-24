@@ -4,8 +4,8 @@
     {
       "type": "crud",
       "name": "workerTypesList",
-      "api": "/admin/sys/workerTypes/index",
-      "saveOrderApi": "/admin/sys/workerTypes/saveOrder",
+      "api": "/admin/sys/worker_types/index",
+      "saveOrderApi": "/admin/sys/worker_types/saveOrder",
       "filter": {
         "title": "工种管理",
         "body": [
@@ -22,7 +22,7 @@
           "title": "新增工种",
           "body": {
             "type": "form",
-            "api": "/admin/sys/workerTypes/create",
+            "api": "/admin/sys/worker_types/create",
             "body": [
               { "type": "input-text", "name": "name", "label": "类型名称", "required": true }
             ]
@@ -30,7 +30,7 @@
         }}
       ],
       "bulkActions": [
-        { "label": "批量删除", "actionType": "ajax", "api": "/admin/sys/workerTypes/bulkDel", "confirmText": "确定要批量删除?" }
+        { "label": "批量删除", "actionType": "ajax", "api": "/admin/sys/worker_types/bulkDel", "confirmText": "确定要批量删除?" }
       ],
       "columns": [
         { "name": "id", "label": "ID", "type": "text", "sortable": false },
@@ -42,14 +42,14 @@
             "title": "编辑工种",
             "body": {
               "type": "form",
-              "api": "/admin/sys/workerTypes/update",
+              "api": "/admin/sys/worker_types/update",
               "body": [
                 { "type": "hidden", "name": "id" },
                 { "type": "input-text", "name": "name", "label": "类型名称", "required": true }
               ]
             }
           }},
-          { "type": "button", "icon": "fa fa-times text-danger", "actionType": "ajax", "confirmText": "您确认要删除?", "api": "/admin/sys/workerTypes/destroy?id=$id" }
+          { "type": "button", "icon": "fa fa-times text-danger", "actionType": "ajax", "confirmText": "您确认要删除?", "api": "/admin/sys/worker_types/destroy?id=$id" }
         ]}
       ]
     }
