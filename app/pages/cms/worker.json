@@ -15,7 +15,11 @@
         "body": [
           { "type": "input-text", "name": "name", "label": "姓名", "clearable": true, "placeholder": "通过姓名搜索", "size": "sm" },
           { "type": "input-text", "name": "phone", "label": "手机号", "clearable": true, "placeholder": "通过手机号搜索", "size": "sm" },
-          { "type": "input-text", "name": "workType", "label": "工种", "clearable": true, "placeholder": "通过工种搜索", "size": "sm" },
+          {  "name": "workType", "label": "工种",  "type": "select",
+          "toggled": true,
+          "source": "/api/cms/worker/types", 
+          "searchable": true,
+          "clearable": true, "placeholder": "通过工种搜索", "size": "sm" },
           { "type": "select", "name": "status", "label": "状态", "clearable": true, "options": [ { "label": "正常", "value": 1 }, { "label": "禁用", "value": 0 } ], "size": "sm" }
         ],
         "actions": [
