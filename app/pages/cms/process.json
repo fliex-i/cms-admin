@@ -43,7 +43,16 @@
                 "searchable": true,
                 "labelField": "name",
                 "valueField": "key"
-              } 
+              },
+              {
+                "type": "input-file",
+                "name": "video",
+                "label": "视频文件（mp4）",
+                "accept": ".mp4",
+                "useChunk":false,
+                "receiver": "/upload/adminToken",
+                "description": "请上传mp4格式视频"
+              }
             ]
           }
         }}
@@ -76,6 +85,15 @@
                   "searchable": true,
                   "labelField": "name",
                   "valueField": "key"
+                },
+                {
+                  "type": "input-file",
+                  "name": "video",
+                  "label": "视频文件（mp4）",
+                  "accept": ".mp4",
+                  "useChunk":false,
+                  "receiver": "/upload/adminToken",
+                  "description": "请上传mp4格式视频"
                 }
               ]
             }

@@ -9,6 +9,7 @@
       type:String
       notes:String
       key:String
+      video:String
       
       
     }
@@ -158,6 +159,24 @@
   op_endsWith: String
   op_substring: String
       }
+      input WhereSysProcess_video {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
       
     input WhereFieldSysProcess{
     createdAt:WhereSysProcess_createdAt
@@ -168,6 +187,7 @@
       type:WhereSysProcess_type
       notes:WhereSysProcess_notes
       key:WhereSysProcess_key
+      video:WhereSysProcess_video
       
     }
 
@@ -180,6 +200,7 @@
       type:WhereSysProcess_type
       notes:WhereSysProcess_notes
       key:WhereSysProcess_key
+      video:WhereSysProcess_video
       
       op_and: [WhereFieldSysProcess]
       op_or: [WhereFieldSysProcess]
@@ -193,6 +214,7 @@
       type: String
       notes: String
       key: String
+      video: String
       
     }
     
@@ -203,6 +225,7 @@
       type: String
       notes: String
       key: String
+      video: String
       
     }
     

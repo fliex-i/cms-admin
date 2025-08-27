@@ -11,6 +11,7 @@ module.exports = app => {
     type: { type: DataTypes.STRING, comment: '施工类型' },
     notes: { type: DataTypes.TEXT, comment: '注意事项' },
     key: { type: DataTypes.STRING, comment: '关联项目' },
+    video: { type: DataTypes.STRING, comment: '视频说明' },
   },{
   indexes:[{"unique":false,"fields":["key","id"]}],
   paranoid: false,

@@ -1058,6 +1058,7 @@ module.exports = {
     standard: { type: 'string', description: '工艺标准介绍' },
     type: { type: 'string', description: '施工类型' },
     updatedAt: { type: 'string', description: '更新时间' },
+    video: { type: 'string', description: '视频说明' },
     
   },
   sys_process_add: {
@@ -1066,6 +1067,7 @@ module.exports = {
     process: { type: 'string', description: '流程介绍', required: false },
     standard: { type: 'string', description: '工艺标准介绍', required: false },
     type: { type: 'string', description: '施工类型', required: false },
+    video: { type: 'string', description: '视频说明', required: false },
     
   },
   sys_process_edit: {
@@ -1074,6 +1076,7 @@ module.exports = {
     process: { type: 'string', description: '流程介绍' },
     standard: { type: 'string', description: '工艺标准介绍' },
     type: { type: 'string', description: '施工类型' },
+    video: { type: 'string', description: '视频说明' },
     
   },
 
