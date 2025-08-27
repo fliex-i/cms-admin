@@ -1,0 +1,173 @@
+
+    
+    type CmsAlbums {
+      createdAt:Date
+      id:ID
+      updatedAt:Date
+      name:String
+      photos:String
+      desc:String
+      
+      
+    }
+    
+    
+    input WhereCmsAlbums_createdAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsAlbums_id {
+        op_eq: ID
+  op_ne: ID
+  op_or: [ID]
+  op_gt: ID
+  op_gte: ID
+  op_lt: ID
+  op_lte: ID
+  op_between: [ID]
+  op_notBetween: [ID]
+  op_in: [ID]
+  op_notIn: [ID]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsAlbums_updatedAt {
+        op_eq: Date
+  op_ne: Date
+  op_or: [Date]
+  op_gt: Date
+  op_gte: Date
+  op_lt: Date
+  op_lte: Date
+  op_between: [Date]
+  op_notBetween: [Date]
+  op_in: [Date]
+  op_notIn: [Date]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsAlbums_name {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsAlbums_photos {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      input WhereCmsAlbums_desc {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
+      
+    input WhereFieldCmsAlbums{
+    createdAt:WhereCmsAlbums_createdAt
+      id:WhereCmsAlbums_id
+      updatedAt:WhereCmsAlbums_updatedAt
+      name:WhereCmsAlbums_name
+      photos:WhereCmsAlbums_photos
+      desc:WhereCmsAlbums_desc
+      
+    }
+
+    input WhereCmsAlbums {
+      createdAt:WhereCmsAlbums_createdAt
+      id:WhereCmsAlbums_id
+      updatedAt:WhereCmsAlbums_updatedAt
+      name:WhereCmsAlbums_name
+      photos:WhereCmsAlbums_photos
+      desc:WhereCmsAlbums_desc
+      
+      op_and: [WhereFieldCmsAlbums]
+      op_or: [WhereFieldCmsAlbums]
+      op_not: [WhereFieldCmsAlbums]
+    }
+    
+    
+    input AddCmsAlbums {
+    name: String
+      photos: String
+      desc: String
+      
+    }
+    
+    
+    input EditCmsAlbums {
+    name: String
+      photos: String
+      desc: String
+      
+    }
+    
+    type CountCmsAlbums {
+      count: Int
+      rows: [CmsAlbums]
+    }
+    type ResDelCmsAlbums {
+      count: Int
+    }
+    type ResEditCmsAlbums {
+      ids: [Int]
+    }
+    

@@ -274,4 +274,11 @@ type Mutation {
   #商家类型 更新
   CmsMaterialsTypes_update(data:EditCmsMaterialsTypes!,where:WhereCmsMaterialsTypes!):ResEditCmsMaterialsTypes
 
+  #图集 添加
+  CmsAlbums_create(data:AddCmsAlbums):CmsAlbums
+  #图集 删除
+  CmsAlbums_destroy(where:WhereCmsAlbums!):ResDelCmsAlbums
+  #图集 更新
+  CmsAlbums_update(data:EditCmsAlbums!,where:WhereCmsAlbums!):ResEditCmsAlbums
+
 }

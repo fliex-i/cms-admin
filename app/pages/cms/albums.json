@@ -1,0 +1,62 @@
+{
+  "type": "page",
+  "title": "图集管理",
+  "body": [
+    {
+      "type": "crud",
+      "name": "albumsList",
+      "api": "/api/cms/albums/index",
+      "filter": {
+        "title": "图集筛选",
+        "body": [
+          { "type": "input-text", "name": "name", "label": "图集名称" }
+        ],
+        "actions": [
+          { "type": "reset", "label": "重置" },
+          { "type": "submit", "level": "primary", "label": "查询" }
+        ]
+      },
+      "headerToolbar": [
+        "bulkActions",
+        { "type": "button", "actionType": "drawer", "label": "新增图集", "primary": true, "drawer": {
+          "title": "新增图集",
+          "body": {
+            "type": "form",
+            "api": "/api/cms/albums/create",
+            "body": [
+              { "type": "input-text", "name": "name", "label": "图集名称", "required": true },
+              { "type": "input-image", "name": "photos", "label": "图集图片", "receiver": "/upload/adminToken", "multiple": true, "required": true, "description": "可上传多张图片" },
+              { "type": "textarea", "name": "desc", "label": "图集描述" }
+            ]
+          }
+        }}
+      ],
+      "bulkActions": [
+        { "label": "批量删除", "actionType": "ajax", "api": "/api/cms/albums/bulkDel", "confirmText": "确定要批量删除?" }
+      ],
+      "columns": [
+        { "name": "id", "label": "ID", "type": "text", "sortable": true },
+        { "name": "name", "label": "图集名称", "type": "text" },
+        { "name": "desc", "label": "图集描述", "type": "text" },
+        { "name": "createdAt", "label": "创建时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
+        { "name": "updatedAt", "label": "更新时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
+        { "type": "operation", "label": "操作", "buttons": [
+          { "type": "button", "icon": "fa fa-pencil", "actionType": "drawer", "drawer": {
+            "title": "编辑图集",
+            "body": {
+              "type": "form",
+              "api": "/api/cms/albums/update",
+              "body": [
+                { "type": "hidden", "name": "id" },
+                { "type": "input-text", "name": "name", "label": "图集名称", "required": true },
+                { "type": "input-image", "name": "photos", "label": "图集图片", "receiver": "/upload/adminToken", "multiple": true, "required": true, "description": "可上传多张图片" },
+                { "type": "textarea", "name": "desc", "label": "图集描述" }
+              ]
+            }
+          }},
+          { "type": "button", "icon": "fa fa-times text-danger", "actionType": "ajax", "confirmText": "您确认要删除?", "api": "/api/cms/albums/destroy?id=$id" }
+        ]}
+      ]
+    }
+  ]
+}

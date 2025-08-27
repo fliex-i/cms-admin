@@ -1262,4 +1262,27 @@ module.exports = {
     
   },
 
+  // 图集
+  cms_albums_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    desc: { type: 'string', description: '图集描述' },
+    id: { type: 'string', description: '主键' },
+    name: { type: 'string', description: '图集名称' },
+    photos: { type: 'string', description: '图集图片' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  cms_albums_add: {
+    desc: { type: 'string', description: '图集描述', required: false },
+    name: { type: 'string', description: '图集名称', required: false },
+    photos: { type: 'string', description: '图集图片', required: false },
+    
+  },
+  cms_albums_edit: {
+    desc: { type: 'string', description: '图集描述' },
+    name: { type: 'string', description: '图集名称' },
+    photos: { type: 'string', description: '图集图片' },
+    
+  },
+
 };
