@@ -5,6 +5,7 @@
       id:ID
       updatedAt:Date
       name:String
+      desc:String
       
       cms_materials(order:[[String]],limit:Int,offset:Int): [CmsMaterials]
 
@@ -83,12 +84,31 @@
   op_endsWith: String
   op_substring: String
       }
+      input WhereCmsMaterialsTypes_desc {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
       
     input WhereFieldCmsMaterialsTypes{
     createdAt:WhereCmsMaterialsTypes_createdAt
       id:WhereCmsMaterialsTypes_id
       updatedAt:WhereCmsMaterialsTypes_updatedAt
       name:WhereCmsMaterialsTypes_name
+      desc:WhereCmsMaterialsTypes_desc
       
     }
 
@@ -97,6 +117,7 @@
       id:WhereCmsMaterialsTypes_id
       updatedAt:WhereCmsMaterialsTypes_updatedAt
       name:WhereCmsMaterialsTypes_name
+      desc:WhereCmsMaterialsTypes_desc
       
       op_and: [WhereFieldCmsMaterialsTypes]
       op_or: [WhereFieldCmsMaterialsTypes]
@@ -106,12 +127,14 @@
     
     input AddCmsMaterialsTypes {
     name: String!
+      desc: String
       
     }
     
     
     input EditCmsMaterialsTypes {
     name: String
+      desc: String
       
     }
     

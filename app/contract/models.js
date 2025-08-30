@@ -1248,16 +1248,19 @@ module.exports = {
   // 商家类型
   cms_materials_types_item: {
     createdAt: { type: 'string', description: '创建时间' },
+    desc: { type: 'string', description: '类型描述' },
     id: { type: 'string', description: '主键' },
     name: { type: 'string', description: '材料商家类型' },
     updatedAt: { type: 'string', description: '更新时间' },
     
   },
   cms_materials_types_add: {
+    desc: { type: 'string', description: '类型描述', required: false },
     name: { type: 'string', description: '材料商家类型', required: true },
     
   },
   cms_materials_types_edit: {
+    desc: { type: 'string', description: '类型描述' },
     name: { type: 'string', description: '材料商家类型' },
     
   },

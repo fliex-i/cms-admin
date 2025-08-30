@@ -11,10 +11,8 @@ class UploadController extends Controller {
    */
   async image() {
     const { ctx } = this;
-    ctx.logger.info(ctx.request, '/check file');
     const file = ctx.request.files[0];
     try {
-      console.log(file);
       const upload = await ctx.service.sys.objectStorage.upload({}, file);
       if (upload && upload.url) {
         this.success({ url: upload.url, message: '上传成功' });

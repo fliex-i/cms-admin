@@ -96,11 +96,16 @@ module.exports = app => {
   app.router.post('删除工种', '/admin/sys/worker_types/destroy', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.destroy');
   app.router.post('批量删除', '/admin/sys/worker_types/bulkDel', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.bulkDel');
   app.router.post('保存排序', '/admin/sys/worker_types/saveOrder', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.workerTypes.saveOrder');
-  app.router.get('图集列表', '/api/cms/albums/index', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.albums.list');
+  app.router.get('图集列表', '/api/cms/albums/index', 'cms.albums.list');
   app.router.post('新建图集', '/api/cms/albums/create', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.albums.create');
   app.router.post('更新图集', '/api/cms/albums/update', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.albums.update');
   app.router.post('删除图集', '/api/cms/albums/destroy', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.albums.destroy');
   app.router.post('批量删除', '/api/cms/albums/bulkDel', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.albums.bulkDel');
+  app.router.get('商家类型列表', '/api/cms/material_types', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.materialsTypes.list');
+  app.router.post('新建类型', '/api/cms/material_types/create', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.materialsTypes.create');
+  app.router.post('更新类型', '/api/cms/material_types/update', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.materialsTypes.update');
+  app.router.post('删除类型', '/api/cms/material_types/destroy', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.materialsTypes.destroy');
+  app.router.post('批量删除', '/api/cms/material_types/bulkDel', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.materialsTypes.bulkDel');
   app.router.get('graphQL权限节点', '/admin/sys/role/graphQL', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.role.graphQL');
   app.router.post('添加分组', '/admin/sys/user/groupAdd', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.user.groupAdd');
   app.router.get('获取上级分类', '/admin/cms/classify/topClassify', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.classify.topClassify');

@@ -18,7 +18,6 @@ class objectStorageService extends Service {
     const res = {};
     const type = body.type ? body.type : this.type;
     const config = this.con[type];
-    console.log(config);
     const localFile = file.filepath;
     let key = path.basename(localFile);
     if (config.path) {
@@ -41,7 +40,7 @@ class objectStorageService extends Service {
         keyname = `${config.path}/${keyname}`;
       }
       res.savename = keyname;
-      res.url = `${config.domain}/public/${keyname}`;
+      res.url = `/public/${keyname}`;
       res.result = {};
     } else if (type === 'kodo') { // 七牛上传
       const mac = new qiniu.auth.digest.Mac(config.AccessKey, config.SecretKey);

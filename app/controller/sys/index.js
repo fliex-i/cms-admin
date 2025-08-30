@@ -142,7 +142,7 @@ class IndexController extends Controller {
   }
   async site() {
     const map = {};
-    map.order = [[ 'sort', 'ASC' ]];
+    map.order = [[ 'id', 'ASC' ]];
     map.where = { admin: false, class_uuid: '8f5757a3-8af9-45db-8819-d767aaddfadb' };
     const roleIds = await this.ctx.service.sys.rbac.getRoleIds(this.ctx.userInfo.uuid);
     if (!this.ctx.helper._.isEmpty(roleIds)) {
