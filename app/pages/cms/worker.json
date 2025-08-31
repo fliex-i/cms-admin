@@ -100,7 +100,7 @@
               "body": [
                 { "type": "hidden", "name": "id" },
                 { "type": "input-text", "name": "name", "label": "姓名", "required": true },
-                { "type": "input-text", "name": "phone", "label": "手机号", "maxLength": 11, "required": true, "validations": { "isMobile": true }, "validationErrors": { "isMobile": "请输入正确的手机号" } },
+                { "type": "input-text", "name": "phone", "label": "手机号", "maxLength": 11, "required": true},
                 {"name": "workType",
           "label": "工种",
           "type": "select",
