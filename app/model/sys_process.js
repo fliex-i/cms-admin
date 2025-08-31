@@ -6,10 +6,10 @@ module.exports = app => {
     createdAt: { type: DataTypes.DATE, comment: '创建时间' },
     id: { type: DataTypes.INTEGER, autoIncrement:true, primaryKey: true, comment: '主键' },
     updatedAt: { type: DataTypes.DATE, comment: '更新时间' },
-    process: { type: DataTypes.TEXT, comment: '流程介绍' },
-    standard: { type: DataTypes.TEXT, comment: '工艺标准介绍' },
+    process: { type: DataTypes.JSON, comment: '流程介绍' },
+    standard: { type: DataTypes.JSON, comment: '工艺标准介绍' },
     type: { type: DataTypes.STRING, comment: '施工类型' },
-    notes: { type: DataTypes.TEXT, comment: '注意事项' },
+    notes: { type: DataTypes.JSON, comment: '注意事项' },
     key: { type: DataTypes.STRING, comment: '关联项目' },
     video: { type: DataTypes.STRING, comment: '视频说明' },
   },{

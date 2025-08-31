@@ -3,7 +3,7 @@ const Controller = require('egg').Controller;
 class ProcessController extends Controller {
   async list() {
     const { ctx } = this;
-    const { page = 1, perPage } = ctx.query;
+    const { page = 1, perPage, orderBy, orderDir } = ctx.query;
     const limit = Number(perPage || 10);
     const where = { ...ctx.query };
     Object.keys(where).forEach(key => {
@@ -11,17 +11,21 @@ class ProcessController extends Controller {
         where[key] === undefined ||
         where[key] === null ||
         where[key] === '' ||
-        [ 'page', 'perPage', 'pageSize' ].includes(key) ||
+        [ 'page', 'perPage', 'pageSize', 'orderBy', 'orderDir' ].includes(key) ||
         (Array.isArray(where[key]) && where[key].length === 0)
       ) {
         delete where[key];
       }
     });
+    let order = [[ 'id', 'ASC' ]];
+    if (orderBy && orderDir) {
+      order = [[ orderBy, orderDir ]];
+    }
     const result = await ctx.model.SysProcess.findAndCountAll({
       where,
       offset: (page - 1) * limit,
       limit,
-      order: [[ 'id', 'DESC' ]],
+      order,
     });
     ctx.body = { code: 0, data: result.rows, count: result.count };
   }

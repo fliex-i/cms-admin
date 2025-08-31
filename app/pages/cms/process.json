@@ -4,8 +4,26 @@
     {
       "type": "crud",
       "name": "processList",
-      "api": "/admin/sys/process/index",
+      "api": {
+        "url": "/admin/sys/process/index",
+        "method": "get",
+        "data": {
+          "page": "${page}",
+          "perPage": "${perPage}"
+        },
+        "adaptor": "return {\n  ...payload,\n  items: payload.rows,\n  total: payload.count\n};"
+      },
       "saveOrderApi": "/admin/sys/process/saveOrder",
+      "perPage": 10,
+      "pageField": "page",
+      "perPageField": "perPage",
+      "orderField": "orderBy",
+      "orderDir": "orderDir",
+      "perPageAvailable": [5, 10, 20, 50, 100],
+      "footerToolbar": ["switch-per-page", "statistics", "pagination"],
+      "quickSaveApi": "/amis/api/sample/bulkUpdate",
+      "quickSaveItemApi": "/amis/api/sample/$id",
+      "filterTogglable": true,
       "filter": {
         "title": "工艺标准管理",
         "body": [
