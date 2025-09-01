@@ -44,8 +44,8 @@ module.exports = appInfo => {
       return cdata;
     },
   };
-  // add your middleware config here
-  config.middleware = [ 'graphql' ];
+  // 确保 cors 中间件在最前面
+  config.middleware = [ 'cors', 'graphql' ];
   config.multipart = {
     mode: 'file',
     type: 'local',
