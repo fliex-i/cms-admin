@@ -12,22 +12,15 @@ module.exports = appInfo => {
    * @type {Egg.EggAppConfig}
    **/
   const config = exports = {};
-  config.cors = {
-    origin: '*',
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
-    credentials: true,
-  };
   config.remoteConfig = {
     async handler(agent) {
-      // let data;
-      // try {
-      //   data = await agent.model.SysConfig.findAll();
-      // } catch (error) {
-      //   const { RECORDS } = await fs.readJson(path.join(appInfo.baseDir, 'app/core/initData/sys_config.json'), { throws: false });
-      //   data = RECORDS;
-      // }
-      const { RECORDS } = await fs.readJson(path.join(appInfo.baseDir, 'app/core/initData/sys_config.json'), { throws: false });
-      const data = RECORDS;
+      let data;
+      try {
+        data = await agent.model.SysConfig.findAll();
+      } catch (error) {
+        const { RECORDS } = await fs.readJson(path.join(appInfo.baseDir, 'app/core/initData/sys_config.json'), { throws: false });
+        data = RECORDS;
+      }
 
       const cdata = {};
       for (const v of data) {
@@ -44,8 +37,14 @@ module.exports = appInfo => {
       return cdata;
     },
   };
-  // 确保 cors 中间件在最前面
-  config.middleware = [ 'cors', 'graphql' ];
+  // add your middleware config here
+  // 只需在 plugin.js 启用 cors，无需在 middleware 再声明
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+    credentials: true,
+  };
+  config.middleware = [ 'graphql' ];
   config.multipart = {
     mode: 'file',
     type: 'local',
