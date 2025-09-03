@@ -288,6 +288,16 @@
 
               to = normalizeLink(to);
 
+              // 强制清除 ? 及后面内容，只保留路径和 hash
+              if (to.indexOf("?") !== -1) {
+                const hashIndex = to.indexOf("#");
+                if (hashIndex !== -1) {
+                  to = to.substring(0, to.indexOf("?")) + to.substring(hashIndex);
+                } else {
+                  to = to.substring(0, to.indexOf("?"));
+                }
+              }
+
               if (isCurrentUrl(to)) {
                 return;
               }
@@ -305,7 +315,7 @@
               if (/^https?:\/\//.test(to)) {
                 window.location.href = to;
               } else if (
-                (!/^https?\:\/\//.test(to) &&
+                (!/^https?:\/+/.test(to) &&
                   to === history.pathname + history.location.search) ||
                 to === history.location.href
               ) {
