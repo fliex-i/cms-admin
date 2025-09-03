@@ -14,7 +14,7 @@ class ConfigController extends Controller {
     const { ctx } = this;
     const { name } = ctx.params;
     const data = await ctx.model.SysConfig.findOne({ where: { name } });
-    this.success(data.value);
+    this.success(typeof data.value === 'string' ? JSON.parse(data.value) : data.value);
   }
   /**
   * @summary 修改系统配置
