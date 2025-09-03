@@ -36,11 +36,13 @@ class AlbumsController extends Controller {
           try {
             item.photos = JSON.parse(item.photos);
           } catch (e) {
-            item.photos = item.photos.replace(/\\+"/g, '').split(',').map(i => i.trim());
+            item.photos = item.photos.replace(/\"/g, '').replace(/\"/g, '').split(',')
+              .map(i => i.trim());
           }
         }
       });
     }
+    console.log(JSON.stringify(list), 'check list');
     this.success({ ...list, page, perPage: limit });
   }
   /**
