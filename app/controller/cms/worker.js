@@ -32,7 +32,7 @@ class WorkerController extends Controller {
           try {
             item.case = JSON.parse(item.case);
           } catch (e) {
-            item.case = item.case.split(',').map(i => i.trim().replace(/^"|"$/g, ''));
+            item.case = item.case.split(',').map(i => i.trim().replace(/\"|"$/g, ''));
           }
         }
       });
