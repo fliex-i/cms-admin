@@ -36,7 +36,7 @@ class AlbumsController extends Controller {
           try {
             item.photos = JSON.parse(item.photos);
           } catch (e) {
-            item.photos = item.photos.split(',').map(i => i.trim().replace(/^"|"$/g, ''));
+            item.photos = item.photos.replace(/\\+"/g, '').split(',').map(i => i.trim());
           }
         }
       });
