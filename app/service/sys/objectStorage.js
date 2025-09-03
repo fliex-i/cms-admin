@@ -40,7 +40,7 @@ class objectStorageService extends Service {
       await fs.copyFile(localFile, path.join(this.app.baseDir, 'app', 'public', key));
       const keyname = path.basename(localFile);
       res.savename = keyname;
-      res.url = `/public/${keyname}`;
+      res.url = `/public/${config.path}/${keyname}`;
       res.result = {};
     } else if (type === 'kodo') { // 七牛上传
       const mac = new qiniu.auth.digest.Mac(config.AccessKey, config.SecretKey);
