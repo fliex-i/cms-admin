@@ -195,11 +195,10 @@
         };
         function normalizeLink(to, location = history.location) {
           to = to || "";
-
           if (to && to[0] === "#") {
             to = location.pathname + location.search + to;
           } else if (to && to[0] === "?") {
-            to = location.pathname + to;
+            to = location.pathname //+ to;
           }
 
           const idx = to.indexOf("?");
@@ -287,17 +286,6 @@
               }
 
               to = normalizeLink(to);
-
-              // 强制清除 ? 及后面内容，只保留路径和 hash
-              if (to.indexOf("?") !== -1) {
-                const hashIndex = to.indexOf("#");
-                if (hashIndex !== -1) {
-                  to = to.substring(0, to.indexOf("?")) + to.substring(hashIndex);
-                } else {
-                  to = to.substring(0, to.indexOf("?"));
-                }
-              }
-
               if (isCurrentUrl(to)) {
                 return;
               }
