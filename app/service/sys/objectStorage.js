@@ -17,7 +17,11 @@ class objectStorageService extends Service {
   async upload(body, file) {
     const res = {};
     const type = body.type ? body.type : this.type;
-    const config = this.con[type];
+    const config = this.con[type] || {};
+    // 自动修复：如果没有 path 字段，默认赋值 'upload'
+    if (!config.path) {
+      config.path = 'upload';
+    }
     const localFile = file.filepath;
     let key = path.basename(localFile);
     if (config.path) {
