@@ -54,7 +54,9 @@
           }},
           { "type": "button", "icon": "fa fa-times text-danger", "actionType": "ajax", "confirmText": "您确认要删除?", "api": "/api/cms/material_types/destroy?id=$id" }
         ]}
-      ]
+      ],
+      "footerToolbar": ["switch-per-page", "statistics", "pagination"],
+      "paginationMode": "simple"
     }
   ]
 }

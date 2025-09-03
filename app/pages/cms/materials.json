@@ -57,6 +57,7 @@
         { "label": "批量删除", "actionType": "ajax", "api": "/admin/cms/materials/bulkDel", "confirmText": "确定要批量删除?" }
       ],
       "footerToolbar": ["switch-per-page", "statistics", "pagination"],
+      "paginationMode": "simple",
       "columns": [
         { "name": "id", "label": "ID", "width": 20, "sortable": true, "type": "text", "toggled": true },
         { "label": "Logo", "type": "image", "name": "thumb", "className": "tdimg" },

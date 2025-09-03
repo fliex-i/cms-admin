@@ -16,6 +16,12 @@
           { "type": "submit", "level": "primary", "label": "查询" }
         ]
       },
+      "footerToolbar": [
+        "statistics",
+        "switch-per-page",
+        "pagination"
+      ],
+      "paginationMode": "simple",
       "headerToolbar": [
         "bulkActions",
         { "type": "button", "actionType": "drawer", "label": "新增工种", "primary": true, "drawer": {

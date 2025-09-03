@@ -29,6 +29,18 @@ class AlbumsController extends Controller {
       map.order = [ data.order.split(',') ];
     }
     const list = await ctx.model.CmsAlbums.findAndCountAll(map);
+    // 批量处理 photos 字段为数组
+    if (Array.isArray(list.rows)) {
+      list.rows.forEach(item => {
+        if (item.photos && typeof item.photos === 'string') {
+          try {
+            item.photos = JSON.parse(item.photos);
+          } catch (e) {
+            item.photos = item.photos.split(',').map(i => i.trim().replace(/^"|"$/g, ''));
+          }
+        }
+      });
+    }
     this.success({ ...list, page, perPage: limit });
   }
   /**

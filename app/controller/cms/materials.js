@@ -11,14 +11,26 @@ class MaterialsController extends Controller {
     if (data.name) where.name = { [ctx.app.Sequelize.Op.like]: `%${data.name}%` };
     if (data.contact) where.contact = { [ctx.app.Sequelize.Op.like]: `%${data.contact}%` };
     if (data.phone) where.phone = { [ctx.app.Sequelize.Op.like]: `%${data.phone}%` };
-    if (data.typeId) where.type = data.typeId;
+    if (data.type) where.type = data.type;
     if (data.weixin) where.weixin = { [ctx.app.Sequelize.Op.like]: `%${data.weixin}%` };
     const list = await ctx.model.CmsMaterials.findAndCountAll({
       where,
       offset: (Number(page) - 1) * limit,
       limit: Number(limit),
-      order: [[ 'id', 'DESC' ]],
+      order: [[ 'id', 'ASC' ]],
     });
+    // 批量处理 photos 字段为数组
+    if (Array.isArray(list.rows)) {
+      list.rows.forEach(item => {
+        if (item.photos && typeof item.photos === 'string') {
+          try {
+            item.photos = JSON.parse(item.photos);
+          } catch (e) {
+            item.photos = item.photos.split(',').map(i => i.trim().replace(/^"|"$/g, ''));
+          }
+        }
+      });
+    }
     this.success(list);
   }
   // 新建材料商

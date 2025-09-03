@@ -31,6 +31,8 @@
           }
         }}
       ],
+      "footerToolbar": ["switch-per-page", "statistics", "pagination"],
+      "paginationMode": "simple",
       "bulkActions": [
         { "label": "批量删除", "actionType": "ajax", "api": "/api/cms/albums/bulkDel", "confirmText": "确定要批量删除?" }
       ],

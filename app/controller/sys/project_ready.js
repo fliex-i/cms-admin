@@ -1,5 +1,5 @@
 'use strict';
-const Controller = require('egg').Controller;
+const Controller = require('../../core/base_controller');
 class ProjectReadyController extends Controller {
   async list() {
     const { ctx } = this;
@@ -16,14 +16,13 @@ class ProjectReadyController extends Controller {
         delete where[key];
       }
     });
-    ctx.logger.info('Query parameters:', where);
     const result = await ctx.model.SysProjectReady.findAndCountAll({
       where,
       offset: (page - 1) * perPage,
       limit: Number(perPage),
       order: [[ 'id', 'DESC' ]],
     });
-    ctx.body = { code: 0, data: result.rows, count: result.count };
+    this.success(result);
   }
   async create() {
     const { ctx } = this;

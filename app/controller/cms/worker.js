@@ -16,8 +16,27 @@ class WorkerController extends Controller {
     const page = data.page || 1;
     const limit = data.perPage || 15;
     const workType = data.workType && data.workType !== 'all' ? data.workType : '';
-    const map = { where: workType ? { workType } : {}, offset: (Number(page) - 1) * limit, limit: Number(limit) };
-    const list = await ctx.model.CmsWorker.findAndCountAll(map);
+    const where = {};
+    if (data.name) where.name = { [ctx.app.Sequelize.Op.like]: `%${data.name}%` };
+    if (workType) where.workType = workType;
+    const list = await ctx.model.CmsWorker.findAndCountAll({
+      where,
+      offset: (Number(page) - 1) * limit,
+      limit: Number(limit),
+      order: [[ 'id', 'ASC' ]],
+    });
+    // 批量处理 case 字段为数组，兼容字符串/JSON
+    if (Array.isArray(list.rows)) {
+      list.rows.forEach(item => {
+        if (item.case && typeof item.case === 'string') {
+          try {
+            item.case = JSON.parse(item.case);
+          } catch (e) {
+            item.case = item.case.split(',').map(i => i.trim().replace(/^"|"$/g, ''));
+          }
+        }
+      });
+    }
     const typeMap = { where: workType ? { id: Number(workType) } : {} };
     const types = await ctx.model.SysWorkerTypes.findAll(typeMap);
     this.success({ ...list, types });

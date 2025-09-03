@@ -16,7 +16,7 @@ class ProjectsController extends Controller {
       limit,
       order: [[ 'id', 'ASC' ]],
     });
-    this.success({ ...result });
+    this.success(result);
   }
   async create() {
     const { ctx } = this;

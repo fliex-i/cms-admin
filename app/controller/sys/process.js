@@ -1,5 +1,5 @@
 'use strict';
-const Controller = require('egg').Controller;
+const Controller = require('../../core/base_controller');
 class ProcessController extends Controller {
   async list() {
     const { ctx } = this;
@@ -27,7 +27,7 @@ class ProcessController extends Controller {
       limit,
       order,
     });
-    ctx.body = { code: 0, data: result.rows, count: result.count };
+    this.success(result);
   }
   async create() {
     const { ctx } = this;
