@@ -16,12 +16,11 @@ class objectStorageService extends Service {
   // 上传接口
   async upload(body, file) {
     const res = {};
-    const type = body.type ? body.type : this.type;
-    const config = this.con[type] || {};
-    // 自动修复：如果没有 path 字段，默认赋值 'upload'
-    if (!config.path) {
-      config.path = 'upload';
-    }
+    const type = body.type ? body.type : 'local'; // this.type ;
+    const config = this.con[type] || {
+      path: 'upload',
+      domain: 'www.zizhuangjia.xyz',
+    };
     const localFile = file.filepath;
     let key = path.basename(localFile);
     if (config.path) {
@@ -39,10 +38,7 @@ class objectStorageService extends Service {
       }
       // await fs.rename(localFile, path.join(this.app.baseDir, 'app', 'public', config.path, key));
       await fs.copyFile(localFile, path.join(this.app.baseDir, 'app', 'public', key));
-      let keyname = path.basename(localFile);
-      if (config.path) {
-        keyname = `${config.path}/${keyname}`;
-      }
+      const keyname = path.basename(localFile);
       res.savename = keyname;
       res.url = `/public/${keyname}`;
       res.result = {};
