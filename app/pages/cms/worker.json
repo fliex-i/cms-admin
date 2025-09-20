@@ -52,7 +52,13 @@
           "source": "/api/cms/worker/types", 
           "searchable": true,
           "clearable": true, "required":true},
-          { "type": "input-text", "name": "region", "label": "服务区域","toggled": true },
+          { "type": "select", "name": "region", "label": "服务区域", "toggled": true, "options": [
+  { "label": "达州市区", "value": "1" },
+  { "label": "开江", "value": "2" },
+  { "label": "玄幻", "value": "3" },
+  { "label": "渠县", "value": "4" },
+  { "label": "万源", "value": "5" }
+]},
               { "type": "input-image", "name": "avatar", "label": "工人照片", "maxLength": 1, "receiver": "/upload/adminToken" },
               { "type": "textarea", "name": "desc", "label": "工人介绍", "maxLength": 800 },
               { "type": "input-image", "name": "case", "label": "施工案例图片", "maxLength": 6, "receiver": "/upload/adminToken", "multiple": true,"addButtonText": "新增照片" },
@@ -81,7 +87,13 @@
           "searchable": true,
           "clearable": true
         },
-        { "type": "text", "name": "region", "label": "服务区域","toggled": true },
+        { "type": "select", "name": "region", "label": "服务区域", "toggled": true, "options": [
+  { "label": "达州市区", "value": "1" },
+  { "label": "开江", "value": "2" },
+  { "label": "玄幻", "value": "3" },
+  { "label": "渠县", "value": "4" },
+  { "label": "万源", "value": "5" }
+]},
         { "name": "desc", "label": "介绍", "type": "text", "toggled": true },
         { "name": "createdAt", "label": "创建时间", "type": "date", "toggled": true, "format": "YYYY-MM-DD HH:mm" },
         { "name": "updatedAt", "label": "更新时间", "type": "date", "toggled": true, "format": "YYYY-MM-DD HH:mm" },
@@ -108,7 +120,13 @@
           "source": "/api/cms/worker/types", 
           "searchable": true,
           "clearable": true, "required":true},
-          { "type": "input-text", "name": "region", "label": "服务区域","toggled": true },
+          { "type": "select", "name": "region", "label": "服务区域", "toggled": true, "options": [
+  { "label": "达州市区", "value": "1" },
+  { "label": "开江", "value": "2" },
+  { "label": "玄幻", "value": "3" },
+  { "label": "渠县", "value": "4" },
+  { "label": "万源", "value": "5" }
+]},
                 { "type": "input-image", "name": "avatar", "label": "工人照片", "maxLength": 1, "receiver": "/upload/adminToken" },
                 { "type": "textarea", "name": "desc", "label": "工人介绍", "maxLength": 800 },
                 { "type": "input-image", "name": "case", "label": "施工案例图片", "maxLength": 6, "receiver": "/upload/adminToken", "multiple": true,"addButtonText": "新增照片" },
