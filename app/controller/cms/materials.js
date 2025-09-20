@@ -13,6 +13,7 @@ class MaterialsController extends Controller {
     if (data.phone) where.phone = { [ctx.app.Sequelize.Op.like]: `%${data.phone}%` };
     if (data.type) where.type = data.type;
     if (data.weixin) where.weixin = { [ctx.app.Sequelize.Op.like]: `%${data.weixin}%` };
+    if (data.region) where.region = data.region;
     const list = await ctx.model.CmsMaterials.findAndCountAll({
       where,
       offset: (Number(page) - 1) * limit,

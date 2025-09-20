@@ -16,9 +16,11 @@ class WorkerController extends Controller {
     const page = data.page || 1;
     const limit = data.perPage || 15;
     const workType = data.workType && data.workType !== 'all' ? data.workType : '';
+    const region = data.region;
     const where = {};
     if (data.name) where.name = { [ctx.app.Sequelize.Op.like]: `%${data.name}%` };
     if (workType) where.workType = workType;
+    if (region) where.region = region;
     const list = await ctx.model.CmsWorker.findAndCountAll({
       where,
       offset: (Number(page) - 1) * limit,
