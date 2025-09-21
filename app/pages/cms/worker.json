@@ -60,9 +60,9 @@
           { "label": "万源", "value": "5" },
           { "label": "大竹", "value": "6" }
 ]},
-              { "type": "input-image", "name": "avatar", "label": "工人照片", "maxLength": 1, "receiver": "/upload/adminToken" },
+              { "type": "input-image", "name": "avatar", "label": "工人照片", "maxLength": 1, "receiver": "/upload/adminToken", "limit": 1, "maxSize": 512000, "size": "sm", "compress": false, "accept": ".jpg,.jpeg,.png,.gif", "errorMsg": "单张图片大小不能超过500KB" },
               { "type": "textarea", "name": "desc", "label": "工人介绍", "maxLength": 800 },
-              { "type": "input-image", "name": "case", "label": "施工案例图片", "maxLength": 6, "receiver": "/upload/adminToken", "multiple": true,"addButtonText": "新增照片" },
+              { "type": "input-image", "name": "case", "label": "施工案例图片", "maxLength": 6, "receiver": "/upload/adminToken", "multiple": true, "addButtonText": "新增照片", "maxSize": 512000, "errorMsg": "单张图片大小不能超过500KB" },
               { "type": "input-text", "name": "weixin", "label": "微信号", "maxLength": 32 },
               { "type": "input-tag", "name": "tags", "label": "标签", "placeholder": "请输入标签，回车分隔" }
             ]
@@ -130,9 +130,9 @@
                 { "label": "万源", "value": "5" },
                 { "label": "大竹", "value": "6" }
 ]},
-                { "type": "input-image", "name": "avatar", "label": "工人照片", "maxLength": 1, "receiver": "/upload/adminToken" },
+                { "type": "input-image", "name": "avatar", "label": "工人照片", "maxLength": 1, "receiver": "/upload/adminToken", "limit": 1, "maxSize": 512000, "size": "sm", "compress": false, "accept": ".jpg,.jpeg,.png,.gif", "errorMsg": "单张图片大小不能超过500KB" },
                 { "type": "textarea", "name": "desc", "label": "工人介绍", "maxLength": 800 },
-                { "type": "input-image", "name": "case", "label": "施工案例图片", "maxLength": 6, "receiver": "/upload/adminToken", "multiple": true,"addButtonText": "新增照片" },
+                { "type": "input-image", "name": "case", "label": "施工案例图片", "maxLength": 6, "receiver": "/upload/adminToken", "multiple": true,"addButtonText": "新增照片", "maxSize": 512000, "errorMsg": "单张图片大小不能超过500KB" },
                 { "type": "input-text", "name": "weixin", "label": "微信号", "maxLength": 32 },
                 { "type": "input-tag", "name": "tags", "label": "标签", "placeholder": "请输入标签，回车分隔" }
               ]

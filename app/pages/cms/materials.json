@@ -54,8 +54,8 @@
                 { "label": "万源", "value": "5" },
                 { "label": "大竹", "value": "6" }
               ]},
-              { "type": "input-image", "name": "thumb", "label": "商家Logo", "maxLength": 1, "receiver": "/upload/adminToken" },
-              { "type": "input-image", "name": "photos", "label": "店内照片", "maxLength": 5, "receiver": "/upload/adminToken", "multiple": true },
+              { "type": "input-image", "name": "thumb", "label": "商家Logo", "maxLength": 1, "receiver": "/upload/adminToken", "maxSize": 512000, "errorMsg": "单张图片大小不能超过500KB" },
+              { "type": "input-image", "name": "photos", "label": "店内照片", "maxLength": 5, "receiver": "/upload/adminToken", "multiple": true, "maxSize": 512000, "errorMsg": "单张图片大小不能超过500KB" },
               { "type": "textarea", "name": "desc", "label": "商家介绍", "maxLength": 800 }
             ]
           }
@@ -111,7 +111,7 @@
                 { "label": "万源", "value": "5" },
                 { "label": "大竹", "value": "6" }
                 ]},
-                { "type": "input-image", "name": "thumb", "label": "商家Logo", "maxLength": 1, "receiver": "/upload/adminToken" },
+                { "type": "input-image", "name": "thumb", "label": "商家Logo", "maxLength": 1, "receiver": "/upload/adminToken", "maxSize": 512000, "errorMsg": "单张图片大小不能超过500KB" },
                 {
                   "type": "input-image",
                   "name": "photos",
@@ -119,7 +119,9 @@
                   "maxLength": 5,
                   "multiple": true,
                   "receiver": "/upload/adminToken",
-                  "addButtonText": "新增照片"
+                  "addButtonText": "新增照片",
+                  "maxSize": 512000,
+                  "errorMsg": "单张图片大小不能超过500KB"
                 },
                 { "type": "textarea", "name": "desc", "label": "商家介绍", "maxLength": 800 }
               ]
