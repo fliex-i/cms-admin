@@ -13,6 +13,10 @@ class UploadController extends Controller {
     const { ctx } = this;
     const file = ctx.request.files[0];
     try {
+      // 限制图片大小最大500kb
+      if (file && file.size > 500 * 1024) {
+        throw new Error('图片大小不能超过500KB');
+      }
       const upload = await ctx.service.sys.objectStorage.upload({}, file);
       if (upload && upload.url) {
         this.success({ url: upload.url, message: '上传成功' });
