@@ -43,14 +43,16 @@
               { "type": "input-text", "name": "name", "label": "商家名称", "required": true },
               { "type": "input-text", "name": "contact", "label": "联系人", "required": true },
               { "type": "input-text", "name": "phone", "label": "联系电话", "required": true },
+              { "type": "select", "name": "type", "label": "商家类型", "required": true, "source": "/admin/cms/materials/types", "searchable": true, "clearable": true },
               { "type": "input-text", "name": "address", "label": "地址" },
               { "type": "input-text", "name": "weixin", "label": "微信号" },
               { "type": "select", "name": "region", "label": "服务区域", "options": [
                 { "label": "达州市区", "value": "1" },
                 { "label": "开江", "value": "2" },
-                { "label": "玄幻", "value": "3" },
+                { "label": "宣汉", "value": "3" },
                 { "label": "渠县", "value": "4" },
-                { "label": "万源", "value": "5" }
+                { "label": "万源", "value": "5" },
+                { "label": "大竹", "value": "6" }
               ]},
               { "type": "input-image", "name": "thumb", "label": "商家Logo", "maxLength": 1, "receiver": "/upload/adminToken" },
               { "type": "input-image", "name": "photos", "label": "店内照片", "maxLength": 5, "receiver": "/upload/adminToken", "multiple": true },
@@ -74,10 +76,11 @@
         { "name": "weixin", "label": "微信号", "type": "text", "toggled": true },
         { "type": "select", "name": "region", "label": "服务区域", "toggled": true, "options": [
           { "label": "达州市区", "value": "1" },
-          { "label": "开江", "value": "2" },
-          { "label": "玄幻", "value": "3" },
-          { "label": "渠县", "value": "4" },
-          { "label": "万源", "value": "5" }
+                { "label": "开江", "value": "2" },
+                { "label": "宣汉", "value": "3" },
+                { "label": "渠县", "value": "4" },
+                { "label": "万源", "value": "5" },
+                { "label": "大竹", "value": "6" }
         ]},
         { "name": "desc", "label": "介绍", "type": "text", "toggled": true },
         { "name": "createdAt", "label": "创建时间", "type": "date", "toggled": true, "format": "YYYY-MM-DD HH:mm" },
@@ -102,10 +105,11 @@
                 { "type": "input-text", "name": "weixin", "label": "微信号" },
                 { "type": "select", "name": "region", "label": "服务区域", "options": [
                   { "label": "达州市区", "value": "1" },
-                  { "label": "开江", "value": "2" },
-                  { "label": "玄幻", "value": "3" },
-                  { "label": "渠县", "value": "4" },
-                  { "label": "万源", "value": "5" }
+                { "label": "开江", "value": "2" },
+                { "label": "宣汉", "value": "3" },
+                { "label": "渠县", "value": "4" },
+                { "label": "万源", "value": "5" },
+                { "label": "大竹", "value": "6" }
                 ]},
                 { "type": "input-image", "name": "thumb", "label": "商家Logo", "maxLength": 1, "receiver": "/upload/adminToken" },
                 {

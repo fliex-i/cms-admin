@@ -53,11 +53,12 @@
           "searchable": true,
           "clearable": true, "required":true},
           { "type": "select", "name": "region", "label": "服务区域", "toggled": true, "options": [
-  { "label": "达州市区", "value": "1" },
-  { "label": "开江", "value": "2" },
-  { "label": "玄幻", "value": "3" },
-  { "label": "渠县", "value": "4" },
-  { "label": "万源", "value": "5" }
+          { "label": "达州市区", "value": "1" },
+          { "label": "开江", "value": "2" },
+          { "label": "宣汉", "value": "3" },
+          { "label": "渠县", "value": "4" },
+          { "label": "万源", "value": "5" },
+          { "label": "大竹", "value": "6" }
 ]},
               { "type": "input-image", "name": "avatar", "label": "工人照片", "maxLength": 1, "receiver": "/upload/adminToken" },
               { "type": "textarea", "name": "desc", "label": "工人介绍", "maxLength": 800 },
@@ -89,10 +90,11 @@
         },
         { "type": "select", "name": "region", "label": "服务区域", "toggled": true, "options": [
   { "label": "达州市区", "value": "1" },
-  { "label": "开江", "value": "2" },
-  { "label": "玄幻", "value": "3" },
-  { "label": "渠县", "value": "4" },
-  { "label": "万源", "value": "5" }
+                { "label": "开江", "value": "2" },
+                { "label": "宣汉", "value": "3" },
+                { "label": "渠县", "value": "4" },
+                { "label": "万源", "value": "5" },
+                { "label": "大竹", "value": "6" }
 ]},
         { "name": "desc", "label": "介绍", "type": "text", "toggled": true },
         { "name": "createdAt", "label": "创建时间", "type": "date", "toggled": true, "format": "YYYY-MM-DD HH:mm" },
@@ -122,10 +124,11 @@
           "clearable": true, "required":true},
           { "type": "select", "name": "region", "label": "服务区域", "toggled": true, "options": [
   { "label": "达州市区", "value": "1" },
-  { "label": "开江", "value": "2" },
-  { "label": "玄幻", "value": "3" },
-  { "label": "渠县", "value": "4" },
-  { "label": "万源", "value": "5" }
+                { "label": "开江", "value": "2" },
+                { "label": "宣汉", "value": "3" },
+                { "label": "渠县", "value": "4" },
+                { "label": "万源", "value": "5" },
+                { "label": "大竹", "value": "6" }
 ]},
                 { "type": "input-image", "name": "avatar", "label": "工人照片", "maxLength": 1, "receiver": "/upload/adminToken" },
                 { "type": "textarea", "name": "desc", "label": "工人介绍", "maxLength": 800 },
