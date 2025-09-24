@@ -48,7 +48,7 @@ module.exports = app => {
   app.router.post('图片上传', '/api/upload', app.middleware.mc.authMcToken(), 'cms.upload.image');
   app.router.post('获取短信验证码', '/mc/sendSms', 'mc.index.sendSms');
   app.router.post('检验短信验证码', '/mc/verifySms', 'mc.index.verifySms');
-  app.router.get('工人管理', '-', 'cms.worker.list');
+  app.router.get('工人管理', '', 'cms.worker.list');
   app.router.get('工种类型', '/admin/cms/worker/types', app.middleware.sys.authAdminToken(), 'cms.worker.types');
   app.router.get('工人列表', '/admin/cms/worker/index', app.middleware.sys.authAdminToken(), 'cms.worker.list');
   app.router.post('添加工人', '/admin/cms/worker/create', app.middleware.sys.authAdminToken(), 'cms.worker.create');
