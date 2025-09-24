@@ -7,6 +7,7 @@
       uid:Int
       spaceName:String
       pictures:String
+      desc:String
       
       mc_house_paln_pics(order:[[String]],limit:Int,offset:Int): [McHousePalnPics]
 
@@ -121,6 +122,24 @@
   op_endsWith: String
   op_substring: String
       }
+      input WhereMcHousePlan_desc {
+        op_eq: String
+  op_ne: String
+  op_or: [String]
+  op_gt: String
+  op_gte: String
+  op_lt: String
+  op_lte: String
+  op_between: [String]
+  op_notBetween: [String]
+  op_in: [String]
+  op_notIn: [String]
+  op_like: String
+  op_notLike: String
+  op_startsWith: String
+  op_endsWith: String
+  op_substring: String
+      }
       
     input WhereFieldMcHousePlan{
     createdAt:WhereMcHousePlan_createdAt
@@ -129,6 +148,7 @@
       uid:WhereMcHousePlan_uid
       spaceName:WhereMcHousePlan_spaceName
       pictures:WhereMcHousePlan_pictures
+      desc:WhereMcHousePlan_desc
       
     }
 
@@ -139,6 +159,7 @@
       uid:WhereMcHousePlan_uid
       spaceName:WhereMcHousePlan_spaceName
       pictures:WhereMcHousePlan_pictures
+      desc:WhereMcHousePlan_desc
       
       op_and: [WhereFieldMcHousePlan]
       op_or: [WhereFieldMcHousePlan]
@@ -149,6 +170,7 @@
     input AddMcHousePlan {
     spaceName: String!
       pictures: String
+      desc: String
       
     }
     
@@ -157,6 +179,7 @@
     uid: Int
       spaceName: String
       pictures: String
+      desc: String
       
     }
     

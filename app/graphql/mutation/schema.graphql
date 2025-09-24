@@ -232,27 +232,6 @@ type Mutation {
   #施工前期准备 更新
   SysProjectReady_update(data:EditSysProjectReady!,where:WhereSysProjectReady!):ResEditSysProjectReady
 
-  #省份 添加
-  SysProvince_create(data:AddSysProvince):SysProvince
-  #省份 删除
-  SysProvince_destroy(where:WhereSysProvince!):ResDelSysProvince
-  #省份 更新
-  SysProvince_update(data:EditSysProvince!,where:WhereSysProvince!):ResEditSysProvince
-
-  #城市 添加
-  SysCity_create(data:AddSysCity):SysCity
-  #城市 删除
-  SysCity_destroy(where:WhereSysCity!):ResDelSysCity
-  #城市 更新
-  SysCity_update(data:EditSysCity!,where:WhereSysCity!):ResEditSysCity
-
-  #区县 添加
-  SysCounty_create(data:AddSysCounty):SysCounty
-  #区县 删除
-  SysCounty_destroy(where:WhereSysCounty!):ResDelSysCounty
-  #区县 更新
-  SysCounty_update(data:EditSysCounty!,where:WhereSysCounty!):ResEditSysCounty
-
   #会员房间规划图集 添加
   McHousePalnPics_create(data:AddMcHousePalnPics):McHousePalnPics
   #会员房间规划图集 删除

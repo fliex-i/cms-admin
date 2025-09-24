@@ -298,33 +298,6 @@ type Query {
   #施工前期准备 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
   SysProjectReady_findAndCountAll(where:WhereSysProjectReady,order:[[String]],limit:Int!,offset:Int!):CountSysProjectReady
 
-  #省份 findAll 方法. 它生成一个标准的 SELECT 查询,该查询将从表中检索所有条目(除非受到 where 子句的限制).
-  SysProvince_findAll(where:WhereSysProvince,order:[[String]],limit:Int,offset:Int):[SysProvince]
-  #省份 findByPk 方法使用提供的主键从表中仅获得一个条目.
-  SysProvince_findByPk(id:ID!):SysProvince
-  #省份 findOne 方法获得它找到的第一个条目(它可以满足提供的可选查询参数).
-  SysProvince_findOne(where:WhereSysProvince):SysProvince
-  #省份 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
-  SysProvince_findAndCountAll(where:WhereSysProvince,order:[[String]],limit:Int!,offset:Int!):CountSysProvince
-
-  #城市 findAll 方法. 它生成一个标准的 SELECT 查询,该查询将从表中检索所有条目(除非受到 where 子句的限制).
-  SysCity_findAll(where:WhereSysCity,order:[[String]],limit:Int,offset:Int):[SysCity]
-  #城市 findByPk 方法使用提供的主键从表中仅获得一个条目.
-  SysCity_findByPk(id:ID!):SysCity
-  #城市 findOne 方法获得它找到的第一个条目(它可以满足提供的可选查询参数).
-  SysCity_findOne(where:WhereSysCity):SysCity
-  #城市 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
-  SysCity_findAndCountAll(where:WhereSysCity,order:[[String]],limit:Int!,offset:Int!):CountSysCity
-
-  #区县 findAll 方法. 它生成一个标准的 SELECT 查询,该查询将从表中检索所有条目(除非受到 where 子句的限制).
-  SysCounty_findAll(where:WhereSysCounty,order:[[String]],limit:Int,offset:Int):[SysCounty]
-  #区县 findByPk 方法使用提供的主键从表中仅获得一个条目.
-  SysCounty_findByPk(id:ID!):SysCounty
-  #区县 findOne 方法获得它找到的第一个条目(它可以满足提供的可选查询参数).
-  SysCounty_findOne(where:WhereSysCounty):SysCounty
-  #区县 findAndCountAll 方法是结合了 findAll 和 count 的便捷方法. 在处理与分页有关的查询时非常有用,在分页中,你想检索带有 limit 和 offset 的数据,但又需要知道与查询匹配的记录总数.
-  SysCounty_findAndCountAll(where:WhereSysCounty,order:[[String]],limit:Int!,offset:Int!):CountSysCounty
-
   #会员房间规划图集 findAll 方法. 它生成一个标准的 SELECT 查询,该查询将从表中检索所有条目(除非受到 where 子句的限制).
   McHousePalnPics_findAll(where:WhereMcHousePalnPics,order:[[String]],limit:Int,offset:Int):[McHousePalnPics]
   #会员房间规划图集 findByPk 方法使用提供的主键从表中仅获得一个条目.

@@ -9,6 +9,7 @@ module.exports = app => {
     uid: { type: DataTypes.INTEGER, comment: '用户id' },
     spaceName: { type: DataTypes.STRING, comment: '房间空间' },
     pictures: { type: DataTypes.STRING, comment: '空间图片' },
+    desc: { type: DataTypes.STRING(255), comment: '描述' },
   },{
   indexes:[{"unique":false,"fields":["id"]}],
   paranoid: false,
