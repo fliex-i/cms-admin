@@ -46,9 +46,10 @@ module.exports = app => {
   app.router.get('工人列表', '/api/cms/worker/index', 'cms.worker.list');
   app.router.get('工种列表', '/api/cms/worker/types', 'cms.worker.types');
   app.router.post('图片上传', '/api/upload', app.middleware.mc.authMcToken(), 'cms.upload.image');
+
   app.router.post('获取短信验证码', '/mc/sendSms', 'mc.index.sendSms');
   app.router.post('检验短信验证码', '/mc/verifySms', 'mc.index.verifySms');
-  app.router.get('工人管理', '', 'cms.worker.list');
+  app.router.get('工人管理', '-', 'cms.worker.list');
   app.router.get('工种类型', '/admin/cms/worker/types', app.middleware.sys.authAdminToken(), 'cms.worker.types');
   app.router.get('工人列表', '/admin/cms/worker/index', app.middleware.sys.authAdminToken(), 'cms.worker.list');
   app.router.post('添加工人', '/admin/cms/worker/create', app.middleware.sys.authAdminToken(), 'cms.worker.create');
@@ -100,7 +101,7 @@ module.exports = app => {
   app.router.post('更新图集', '/api/cms/albums/update', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.albums.update');
   app.router.post('删除图集', '/api/cms/albums/destroy', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.albums.destroy');
   app.router.post('批量删除', '/api/cms/albums/bulkDel', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.albums.bulkDel');
-  app.router.get('商家类型列表', '/api/cms/material_types', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.materialsTypes.list');
+  app.router.get('商家类型列表', '/api/cms/material_types', app.middleware.sys.rbac(), 'cms.materialsTypes.list');
   app.router.post('新建类型', '/api/cms/material_types/create', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.materialsTypes.create');
   app.router.post('更新类型', '/api/cms/material_types/update', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.materialsTypes.update');
   app.router.post('删除类型', '/api/cms/material_types/destroy', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.materialsTypes.destroy');
