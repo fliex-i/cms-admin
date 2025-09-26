@@ -25,7 +25,7 @@
             "api": "/api/cms/albums/create",
             "body": [
               { "type": "input-text", "name": "name", "label": "图集名称", "required": true },
-              { "type": "input-image", "name": "photos", "label": "图集图片", "maxLength": 12, "receiver": "/upload/adminToken", "multiple": true, "description": "可上传多张图片", "maxSize": 512000, "errorMsg": "单张图片大小不能超过500KB" },
+              { "type": "input-image", "name": "photos", "label": "图集图片", "maxLength": 60, "receiver": "/upload/adminToken", "multiple": true, "description": "可上传多张图片", "maxSize": 512000, "errorMsg": "单张图片大小不能超过500KB" },
               { "type": "textarea", "name": "desc", "label": "图集描述" }
             ]
           }
@@ -51,7 +51,7 @@
               "body": [
                 { "type": "hidden", "name": "id" },
                 { "type": "input-text", "name": "name", "label": "图集名称", "required": true },
-                { "type": "input-image", "name": "photos", "label": "图集图片", "maxLength": 12, "receiver": "/upload/adminToken", "multiple": true, "description": "可上传多张图片", "maxSize": 512000, "errorMsg": "单张图片大小不能超过500KB" },
+                { "type": "input-image", "name": "photos", "label": "图集图片", "maxLength": 60, "receiver": "/upload/adminToken", "multiple": true, "description": "可上传多张图片", "maxSize": 512000, "errorMsg": "单张图片大小不能超过500KB" },
                 { "type": "textarea", "name": "desc", "label": "图集描述" }
               ]
             }
