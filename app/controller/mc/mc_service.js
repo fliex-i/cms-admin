@@ -1,0 +1,54 @@
+'use strict';
+const Controller = require('../../core/base_controller');
+
+class McServiceController extends Controller {
+  // 查询列表
+  async list() {
+    const { ctx } = this;
+    const { page = 1, pageSize = 10 } = ctx.query;
+    const where = {};
+    if (ctx.query.uid) where.uid = ctx.query.uid;
+    const result = await ctx.model.mc_service.findAndCountAll({
+      where,
+      order: [[ 'id', 'DESC' ]],
+      offset: (page - 1) * pageSize,
+      limit: Number(pageSize),
+    });
+    this.success({
+      list: result.rows,
+      total: result.count,
+      page: Number(page),
+      pageSize: Number(pageSize),
+    });
+  }
+
+  // 新增
+  async create() {
+    const { ctx } = this;
+    const body = ctx.request.body;
+    const item = await ctx.model.mc_service.create(body);
+    this.success(item);
+  }
+
+  // 更新
+  async update() {
+    const { ctx } = this;
+    const { id, ...rest } = ctx.request.body;
+    const item = await ctx.model.mc_service.findByPk(id);
+    if (!item) return this.fail('记录不存在');
+    await item.update(rest);
+    this.success(item);
+  }
+
+  // 删除
+  async destroy() {
+    const { ctx } = this;
+    const { id } = ctx.request.body;
+    const item = await ctx.model.mc_service.findByPk(id);
+    if (!item) return this.fail('记录不存在');
+    await item.destroy();
+    this.success('删除成功');
+  }
+}
+
+module.exports = McServiceController;

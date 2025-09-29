@@ -1225,4 +1225,27 @@ module.exports = {
     
   },
 
+  // 咨询消息
+  mc_service_item: {
+    createdAt: { type: 'string', description: '创建时间' },
+    id: { type: 'string', description: '主键' },
+    message: { type: 'string', description: '咨询消息' },
+    response: { type: 'string', description: '管理员恢复消息' },
+    uid: { type: 'string', description: '用户id' },
+    updatedAt: { type: 'string', description: '更新时间' },
+    
+  },
+  mc_service_add: {
+    message: { type: 'string', description: '咨询消息', required: true },
+    response: { type: 'string', description: '管理员恢复消息', required: false },
+    uid: { type: 'string', description: '用户id', required: true },
+    
+  },
+  mc_service_edit: {
+    message: { type: 'string', description: '咨询消息' },
+    response: { type: 'string', description: '管理员恢复消息' },
+    uid: { type: 'string', description: '用户id' },
+    
+  },
+
 };

@@ -260,4 +260,11 @@ type Mutation {
   #图集 更新
   CmsAlbums_update(data:EditCmsAlbums!,where:WhereCmsAlbums!):ResEditCmsAlbums
 
+  #咨询消息 添加
+  McService_create(data:AddMcService):McService
+  #咨询消息 删除
+  McService_destroy(where:WhereMcService!):ResDelMcService
+  #咨询消息 更新
+  McService_update(data:EditMcService!,where:WhereMcService!):ResEditMcService
+
 }
