@@ -48,7 +48,7 @@ CREATE TABLE `sys_routes` (
   UNIQUE KEY `sys_routes_uuid` (`uuid`),
   KEY `sys_routes_puuid` (`puuid`),
   KEY `sys_routes_app` (`app`)
-) ENGINE=InnoDB AUTO_INCREMENT=239 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=239 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
