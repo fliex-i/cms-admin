@@ -8,7 +8,8 @@ class McServiceController extends Controller {
     const { page = 1, pageSize = 10 } = ctx.query;
     const where = {};
     if (ctx.query.uid) where.uid = ctx.query.uid;
-    const result = await ctx.model.mc_service.findAndCountAll({
+    // 修正模型调用，需大写：McService
+    const result = await ctx.model.McService.findAndCountAll({
       where,
       order: [[ 'id', 'DESC' ]],
       offset: (page - 1) * pageSize,
@@ -26,7 +27,7 @@ class McServiceController extends Controller {
   async create() {
     const { ctx } = this;
     const body = ctx.request.body;
-    const item = await ctx.model.mc_service.create(body);
+    const item = await ctx.model.McService.create(body);
     this.success(item);
   }
 
@@ -34,7 +35,7 @@ class McServiceController extends Controller {
   async update() {
     const { ctx } = this;
     const { id, ...rest } = ctx.request.body;
-    const item = await ctx.model.mc_service.findByPk(id);
+    const item = await ctx.model.McService.findByPk(id);
     if (!item) return this.fail('记录不存在');
     await item.update(rest);
     this.success(item);
@@ -44,7 +45,7 @@ class McServiceController extends Controller {
   async destroy() {
     const { ctx } = this;
     const { id } = ctx.request.body;
-    const item = await ctx.model.mc_service.findByPk(id);
+    const item = await ctx.model.McService.findByPk(id);
     if (!item) return this.fail('记录不存在');
     await item.destroy();
     this.success('删除成功');

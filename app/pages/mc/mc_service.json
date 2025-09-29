@@ -1,0 +1,63 @@
+{
+  "type": "page",
+  "title": "咨询回复管理",
+  "body": [
+    {
+      "type": "crud",
+      "name": "mcServiceList",
+      "api": "/api/mc/service/list",
+      "filter": {
+        "title": "筛选",
+        "body": [
+          { "type": "input-text", "name": "uid", "label": "用户ID", "clearable": true },
+          { "type": "input-text", "name": "message", "label": "咨询内容", "clearable": true }
+        ],
+        "actions": [
+          { "type": "reset", "label": "重置" },
+          { "type": "submit", "level": "primary", "label": "查询" }
+        ]
+      },
+      "headerToolbar": ["bulkActions", { "type": "reload" }],
+      "footerToolbar": ["switch-per-page", "statistics", "pagination"],
+      "paginationMode": "simple",
+      "columns": [
+        { "name": "id", "label": "ID", "type": "text", "sortable": true },
+        { "name": "uid", "label": "用户ID", "type": "text" },
+        { "name": "message", "label": "咨询内容", "type": "textarea" },
+        { "name": "response", "label": "管理员回复", "type": "textarea" },
+        { "name": "createdAt", "label": "创建时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
+        { "name": "updatedAt", "label": "更新时间", "type": "date", "format": "YYYY-MM-DD HH:mm" },
+        {
+          "type": "operation",
+          "label": "操作",
+          "buttons": [
+            {
+              "type": "button",
+              "icon": "fa fa-reply",
+              "actionType": "drawer",
+              "drawer": {
+                "title": "回复咨询",
+                "body": {
+                  "type": "form",
+                  "api": "/api/mc/service/update",
+                  "body": [
+                    { "type": "hidden", "name": "id" },
+                    { "type": "static", "name": "message", "label": "咨询内容" },
+                    { "type": "textarea", "name": "response", "label": "管理员回复", "required": true }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "button",
+              "icon": "fa fa-times text-danger",
+              "actionType": "ajax",
+              "confirmText": "您确认要删除?",
+              "api": "/api/mc/service/destroy?id=$id"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
