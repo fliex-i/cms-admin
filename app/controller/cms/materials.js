@@ -39,7 +39,6 @@ class MaterialsController extends Controller {
     const { ctx } = this;
     const data = await ctx.model.CmsMaterials.create({
       ...ctx.request.body,
-      type: ctx.request.body.typeId,
     });
     this.success(data);
   }
@@ -49,7 +48,6 @@ class MaterialsController extends Controller {
     const data = ctx.request.body;
     const update = await ctx.model.CmsMaterials.update({
       ...data,
-      type: data.typeId,
     }, { where: { id: data.id } });
     this.success(update);
   }

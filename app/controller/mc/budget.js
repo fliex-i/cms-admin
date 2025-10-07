@@ -22,6 +22,7 @@ class BudgetController extends Controller {
     if (data.name) {
       map.where.name = { [Op.like]: `%${data.name}%` };
     }
+    if (data.uid) map.where.uid = data.uid;
     map.offset = (Number(page) - 1) * limit;
     map.limit = Number(limit);
 
