@@ -26,7 +26,13 @@
         { "name": "message", "label": "咨询内容", "type": "text" },
         { "name": "response", "label": "管理员回复", "type": "text" },
         { "name": "createdAt", "label": "创建时间", "type": "datetime" },
-        { "name": "updatedAt", "label": "回复时间", "type": "text", "tpl": "${response ? (updatedAt ? date(parseTime(updatedAt), 'YYYY-MM-DD HH:mm') : '--') : '--'}" },
+        {
+          "name": "updatedAt",
+          "label": "回复时间",
+          "type": "datetime",
+          "tpl": "${response ? updatedAt : '--'}",
+          "format": "YYYY-MM-DD HH:mm"
+        },
         {
           "type": "operation",
           "label": "操作",
