@@ -29,9 +29,9 @@
         {
           "name": "updatedAt",
           "label": "回复时间",
-          "type": "text",
+          "type": "datetime",
           "format":"YYYY-MM-DD HH:mm",
-          "tpl": "${response ? date(updatedAt * 1000) : '--'}"
+          "tpl": "${response ? date(updatedAt) : '--'}"
         },
         {
           "type": "operation",
