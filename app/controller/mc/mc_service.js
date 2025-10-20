@@ -21,7 +21,7 @@ class McServiceController extends Controller {
     if (uids.length) {
       const members = await ctx.model.McMember.findAll({
         where: { id: uids },
-        attributes: [ 'id', 'username', 'name' ],
+        attributes: [ 'id', 'username', 'mobile', 'avatar', 'state' ],
         raw: true,
       });
       memberMap = members.reduce((acc, cur) => {
