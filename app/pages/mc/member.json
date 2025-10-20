@@ -26,7 +26,7 @@
           "label": "邮箱",
           "type": "text",
           "name": "email",
-          "searchable": true,
+          "searchable": false,
           "id": "u:9d122356c942"
         },
         {
@@ -92,7 +92,7 @@
                       "label": "新密码",
                       "description": "如果不修改密码请不要填写"
                     },
-                    { "type": "input-text", "name": "email", "label": "邮箱","required": true },
+                    { "type": "input-text", "name": "email", "label": "邮箱"},
                     { "type": "input-text", "name": "mobile", "label": "电话","required": true },
                     {
                       "name": "state",

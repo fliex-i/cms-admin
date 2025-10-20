@@ -15,8 +15,30 @@ class McServiceController extends Controller {
       offset: (page - 1) * pageSize,
       limit: Number(pageSize),
     });
+    // 查询所有相关uid的member信息
+    const uids = Array.from(new Set(result.rows.map(item => item.uid).filter(Boolean)));
+    let memberMap = {};
+    if (uids.length) {
+      const members = await ctx.model.McMember.findAll({
+        where: { id: uids },
+        attributes: [ 'id', 'username', 'name' ],
+        raw: true,
+      });
+      memberMap = members.reduce((acc, cur) => {
+        acc[cur.id] = cur;
+        return acc;
+      }, {});
+    }
+    // 给每条数据加上name字段
+    const list = result.rows.map(item => {
+      const member = memberMap[item.uid];
+      return {
+        ...item.toJSON(),
+        member,
+      };
+    });
     this.success({
-      list: result.rows,
+      list,
       total: result.count,
       page: Number(page),
       pageSize: Number(pageSize),
