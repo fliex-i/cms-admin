@@ -81,10 +81,10 @@ class MemberController extends Controller {
     if (data.newpassword) {
       data.password = ctx.helper.cipher(data.newpassword);
     }
-    const exist = await ctx.model.McMember.findOne({ where: { [Op.or]: [{ username: data.username }, { mobile: data.mobile }, { email: data.email }], uuid: { [Op.ne]: data.uuid } } });
-    if (exist) {
-      return this.fail('已存在相同的用户名或电话或邮箱，请重试！');
-    }
+    // const exist = await ctx.model.McMember.findOne({ where: { [Op.or]: [{ username: data.username }, { mobile: data.mobile }, { email: data.email }], uuid: { [Op.ne]: data.uuid } } });
+    // if (exist) {
+    //   return this.fail('已存在相同的用户名或电话或邮箱，请重试！');
+    // }
     const edit = await ctx.model.McMember.update(data, { where: { uuid: { [Op.eq]: data.uuid } } });
     this.success(edit);
   }
