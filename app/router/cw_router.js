@@ -106,11 +106,12 @@ module.exports = app => {
   app.router.post('删除类型', '/api/cms/material_types/destroy', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.materialsTypes.destroy');
   app.router.post('批量删除', '/api/cms/material_types/bulkDel', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.materialsTypes.bulkDel');
   app.router.get('咨询管理', '-', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'mc.mcService.list');
-  app.router.get('咨询列表', '/api/mc/service/list', 'mc.mcService.list');
+  app.router.get('咨询列表', '/api/mc/service/list', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'mc.mcService.list');
   app.router.post('新增咨询', '/api/mc/service/create', 'mc.mcService.create');
   app.router.post('回复咨询', '/api/mc/service/replay', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'mc.mcService.update');
   app.router.get('咨询列表', '/admin/mc/mc_service/list', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'mc.mcService.list');
   app.router.post('删除咨询', '/api/mc/service/destroy', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'mc.mcService.destroy');
+  app.router.get('管理咨询内容', '/admin/mc/mc_service/sysList', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'mc.mcService.sysList');
   app.router.get('graphQL权限节点', '/admin/sys/role/graphQL', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.role.graphQL');
   app.router.post('添加分组', '/admin/sys/user/groupAdd', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'sys.user.groupAdd');
   app.router.get('获取上级分类', '/admin/cms/classify/topClassify', app.middleware.sys.authAdminToken(), app.middleware.sys.rbac(), 'cms.classify.topClassify');

@@ -5,7 +5,7 @@
     {
       "type": "crud",
       "name": "mcServiceList",
-      "api": "/admin/mc/mc_service/list",
+      "api": "/admin/mc/mc_service/sysList",
       "filter": {
         "title": "筛选",
         "body": [
@@ -23,11 +23,12 @@
       "columns": [
         { "name": "id", "label": "ID", "type": "text", "sortable": true },
         { "name": "member.username", "label": "用户名", "type": "text" },
-        { "name": "message", "label": "咨询内容", "type": "text" },
-        { "name": "response", "label": "管理员回复", "type": "text" },
-        { "name": "createdAt", "label": "创建时间", "type": "datetime" },
+        { "name": "member.mobile", "label": "手机号", "type": "text" },
+        { "name": "last.message", "label": "咨询内容", "type": "text" },
+        { "name": "last.response", "label": "管理员回复", "type": "text" },
+        { "name": "last.createdAt", "label": "创建时间", "type": "datetime" },
         {
-          "name": "updatedAt",
+          "name": "last.updatedAt",
           "label": "回复时间",
           "type": "datetime"
         },
@@ -42,22 +43,41 @@
               "drawer": {
                 "title": "回复咨询",
                 "body": {
-                  "type": "form",
-                  "api": {
-                    "method": "post",
-                    "url": "/api/mc/service/replay",
-                    "data": {
-                      "id": "${id}",
-                      "response": "${response}"
+                  "type": "crud",
+                  "api": "/admin/mc/mc_service/list?uid=${member.id}",
+                  "columns": [
+                    { "name": "id", "label": "ID", "type": "text" },
+                    { "name": "message", "label": "咨询内容", "type": "text" },
+                    { "name": "response", "label": "管理员回复", "type": "text" },
+                    { "name": "createdAt", "label": "创建时间", "type": "datetime" },
+                    {
+                      "type": "operation",
+                      "label": "操作",
+                      "buttons": [
+                        {
+                          "type": "button",
+                          "label": "回复",
+                          "actionType": "drawer",
+                          "drawer": {
+                            "title": "回复具体咨询",
+                            "size": "sm",
+                            "body": {
+                              "type": "form",
+                              "api": {
+                                "method": "post",
+                                "url": "/api/mc/service/replay",
+                                "data": { "id": "${id}", "response": "${response}" }
+                              },
+                              "controls": [
+                                { "type": "static", "name": "message", "label": "咨询内容" },
+                                { "type": "textarea", "name": "response", "label": "管理员回复", "required": true },
+                                { "type": "submit", "label": "保存", "level": "primary" }
+                              ]
+                            }
+                          }
+                        }
+                      ]
                     }
-                  },
-                  "mode": "inline",
-                  "controls": [
-                    { "type": "static", "name": "message", "label": "咨询内容" },
-                    { "type": "static", "name": "member.id", "label": "用户ID" },
-                    { "type": "static", "name": "member.username", "label": "用户名称" },
-                    { "type": "textarea", "name": "response", "label": "管理员回复", "required": true },
-                    { "type": "submit", "label": "保存", "level": "primary" }
                   ]
                 }
               }
