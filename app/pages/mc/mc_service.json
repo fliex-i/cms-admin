@@ -21,7 +21,6 @@
       "footerToolbar": ["switch-per-page", "statistics", "pagination"],
       "paginationMode": "simple",
       "columns": [
-        { "name": "id", "label": "ID", "type": "text", "sortable": true },
         { "name": "member.username", "label": "用户名", "type": "text" },
         { "name": "member.mobile", "label": "手机号", "type": "text" },
         { "name": "last.message", "label": "咨询内容", "type": "text" },
@@ -47,6 +46,7 @@
                   "api": "/admin/mc/mc_service/list?uid=${member.id}",
                   "columns": [
                     { "name": "id", "label": "ID", "type": "text" },
+                    { "name": "member.username", "label": "用户名", "type": "text" },
                     { "name": "message", "label": "咨询内容", "type": "text" },
                     { "name": "response", "label": "管理员回复", "type": "text" },
                     { "name": "createdAt", "label": "创建时间", "type": "datetime" },
