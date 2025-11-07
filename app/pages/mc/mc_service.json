@@ -5,6 +5,7 @@
     {
       "type": "crud",
       "name": "mcServiceList",
+      "interval": 30000,
       "api": "/admin/mc/mc_service/sysList",
       "filter": {
         "title": "筛选",
