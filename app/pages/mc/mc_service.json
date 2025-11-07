@@ -68,6 +68,10 @@
                                 "url": "/api/mc/service/replay",
                                 "data": { "id": "${id}", "response": "${response}" }
                               },
+                              "feedback": {
+                                "success": "回复成功",
+                                "reload": "mcServiceList"
+                              },
                               "controls": [
                                 { "type": "static", "name": "message", "label": "咨询内容" },
                                 { "type": "textarea", "name": "response", "label": "管理员回复", "required": true },
